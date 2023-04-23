@@ -1,0 +1,10 @@
+Sitemap: https://www.hiptoro.com/sitemap_index.xml
+Sitemap: https://www.hiptoro.com/news-sitemap.xml
+
+User-agent: *
+Disallow: /api/
+
+User-agent: Googlebot-News
+Disallow: /p/tag/*
+Disallow: /p/category/*
+Disallow: /p/page/*

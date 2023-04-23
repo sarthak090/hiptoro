@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.post-content  h3{
+ 
+    @apply text-[22px] 
+}
