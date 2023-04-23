@@ -7,6 +7,8 @@ import { DefaultSeo } from "next-seo";
 import { Roboto, Montserrat, Raleway, Noto_Sans } from "next/font/google";
 // import dynamic from "next/dynamic";
 // import NextNProgress from "nextjs-progressbar";
+import { Analytics } from "@vercel/analytics/react";
+
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import Head from "next/head";
@@ -89,6 +91,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <div className="container mx-auto px-2 lg:px-8 xl:px-0 lg:py-8 max-w-site-full">
         <Component {...pageProps} />
+        <Analytics />
       </div>
 
       <Footer />
