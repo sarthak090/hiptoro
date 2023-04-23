@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
   if (postsData.length > 0) {
     return {
       props: {
-        postsData: postsData,
+        postsData: postsData.filter((p) => p.featuredImg.id.length > 0),
         error: false,
       },
     };
