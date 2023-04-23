@@ -61,6 +61,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     };
   });
+  console.log(`${process.env.NEXT_CUSTOM_WP_API_URL}/authors`);
   return {
     paths,
     fallback: false,
@@ -81,7 +82,6 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
   const res = await fetch(url);
 
   const postsData = await res.json();
-  console.log({ url, postsData });
   if (postsData.length > 0) {
     return {
       props: {
