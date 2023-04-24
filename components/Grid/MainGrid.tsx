@@ -17,6 +17,7 @@ export default function MainGrid(props: any) {
               loading="eager"
               placeholder="blur"
               blurDataURL={post.base64}
+              quality={40}
               sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
