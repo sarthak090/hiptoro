@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 import MainGrid from "@/components/Grid/MainGrid";
 import Pagination from "@/components/Pagination";
 // import PostGrid from "@/components/Grid/PostGrid";
-// import CategoriesGrid from "@/components/Grid/CategoriesGrid";
+import CategoriesGrid from "@/components/Grid/CategoriesGrid";
 import { getPlaiceholder } from "plaiceholder";
 import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
@@ -40,30 +40,29 @@ export const getStaticProps: GetStaticProps = async () => {
   await Promise.all(formattedLatestPosts).then((r) => {
     latest_posts.push(...r);
   });
+  const postsByCategory = Object.keys(homePage)
+    .filter((t) => t !== "latest_posts")
+    .map((t) => ({ header: t, ...homePage[t] }));
 
   return {
     props: {
-      homePage: {
-        ...homePage,
-        latest_posts,
-      },
+      postsByCategory,
+      latest_posts,
     },
   };
 };
 
 export default function Home(props: any) {
-  const { homePage } = props;
+  const { postsByCategory, latest_posts } = props;
 
   return (
     <>
-      <MainGrid post={homePage.latest_posts[0]} />
+      <MainGrid post={latest_posts[0]} />
       <NextSeo titleTemplate="%s - Buzzworthy Entertainment, Anime, Sports, and Pop Culture" />
-      {/* <CategoriesGrid isHeader posts={homePage} /> */}
+      <CategoriesGrid isHeader posts={postsByCategory} />
       <section className="grid md:grid-cols-12">
         <div className="md:col-span-12">
-          <PostGrid
-            posts={homePage.latest_posts.slice(1, homePage.latest_posts.length)}
-          />
+          <PostGrid posts={latest_posts.slice(1, latest_posts.length)} />
         </div>
       </section>
 

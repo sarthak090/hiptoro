@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } frm "react";
 import Link from "next/link";
 import { CldImage } from "next-cloudinary";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 export default function CategoriesGrid(props: any) {
-  const [data, setData] = useState<any>([]);
-  const router = useRouter();
-  useEffect(() => {
-    const posts = Object.keys(props.posts)
-      .filter((t) => t !== "latest_posts")
-      .map((t) => ({ header: t, ...props.posts[t] }));
+  // const [data, setData] = useState<any>([]);
+  // const router = useRouter();
+  // useEffect(() => {
+  //   const posts = Object.keys(props.posts)
+  //     .filter((t) => t !== "latest_posts")
+  //     .map((t) => ({ header: t, ...props.posts[t] }));
 
-    setData(posts);
-  }, [props, router.asPath]);
+  //   setData(posts);
+  // }, [props, router.asPath]);
+
   function oddOrEven(num: number) {
     if (num % 2 == 0) return "even";
     return "odd";
@@ -21,7 +22,7 @@ export default function CategoriesGrid(props: any) {
   };
   return (
     <section className="grid    grid-cols-2 md:grid-cols-3 gap-4">
-      {data
+      {props.posts
         .filter((t) => t.featuredImg.id.length > 0)
         .map((post: any, index: number) => (
           <div
