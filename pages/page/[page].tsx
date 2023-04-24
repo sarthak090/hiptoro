@@ -1,5 +1,5 @@
-import React from "react";
 import { GetStaticProps, GetStaticPropsContext } from "next";
+import genPagination from "../../utils/genPagination";
 import Pagination from "@/components/Pagination";
 import PostGrid from "@/components/Grid/PostGrid";
 import { getPlaiceholder } from "plaiceholder";
@@ -13,7 +13,10 @@ export default function Page(props: any) {
         </div>
       </section>
 
-      <Pagination currentPage={parseInt(props.currentPageNo)} />
+      <Pagination
+        pagination={props.pagination}
+        currentPage={parseInt(props.currentPageNo)}
+      />
     </>
   );
 }
@@ -50,6 +53,7 @@ export const getStaticProps: GetStaticProps = async ({
       props: {
         pageData: latest_posts,
         currentPageNo: page,
+        pagination: genPagination(page),
       },
     };
   } catch (err) {

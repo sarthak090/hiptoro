@@ -51,7 +51,28 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
-
+const p = [
+  {
+    label: "1",
+    href: "/",
+  },
+  {
+    label: "2",
+    href: "/page/2",
+  },
+  {
+    label: "3",
+    href: "/page/3",
+  },
+  {
+    label: "4",
+    href: "/page/4",
+  },
+  {
+    label: "Next",
+    href: `/page/2`,
+  },
+];
 export default function Home(props: any) {
   const { postsByCategory, latest_posts } = props;
 
@@ -66,7 +87,7 @@ export default function Home(props: any) {
         </div>
       </section>
 
-      <Pagination currentPage={1} />
+      <Pagination currentPage={1} pagination={p} />
     </>
   );
 }

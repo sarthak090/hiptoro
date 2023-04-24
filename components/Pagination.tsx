@@ -1,24 +1,30 @@
 import Link from "next/link";
 
-export default function Pagination({ currentPage }: { currentPage: number }) {
-  const p = [
-    {
-      label: "1",
-      href: "/",
-    },
-    {
-      label: "2",
-      href: "/page/2",
-    },
-    {
-      label: "3",
-      href: "/page/3",
-    },
-    {
-      label: "4",
-      href: "/page/4",
-    },
-  ];
+export default function Pagination({
+  currentPage,
+  pagination,
+}: {
+  currentPage: number;
+  pagination: { label: string; href: string }[];
+}) {
+  // const p = [
+  //   {
+  //     label: "1",
+  //     href: "/",
+  //   },
+  //   {
+  //     label: "2",
+  //     href: "/page/2",
+  //   },
+  //   {
+  //     label: "3",
+  //     href: "/page/3",
+  //   },
+  //   {
+  //     label: "4",
+  //     href: "/page/4",
+  //   },
+  // ];
   // const generatePagination = () => {
   //   return [
   //     {
@@ -63,7 +69,7 @@ export default function Pagination({ currentPage }: { currentPage: number }) {
 
   return (
     <div className="flex flex-wrap justify-center ">
-      {p
+      {pagination
         .filter((p) => p.label.length > 0)
         .map((p) => (
           <Link rel="noindex" key={Math.random()} href={p.href}>
