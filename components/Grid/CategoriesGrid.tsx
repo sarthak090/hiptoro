@@ -45,6 +45,7 @@ export default function CategoriesGrid(props: any) {
                       src={post.featuredImg.id}
                       width={500}
                       height={500}
+                      quality={40}
                       loading="eager"
                       placeholder="blur"
                       blurDataURL={post.base64}

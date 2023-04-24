@@ -21,6 +21,7 @@ export default function PostGrid(props: any) {
                   src={post.featuredImg.id}
                   width={500}
                   height={500}
+                  quality={40}
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={post.base64}
