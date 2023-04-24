@@ -48,7 +48,6 @@ export const getStaticProps: GetStaticProps = async () => {
         latest_posts,
       },
     },
-    revalidate: 10,
   };
 };
 

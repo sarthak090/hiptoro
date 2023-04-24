@@ -2,6 +2,7 @@ import PostGrid from "@/components/Grid/PostGrid";
 import AuthorBox from "@/components/Post/AuthorBox";
 
 import { GetStaticProps, GetStaticPaths } from "next";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 
 export const PostsByAuthor = (props: any) => {
@@ -9,6 +10,15 @@ export const PostsByAuthor = (props: any) => {
   if (postsData !== null) {
     return (
       <>
+        <NextSeo
+          title={postsData[0].author.name + " "}
+          description={postsData[0].author.description}
+          openGraph={{
+            type: "profile",
+            title: postsData[0].author.name,
+            description: postsData[0].author.description,
+          }}
+        />
         <div>
           <div
             className="my-4
