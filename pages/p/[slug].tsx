@@ -93,6 +93,7 @@ export const getStaticProps: GetStaticProps = async ({
       },
     };
   } catch (err) {
+    console.log(err);
     return {
       props: {
         post: null,

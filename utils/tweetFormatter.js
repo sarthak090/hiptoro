@@ -10,11 +10,19 @@ export default async function tweetFormatter(post, tweetHtml) {
       .parent()
       .parent()
       .replaceWith(
-        `<div class="twitter-embed">${tweetHtml[t] ? tweetHtml[t] : ""}</div>`
+        `<div class="twitter-embed">${
+          tweetHtml[t] ? reformatHtml(tweetHtml[t]) : ""
+        }</div>`
       );
   });
   if (tweetHtml) {
     formattedPost.content.rendered = $.html();
   }
   return formattedPost;
+}
+function reformatHtml(tweet) {
+  const $ = cheerio.load(tweet, null, false);
+  $("img").attr("alt", "profile img");
+
+  return $.html();
 }
