@@ -13,11 +13,11 @@ import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import Head from "next/head";
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  variable: "--font-open-roboto",
-  weight: ["100", "300", "400", "900", "700"],
-});
+// const roboto = Roboto({
+//   subsets: ["latin"],
+//   variable: "--font-open-roboto",
+//   weight: ["100", "300", "400", "900", "700"],
+// });
 const noto_sans = Noto_Sans({
   subsets: ["latin"],
   variable: "--font-open-noto_sans",
@@ -28,11 +28,11 @@ const montserrat = Montserrat({
   variable: "--font-open-montserrat",
   weight: ["100", "300", "400", "900", "700"],
 });
-const raleway = Raleway({
-  subsets: ["latin"],
-  variable: "--font-open-raleway",
-  weight: ["100", "300", "400", "900", "700"],
-});
+// const raleway = Raleway({
+//   subsets: ["latin"],
+//   variable: "--font-open-raleway",
+//   weight: ["100", "300", "400", "900", "700"],
+// });
 
 // const Footer = dynamic(() => import("../components/Layout/Footer"));
 
@@ -52,9 +52,12 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <style jsx global>{`
         :root {
+          /*
           --roboto-font: ${roboto.style.fontFamily};
-          --montserrat-font: ${montserrat.style.fontFamily};
           --raleway-font: ${raleway.style.fontFamily};
+          */
+          --montserrat-font: ${montserrat.style.fontFamily};
+
           --noto_sans-font: ${noto_sans.style.fontFamily};
         }
       `}</style>

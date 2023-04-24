@@ -17,6 +17,7 @@ export const PostsByAuthor = (props: any) => {
             type: "profile",
             title: postsData[0].author.name,
             description: postsData[0].author.description,
+            url:process.env.NEXT_PUBLIC_DOMAIN+`/author/${postsData[0].author.name.toLowerCase()+"-"+postsData[0].author.id}`
           }}
         />
         <div>
