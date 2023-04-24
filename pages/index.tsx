@@ -59,13 +59,13 @@ export default function Home(props: any) {
       <MainGrid post={homePage.latest_posts[0]} />
       <NextSeo titleTemplate="%s - Buzzworthy Entertainment, Anime, Sports, and Pop Culture" />
       <CategoriesGrid isHeader posts={homePage} />
-      <section className="grid md:grid-cols-12">
+      {/* <section className="grid md:grid-cols-12">
         <div className="md:col-span-12">
           <PostGrid
             posts={homePage.latest_posts.slice(1, homePage.latest_posts.length)}
           />
         </div>
-      </section>
+      </section> */}
 
       <Pagination currentPage={1} />
     </>
