@@ -68,6 +68,7 @@ export const getStaticProps: GetStaticProps = async ({
     const seo = await fetch(rankMathHeadUrl).then((r) => r.json());
 
     const post = await fetch(url).then((r) => r.json());
+
     if (post.status) {
       return {
         props: {

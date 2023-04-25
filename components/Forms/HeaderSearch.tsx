@@ -1,11 +1,12 @@
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 export default function HeaderSearch() {
   const router = useRouter();
   const [searchText, setSearchText] = useState("");
-  const [results, setResults] = useState([]);
+
   const onFormSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log(e);
     router.push(`/search?s=${searchText}`);
   };
   return (
@@ -39,23 +40,6 @@ export default function HeaderSearch() {
           </svg>
         </label>
       </div>
-
-      {/* {results && results.length > 0 && (
-        <div className="absolute top-[54px]  bg-black p-2 w-[250px]">
-          {results.map((p: any) => (
-            <div className="m-2 mb-4">
-              <Link href={`/p/${p.slug}`}>
-                <div
-                  onClick={() => setResults([])}
-                  className="text-[12px] hover:cursor-pointer hover:underline"
-                >
-                  {p.title}
-                </div>
-              </Link>
-            </div>
-          ))}
-        </div>
-      )} */}
     </form>
   );
 }

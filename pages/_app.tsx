@@ -6,7 +6,7 @@ import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { Roboto, Montserrat, Raleway, Noto_Sans } from "next/font/google";
 // import dynamic from "next/dynamic";
-// import NextNProgress from "nextjs-progressbar";
+import NextNProgress from "nextjs-progressbar";
 import { Analytics } from "@vercel/analytics/react";
 
 import Header from "@/components/Layout/Header";
@@ -39,6 +39,7 @@ const raleway = Raleway({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <NextNProgress />
       <Head>
         <meta
           httpEquiv="Content-Security-Policy"
