@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function tweet() {
+export default function TweetHTML() {
   return (
     <div
       className="w-[500px] p-8 text-black border border-gray-200 bg-white rounded-2xl "

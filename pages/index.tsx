@@ -18,6 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
     .map((key) => {
       idsRendered.push(homePage[key].id);
     });
+
   const formattedLatestPosts = homePage.latest_posts
     .filter(function (item) {
       return idsRendered.indexOf(item.id) === -1;

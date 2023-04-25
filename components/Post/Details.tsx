@@ -9,6 +9,8 @@ import PostMeta from "@/components/Post/PostMeta";
 import WPHTMLContent from "@/components/WPHTMLContent";
 import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
+import TweetHTML from "../tweet";
+import Link from "next/link";
 
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
 const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
@@ -31,7 +33,7 @@ export default function Details({ post }: any) {
         )}
 
         <CategoryBox category={post.category} />
-
+        {/* <TweetHTML/> */}
         <h1
           className="text-24px lg:text-[44px] text-center my-3 font-montserrat font-bold"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
@@ -66,6 +68,20 @@ export default function Details({ post }: any) {
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
 
         <WPHTMLContent html={post.content.rendered} />
+        {post.related_posts && post.related_posts.length > 0 && (
+          <div className="">
+            <p className="bg-[#EAEAEA] text-[#333] hover:underline  font-bold p-4">
+              {" "}
+              Read More:{" "}
+              <Link
+                className=" underline"
+                href={`/p/${post.related_posts[0].slug}`}
+              >
+                {post.related_posts[0].title.rendered}
+              </Link>{" "}
+            </p>{" "}
+          </div>
+        )}
 
         <TagBox tags={post.tags} />
         <AuthorBox author={post.author} />
