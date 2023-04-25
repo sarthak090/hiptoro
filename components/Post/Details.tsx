@@ -73,12 +73,12 @@ export default function Details({ post }: any) {
             <p className="bg-[#EAEAEA] text-[#333] hover:underline  font-bold p-4">
               {" "}
               Read More:{" "}
-              <Link
+              <a
                 className=" underline"
                 href={`/p/${post.related_posts[0].slug}`}
               >
                 {post.related_posts[0].title.rendered}
-              </Link>{" "}
+              </a>{" "}
             </p>{" "}
           </div>
         )}

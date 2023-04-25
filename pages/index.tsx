@@ -12,7 +12,7 @@ const PostGrid = dynamic(() => import("@/components/Grid/PostGrid"));
 export const getStaticProps: GetStaticProps = async () => {
   const url = process.env.NEXT_CUSTOM_WP_API_URL + `/home`;
   const homePage = await fetch(url).then((r) => r.json());
-  let idsRendered = [];
+  let idsRendered: any = [];
   Object.keys(homePage)
     .filter((t) => t !== "latest_posts")
     .map((key) => {
@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
     });
 
   const formattedLatestPosts = homePage.latest_posts
-    .filter(function (item) {
+    .filter(function (item: any) {
       return idsRendered.indexOf(item.id) === -1;
     })
     .map(async (post: any) => {
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     });
 
-  var latest_posts = [];
+  var latest_posts: any = [];
   await Promise.all(formattedLatestPosts).then((r) => {
     latest_posts.push(...r);
   });
