@@ -9,7 +9,7 @@ import Loading from "@/components/UI/Loading";
 
 export default function SinglePost(props: any) {
   const { post } = props;
-  console.log({ post });
+
   const [posts, setPosts] = useState([props.post]);
   const [hasMore, setHasMore] = useState(true);
   if (post !== null) {

@@ -48,7 +48,7 @@ function getYtEmbed(embedId) {
       </a>
       "
       src="https://www.youtube.com/embed/${embedId}" 
-      title="Coffee Recipe Javascript Project"
+   
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen>
@@ -57,7 +57,25 @@ function getYtEmbed(embedId) {
 </div>  `;
   return embedHtml;
 }
-
+function releatedPost(related_posts) {
+  return `
+    <div className="">
+      <p  style="
+      background: #EAEAEA;
+      padding: 10px;
+      font-weight: 700;
+  "  >
+        Read More:
+        <a
+          className="underline"
+          href="/p/${related_posts[Math.floor(Math.random() * 3)].slug}"
+        >
+          ${related_posts[Math.floor(Math.random() * 3)].title.rendered}
+        </a>
+      </p>
+    </div>
+    `;
+}
 export default function formatPost(post) {
   let formattedPost = post;
 
@@ -68,6 +86,8 @@ export default function formatPost(post) {
   const scriptSrc = $("script").attr("src");
   const isTweetEmbed = scriptSrc?.includes("twitter");
   let test = [];
+
+  $($("p")[1]).append(releatedPost(post.related_posts));
   tweetBlockQuotes.filter((t, y) => {
     const href = y.attribs.href;
     test.push(href);

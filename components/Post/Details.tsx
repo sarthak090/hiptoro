@@ -1,15 +1,11 @@
-// import SocialShares from "@/components/Post/SocialShares";
 import { CldImage } from "next-cloudinary";
 import SEO from "@/components/Post/SEO";
 import { NextSeo } from "next-seo";
 import PostOutline from "@/components/Post/PostOutline";
 import PostMeta from "@/components/Post/PostMeta";
-
-// import CategoryBox from "@/components/Post/CategoryBox";
 import WPHTMLContent from "@/components/WPHTMLContent";
 import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
-import TweetHTML from "../tweet";
 import Link from "next/link";
 
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
@@ -33,7 +29,7 @@ export default function Details({ post }: any) {
         )}
 
         <CategoryBox category={post.category} />
-        {/* <TweetHTML/> */}
+
         <h1
           className="text-24px lg:text-[44px] text-center my-3 font-montserrat font-bold"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
@@ -57,7 +53,7 @@ export default function Details({ post }: any) {
               width={1020}
               height={720}
               alt={post.title.rendered}
-              loading="lazy"
+              loading="eager"
               quality={40}
               title={post.title.rendered}
             />
@@ -68,18 +64,22 @@ export default function Details({ post }: any) {
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
 
         <WPHTMLContent html={post.content.rendered} />
-        {post.related_posts && post.related_posts.length > 0 && (
+        {post.related_posts && post.related_posts.length > 4 && (
           <div className="">
-            <p className="bg-[#EAEAEA] text-[#333] hover:underline  font-bold p-4">
-              {" "}
-              Read More:{" "}
+            <p className="bg-gray-bg text-darkText hover:underline  font-bold p-4">
+              Read More:
               <a
                 className=" underline"
-                href={`/p/${post.related_posts[0].slug}`}
+                href={`/p/${
+                  post.related_posts[Math.floor(Math.random() * 4)].slug
+                }`}
               >
-                {post.related_posts[0].title.rendered}
-              </a>{" "}
-            </p>{" "}
+                {
+                  post.related_posts[Math.floor(Math.random() * 4)].title
+                    .rendered
+                }
+              </a>
+            </p>
           </div>
         )}
 

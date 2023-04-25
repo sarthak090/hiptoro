@@ -44,13 +44,14 @@ module.exports = {
       colors: {
         "brand-blue": "#61C0CD",
         "brand-blue-light": "#d2f7fc",
-        "gray-bg": "#F2F2F2",
+        "gray-bg": "#EAEAEA",
         footer: "#171719",
         " dark": "#54595F",
         "footer-link": "#6A6A6D",
         banner: "#171719",
         navDropDown: "#343537",
         navHover: "#212121",
+        darkText: "#333",
       },
       maxWidth: {
         "site-full": "1200px",
