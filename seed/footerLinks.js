@@ -12,7 +12,7 @@ export const nav1 = [
     slug: "/copyright/",
   },
   {
-    name: "About us",
+    name: "About",
     slug: "/about-us/",
   },
   {

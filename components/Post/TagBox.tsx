@@ -7,7 +7,7 @@ export default function TagBox(props: any) {
       {tags &&
         tags.map((tag: any) => (
           <div key={tag.term_id}>
-            <Link className="hover:underline" href={"/tags/" + tag.slug}>
+            <Link className="hover:underline" href={"/p/tag/" + tag.slug}>
               <div>
                 #<span dangerouslySetInnerHTML={{ __html: tag.name }}></span>
               </div>
