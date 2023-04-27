@@ -1,4 +1,3 @@
-import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import navLinks from "@/seed/navLink";
 import dynamic from "next/dynamic";
@@ -7,6 +6,7 @@ import { useEffect, useState } from "react";
 import MobileMenuStatic from "./Mobile-menu/MobileMenuStatic";
 import { NavbarIcon } from "../icons/navbar-icon";
 import { CloseIcon } from "../icons/close-icon";
+import Image from "next/image";
 
 const HeaderSearch = dynamic(() => import("@/components/Forms/HeaderSearch"));
 
@@ -39,7 +39,7 @@ export default function Header() {
   }, [router.asPath]);
   return (
     <>
-      <nav className=" w-full top-0 fixed   shadow-2xl  lg:mb-16   lg:py-2 py-1 px-4 font-raleway    lg:px-8  font-semibold   bg-black text-white    ">
+      <nav className=" w-full top-0 fixed   shadow-2xl  lg:mb-16   lg:py-2 py-2 px-4 font-raleway    lg:px-8  font-semibold   bg-black text-white    ">
         <div className="max-w-site-full mx-auto flex lg:flex-col justify-between items-center">
           <div
             className={`flex gap-2  close-icon transition-all delay-150 ${
@@ -57,12 +57,11 @@ export default function Header() {
               )}
             </div>
             <Link className="lg:block hidden" href={"/"}>
-              <CldImage
+              <Image
                 alt="Hiptoro"
-                src={"/hiptoro-logo-smol-1.png"}
+                src={"/imgs/desk_logo.png"}
                 width={220}
                 height={80}
-                quality={90}
                 loading="eager"
               />
             </Link>
@@ -74,10 +73,10 @@ export default function Header() {
           ></div>
           <div className="lg:hidden ">
             <Link href={"/"}>
-              <CldImage
+              <Image
                 alt="Hiptoro"
                 loading="eager"
-                src={"/logo_main_fnmp6n.webp"}
+                src={"/imgs/phone_logo.png"}
                 width={160}
                 quality={100}
                 height={60}

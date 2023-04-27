@@ -56,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       "Cache-Control",
       "public, s-maxage=20, stale-while-revalidate=59"
     );
-    console.log({ rankMathHeadUrl });
+    console.log({ url });
     if (pageData.length > 0) {
       return {
         props: {

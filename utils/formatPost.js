@@ -62,7 +62,7 @@ function releatedPost(related_posts) {
     <div className="">
       <p  style="
       background: #EAEAEA;
-      padding: 10px;
+      padding: 12px;
       font-weight: 700;
   "  >
         Read More:

@@ -8,6 +8,18 @@ export const nav1 = [
     slug: "/privacy-policy/disclaimer/",
   },
   {
+    name: "Copyright",
+    slug: "/copyright/",
+  },
+  {
+    name: "About us",
+    slug: "/about-us/",
+  },
+  {
+    name: "Write For Us",
+    slug: "/write-for-us/",
+  },
+  {
     name: "Ethics Policy",
     slug: "/ethics-policy/",
   },

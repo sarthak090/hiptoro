@@ -28,8 +28,8 @@ const nextConfig = {
         destination: "/api/sitemap",
       },
       {
-        source: "/news-sitemap.xml",
-        destination: "/api/news-sitemap",
+        source: "/copyright",
+        destination: "/",
       },
     ];
   },
