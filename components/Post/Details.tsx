@@ -13,6 +13,7 @@ const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
 const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
+  const rnd = Math.floor(Math.random() * 4);
   return (
     <>
       <div>
@@ -70,14 +71,9 @@ export default function Details({ post }: any) {
               Read More:
               <a
                 className=" underline"
-                href={`/p/${
-                  post.related_posts[Math.floor(Math.random() * 4)].slug
-                }`}
+                href={`/p/${post.related_posts[rnd].slug}`}
               >
-                {
-                  post.related_posts[Math.floor(Math.random() * 4)].title
-                    .rendered
-                }
+                {post.related_posts[rnd].title.rendered}
               </a>
             </p>
           </div>

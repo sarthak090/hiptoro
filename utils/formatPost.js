@@ -58,6 +58,8 @@ function getYtEmbed(embedId) {
   return embedHtml;
 }
 function releatedPost(related_posts) {
+  const rnd = Math.floor(Math.random() * 4);
+
   return `
     <div className="">
       <p  style="
@@ -68,9 +70,9 @@ function releatedPost(related_posts) {
         Read More:
         <a
           className="underline"
-          href="/p/${related_posts[Math.floor(Math.random() * 3)].slug}"
+          href="/p/${related_posts[rnd].slug}"
         >
-          ${related_posts[Math.floor(Math.random() * 3)].title.rendered}
+          ${related_posts[rnd].title.rendered}
         </a>
       </p>
     </div>
