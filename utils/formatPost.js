@@ -109,10 +109,12 @@ export default function formatPost(post) {
 
     formattedPost.yt_embedd = iframeSrc;
 
-    formattedPost.content.rendered = $.html().replaceAll(
-      `secureback.hiptoro.com`,
-      `www.hiptoro.com`
-    );
+    formattedPost.content.rendered = $.html()
+      .replaceAll(`secureback.hiptoro.com`, `www.hiptoro.com`)
+      .replaceAll(
+        "https://www.hiptoro.com/wp-content/uploads/",
+        "https://secureback.hiptoro.com/wp-content/uploads/"
+      );
   }
 
   formattedPost.author = {
