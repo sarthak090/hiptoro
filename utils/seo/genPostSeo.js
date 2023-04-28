@@ -2,6 +2,7 @@ import decode from "@/utils/htmlDecoder";
 
 export default function (post) {
   const data = post.seo;
+
   const nextSeo = {
     openGraph: {
       site_name: "Hiptoro",
@@ -16,6 +17,8 @@ export default function (post) {
     videos: [],
     canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/p/${post.slug}`,
   };
+
+  return nextSeo;
   const newsArticle = data.find((t) => t["@type"] === "NewsArticle");
   const imageObject = data.find((t) => t["@type"] === "ImageObject");
   const breadcrumbList = data.find((t) => t["@type"] === "BreadcrumbList");

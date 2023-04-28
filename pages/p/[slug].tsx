@@ -63,10 +63,8 @@ export const getStaticProps: GetStaticProps = async ({
     process.env.NEXT_CUSTOM_WP_API_URL + `/rank-seo?url=/p/${slug}`;
 
   try {
-    const seo = await fetch(rankMathHeadUrl).then((r) => r.json());
-
     const post = await fetch(url).then((r) => r.json());
-
+    console.log(post);
     if (post.status) {
       return {
         props: {
@@ -80,10 +78,10 @@ export const getStaticProps: GetStaticProps = async ({
 
     const postTosend = {
       ...(await formatInfitePost([post])[0]),
-      seo,
+
       base64,
       img,
-      nextSeoData: genNextSeo({ seo, tags: post.tags, slug: post.slug }),
+      nextSeoData: genNextSeo({ tags: post.tags, slug: post.slug }),
     };
 
     return {

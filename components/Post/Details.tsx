@@ -26,6 +26,8 @@ export default function Details({ post }: any) {
               maxVideoPreview: -1,
               maxSnippet: -1,
             }}
+            title={post.title.rendered}
+            description={post.excerpt.rendered}
             {...post.nextSeoData}
           />
         )}
