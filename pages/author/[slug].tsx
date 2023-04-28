@@ -17,7 +17,13 @@ export const PostsByAuthor = (props: any) => {
             type: "profile",
             title: postsData[0].author.name,
             description: postsData[0].author.description,
-            url:process.env.NEXT_PUBLIC_DOMAIN+`/author/${postsData[0].author.name.toLowerCase()+"-"+postsData[0].author.id}`
+            url:
+              process.env.NEXT_PUBLIC_DOMAIN +
+              `/author/${
+                postsData[0].author.name.toLowerCase() +
+                "-" +
+                postsData[0].author.id
+              }`,
           }}
         />
         <div>
@@ -65,7 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   ).then();
   const data = await res.json();
 
-  const paths = data.map((author: Author) => {
+  const paths = data.slice(0, 10).map((author: Author) => {
     return {
       params: {
         slug: `${author.name.toLowerCase().split(" ").join("-")}-${author.id}`,
