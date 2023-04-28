@@ -52,7 +52,6 @@ export default function App({ Component, pageProps }: AppProps) {
           content="https://cms.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png"
         />
       </Head>
-
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=UA-249843079-1"
         id="google_gtagjs-js"
@@ -62,9 +61,9 @@ export default function App({ Component, pageProps }: AppProps) {
         data-no-optimize="1"
         data-no-defer="1"
         data-no-minify="1"
-      />
+      ></Script>
+
       <Script
-        strategy="lazyOnload"
         id="google_gtagjs-js-after"
         type="pmdelayedscript"
         data-cfasync="false"
@@ -73,13 +72,13 @@ export default function App({ Component, pageProps }: AppProps) {
         data-no-minify="1"
       >
         {`
-                   window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-                   gtag('set', 'linker', {"domains":["www.hiptoro.com"]} );
-                   gtag("js", new Date());
-                   gtag("set", "developer_id.dZTNiMT", true);
-                   gtag("config", "UA-249843079-1", {"anonymize_ip":true});
-                   gtag("config", "G-LE5P46J4FY");
-                `}
+      window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+      gtag('set', 'linker', {"domains":["www.hiptoro.com"]} );
+      gtag("js", new Date());
+      gtag("set", "developer_id.dZTNiMT", true);
+      gtag("config", "UA-249843079-1", {"anonymize_ip":true});
+      gtag("config", "G-LE5P46J4FY");
+`}
       </Script>
 
       {/* <!-- Google tag (gtag.js) --> */}
