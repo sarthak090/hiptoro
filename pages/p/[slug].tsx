@@ -107,7 +107,7 @@ export const getStaticProps: GetStaticProps = async ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await fetch(
-    process.env.NEXT_WP_API_URL + "/posts?per_page=12"
+    process.env.NEXT_WP_API_URL + "/posts?per_page=100"
   ).then((r) => r.json());
 
   const paths = posts.map((post: any) => {
