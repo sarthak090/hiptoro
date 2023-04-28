@@ -33,9 +33,9 @@ export const getServerSideProps: GetServerSideProps = async ({
     const resp = await fetch(url).then((r) => r.text());
 
     const format = resp
-      .replace(`//cms.hiptoro.com/news-sitemap.xsl`, "/v.xsl")
-      .replace("//cms.hiptoro.com/main-sitemap.xsl", "/main-sitemap.xsl")
-      .replaceAll(`cms.hiptoro.com`, "www.hiptoro.com");
+      .replace(`//secureback.hiptoro.com/news-sitemap.xsl`, "/v.xsl")
+      .replace("//secureback.hiptoro.com/main-sitemap.xsl", "/main-sitemap.xsl")
+      .replaceAll(`secureback.hiptoro.com`, "www.hiptoro.com");
 
     res.setHeader("Content-Type", "text/xml");
 
@@ -56,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       "Cache-Control",
       "public, s-maxage=20, stale-while-revalidate=59"
     );
-    console.log({ url });
+
     if (pageData.length > 0) {
       return {
         props: {

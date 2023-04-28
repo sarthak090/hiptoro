@@ -7,6 +7,7 @@ import WPHTMLContent from "@/components/WPHTMLContent";
 import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Script from "next/script";
 
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
 const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
@@ -62,6 +63,11 @@ export default function Details({ post }: any) {
         </div>
         <PostMeta {...post} />
         <SocialShares {...post} />
+
+        <Script strategy="lazyOnload" id="40e3be63c06a42be96a4956227a96693">
+          {`(new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });`}
+        </Script>
+
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
 
         <WPHTMLContent html={post.content.rendered} />
@@ -82,6 +88,13 @@ export default function Details({ post }: any) {
         <TagBox tags={post.tags} />
         <AuthorBox author={post.author} />
       </div>
+      <div className="OUTBRAIN" data-widget-id="GS_1"></div>
+      <Script
+        type="text/javascript"
+        async
+        strategy="lazyOnload"
+        src="//widgets.outbrain.com/outbrain.js"
+      />
     </>
   );
 }

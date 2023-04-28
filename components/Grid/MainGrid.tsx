@@ -1,6 +1,7 @@
 import Link from "next/link";
 import MetaBox from "./MetaBox";
 import { CldImage } from "next-cloudinary";
+import CloudnaryImage from "../UI/image";
 
 export default function MainGrid(props: any) {
   const { post } = props;
@@ -9,7 +10,7 @@ export default function MainGrid(props: any) {
       <div className="flex justify-center lg:justify-start">
         {post.base64 && post.featuredImg.medium ? (
           <>
-            <CldImage
+            <CloudnaryImage
               alt={post.title.rendered}
               src={post.featuredImg.id}
               width={500}
@@ -19,8 +20,8 @@ export default function MainGrid(props: any) {
               blurDataURL={post.base64}
               quality={40}
               sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+           (max-width: 1200px) 50vw,
+           33vw"
             />
           </>
         ) : (

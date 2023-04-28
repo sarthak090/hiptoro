@@ -12,6 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import Head from "next/head";
+import Script from "next/script";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -51,6 +52,77 @@ export default function App({ Component, pageProps }: AppProps) {
           content="https://cms.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png"
         />
       </Head>
+
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=UA-249843079-1"
+        id="google_gtagjs-js"
+        async
+        type="pmdelayedscript"
+        data-cfasync="false"
+        data-no-optimize="1"
+        data-no-defer="1"
+        data-no-minify="1"
+      />
+      <Script
+        strategy="lazyOnload"
+        id="google_gtagjs-js-after"
+        type="pmdelayedscript"
+        data-cfasync="false"
+        data-no-optimize="1"
+        data-no-defer="1"
+        data-no-minify="1"
+      >
+        {`
+                   window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+                   gtag('set', 'linker', {"domains":["www.hiptoro.com"]} );
+                   gtag("js", new Date());
+                   gtag("set", "developer_id.dZTNiMT", true);
+                   gtag("config", "UA-249843079-1", {"anonymize_ip":true});
+                   gtag("config", "G-LE5P46J4FY");
+                `}
+      </Script>
+
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script
+        async
+        strategy="lazyOnload"
+        src="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());          
+                gtag('config', 'G-LE5P46J4FY');
+            `}
+      </Script>
+      <Script
+        async
+        strategy="lazyOnload"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
+        crossOrigin="anonymous"
+      />
+      <Script strategy="lazyOnload">
+        {`!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);`}
+      </Script>
+      <Script
+        async
+        strategy="lazyOnload"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
+        crossOrigin="anonymous"
+      />
+
+      {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE START---> */}
+
+      <Script
+        data-cfasync="false"
+        lang="javascript"
+        async
+        referrerPolicy="no-referrer-when-downgrade"
+        src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
+      />
+      {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE END---> */}
+
       <style jsx global>{`
         :root {
           --roboto-font: ${roboto.style.fontFamily};

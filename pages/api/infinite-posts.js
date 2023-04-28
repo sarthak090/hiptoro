@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   res.status(200).json([]);
 }
 const getMorePost = async (id) => {
-  const url = `https://cms.hiptoro.com/wp-json/wpr/v1/infinite-posts?exclude=${id}&start=1&limit=8`;
+  const url = `${process.env.NEXT_PUBLIC_CUSTOM_WP_API_URL}/infinite-posts?exclude=${id}&start=1&limit=8`;
 
   const res = await fetch(url);
   const newPosts = await res.json();
