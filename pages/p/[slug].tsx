@@ -59,12 +59,12 @@ export const getStaticProps: GetStaticProps = async ({
   const { slug } = params!;
   const url = process.env.NEXT_CUSTOM_WP_API_URL + `/posts/${slug}`;
 
-  const rankMathHeadUrl =
-    process.env.NEXT_CUSTOM_WP_API_URL + `/rank-seo?url=/p/${slug}`;
+  const rankMathHeadUrl = process.env.NEXT_WP_API_URL + `/posts/?slug=${slug}`;
 
   try {
     const post = await fetch(url).then((r) => r.json());
-    console.log(post);
+    const _post = await fetch(rankMathHeadUrl).then((r) => r.json());
+
     if (post.status) {
       return {
         props: {
@@ -81,7 +81,15 @@ export const getStaticProps: GetStaticProps = async ({
 
       base64,
       img,
-      nextSeoData: genNextSeo({ tags: post.tags, slug: post.slug }),
+
+      nextSeoData: genNextSeo({
+        videoObject: _post[0].x_metadata.rank_math_schema_VideoObject
+          ? _post[0].x_metadata.rank_math_schema_VideoObject
+          : null,
+        tags: post.tags,
+        slug: post.slug,
+        ...post,
+      }),
     };
 
     return {

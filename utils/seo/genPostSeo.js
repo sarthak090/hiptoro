@@ -17,13 +17,50 @@ export default function (post) {
     videos: [],
     canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/p/${post.slug}`,
   };
-
+  const videoObject = post.videoObject;
+  if (videoObject !== null) {
+    if (videoObject && videoObject.contentUrl.length > 0) {
+      nextSeo.videos.push({
+        url: videoObject.contentUrl,
+        width: videoObject.width,
+        height: videoObject.height,
+      });
+    }
+    if (
+      videoObject &&
+      videoObject.contentUrl.length == 0 &&
+      videoObject.embedUrl
+    ) {
+      nextSeo.videos.push({
+        url: videoObject.embedUrl,
+        width: videoObject.width,
+        height: videoObject.height,
+      });
+    }
+  }
+  nextSeo.openGraph.article.publishedTime = post.publishDate;
+  nextSeo.openGraph.article.modifiedTime = post.publishDate;
+  nextSeo.twitter.title = post.title.rendered;
+  nextSeo.twitter.description = post.excerpt.rendered;
+  nextSeo.openGraph.images = [
+    {
+      url: post.featuredImg.original,
+      width: 1200,
+      height: 630,
+      alt: post.title.rendered,
+      secureUrl: post.featuredImg.original,
+      type: "image/webp",
+    },
+  ];
+  nextSeo.twitter.image = post.featuredImg.original;
+  nextSeo.twitter.label1 = "Written by";
+  nextSeo.twitter.data1 = post.author.name;
+  console.log(nextSeo);
   return nextSeo;
   const newsArticle = data.find((t) => t["@type"] === "NewsArticle");
   const imageObject = data.find((t) => t["@type"] === "ImageObject");
   const breadcrumbList = data.find((t) => t["@type"] === "BreadcrumbList");
   const person = data.find((t) => t["@type"] === "Person");
-  const videoObject = data.find((t) => t["@type"] === "VideoObject");
 
   const organization = data.find(
     (t) => t["@type"].length > 1 && t["@type"][1] === "Organization"
@@ -62,25 +99,6 @@ export default function (post) {
   if (person) {
     nextSeo.twitter.label1 = "Written by";
     nextSeo.twitter.data1 = person.name;
-  }
-
-  if (videoObject && videoObject.contentUrl) {
-    nextSeo.videos.push({
-      url: videoObject.contentUrl,
-      width: videoObject.width,
-      height: videoObject.height,
-    });
-  }
-  if (
-    videoObject &&
-    videoObject.contentUrl == undefined &&
-    videoObject.embedUrl
-  ) {
-    nextSeo.videos.push({
-      url: videoObject.embedUrl,
-      width: videoObject.width,
-      height: videoObject.height,
-    });
   }
 
   return nextSeo;

@@ -6,7 +6,6 @@ import PostMeta from "@/components/Post/PostMeta";
 import WPHTMLContent from "@/components/WPHTMLContent";
 import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import Script from "next/script";
 
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
@@ -15,21 +14,30 @@ const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
   const rnd = Math.floor(Math.random() * 4);
+
   return (
     <>
       <div>
-        {post.seo && <SEO post={post} />}
         {post.nextSeoData && (
-          <NextSeo
-            robotsProps={{
-              maxImagePreview: "large",
-              maxVideoPreview: -1,
-              maxSnippet: -1,
-            }}
-            title={post.title.rendered}
-            description={post.excerpt.rendered}
-            {...post.nextSeoData}
-          />
+          <>
+            <SEO
+              post={{
+                ...post,
+                nextSeoData: post.nextSeoData,
+                timeToRead: post.timeToRead.minutes,
+              }}
+            />
+            <NextSeo
+              robotsProps={{
+                maxImagePreview: "large",
+                maxVideoPreview: -1,
+                maxSnippet: -1,
+              }}
+              title={post.title.rendered}
+              description={post.excerpt.rendered}
+              {...post.nextSeoData}
+            />
+          </>
         )}
 
         <CategoryBox category={post.category} />
@@ -63,7 +71,11 @@ export default function Details({ post }: any) {
             />
           )}
         </div>
-        <Script id="40e3be63c06a42be96a4956227a96693">
+        <Script
+          async
+          strategy="afterInteractive"
+          id="40e3be63c06a42be96a4956227a96693"
+        >
           {`
           (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
           `}

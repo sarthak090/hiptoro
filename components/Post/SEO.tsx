@@ -5,18 +5,12 @@ export default function SEO(props: any) {
   return (
     <>
       <Head>
-        {post.seo.find((t: any) => t["@type"] === "VideoObject") && (
-          <meta
-            property="og:video"
-            content={`${
-              post.seo.find((t: any) => t["@type"] === "VideoObject").contentUrl
-                ? post.seo.find((t: any) => t["@type"] === "VideoObject")
-                    .contentUrl
-                : post.seo.find((t: any) => t["@type"] === "VideoObject")
-                    .embedUrl
-            }`}
-          />
-        )}
+        {post.nextSeoData.videos &&
+          post.nextSeoData.videos.length > 0 &&
+          post.nextSeoData.videos.map((v: any) => (
+            <meta property="og:video" content={`${v.url}`} />
+          ))}
+
         <meta name="article:publisher" content="https://facebook.com/hiptoro" />
 
         <meta name="og:updated_time" content={post.publishDate} />
@@ -26,7 +20,7 @@ export default function SEO(props: any) {
         <meta name="twitter:label1" content="Written by" />
         <meta name="twitter:data1" content={post.author.name} />
         <meta name="twitter:label2" content="Time to read" />
-        <meta name="twitter:data2" content="2 minutes" />
+        <meta name="twitter:data2" content={post.timeToRead + " minutes"} />
       </Head>
     </>
   );
