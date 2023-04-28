@@ -1,5 +1,6 @@
 import PostGrid from "@/components/Grid/PostGrid";
 import AuthorBox from "@/components/Post/AuthorBox";
+import NotFound from "@/components/UI/404";
 
 import { GetStaticProps, GetStaticPaths } from "next";
 import { NextSeo } from "next-seo";
@@ -58,7 +59,7 @@ export const PostsByAuthor = (props: any) => {
       </>
     );
   }
-  return null;
+  return <NotFound />;
 };
 interface Author {
   id: number;

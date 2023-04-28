@@ -6,6 +6,7 @@ import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Details from "@/components/Post/Details";
 import Loading from "@/components/UI/Loading";
+import NotFound from "@/components/UI/404";
 
 export default function SinglePost(props: any) {
   const { post } = props;
@@ -46,11 +47,7 @@ export default function SinglePost(props: any) {
   } else {
     return (
       <>
-        <div className="h-screen flex justify-center items-center">
-          <p className="font-montserrat text-3xl font-semibold">
-            No Post Found
-          </p>
-        </div>
+        <NotFound />
       </>
     );
   }
@@ -93,6 +90,7 @@ export const getStaticProps: GetStaticProps = async ({
       props: {
         post: postTosend,
       },
+      revalidate: 60,
     };
   } catch (err) {
     console.log(err);
@@ -101,6 +99,7 @@ export const getStaticProps: GetStaticProps = async ({
         post: null,
         notFound: true,
       },
+      revalidate: 60,
     };
   }
 };

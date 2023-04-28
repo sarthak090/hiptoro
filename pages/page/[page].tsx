@@ -3,20 +3,28 @@ import genPagination from "../../utils/genPagination";
 import Pagination from "@/components/Pagination";
 import PostGrid from "@/components/Grid/PostGrid";
 import { getPlaiceholder } from "plaiceholder";
+import NotFound from "@/components/UI/404";
 
 export default function Page(props: any) {
+  if (props.pageData.length > 0) {
+    return (
+      <>
+        <section className="grid md:grid-cols-12">
+          <div className="md:col-span-12">
+            <PostGrid posts={props.pageData} />
+          </div>
+        </section>
+
+        <Pagination
+          pagination={props.pagination}
+          currentPage={parseInt(props.currentPageNo)}
+        />
+      </>
+    );
+  }
   return (
     <>
-      <section className="grid md:grid-cols-12">
-        <div className="md:col-span-12">
-          <PostGrid posts={props.pageData} />
-        </div>
-      </section>
-
-      <Pagination
-        pagination={props.pagination}
-        currentPage={parseInt(props.currentPageNo)}
-      />
+      <NotFound />
     </>
   );
 }
@@ -48,6 +56,8 @@ export const getStaticProps: GetStaticProps = async ({
     await Promise.all(formattedLatestPosts).then((r) => {
       latest_posts.push(...r);
     });
+    console.log(latest_posts);
+
     return {
       props: {
         pageData: latest_posts,
