@@ -34,7 +34,6 @@ export const getStaticProps: GetStaticProps = async ({
 
   const url = process.env.NEXT_CUSTOM_WP_API_URL + `/posts?page=${page}`;
   try {
-    console.log({ url });
     const pageData = await fetch(url).then((r) => r.json());
     const formattedLatestPosts = pageData.map(async (post: any) => {
       const { base64, img } = await getPlaiceholder(post.featuredImg.medium);

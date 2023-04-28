@@ -1,12 +1,53 @@
 import WPHTMLContent from "@/components/WPHTMLContent";
 import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
-
+import Head from "next/head";
 export default function Single({ pageData, seo }: any) {
   if (pageData !== null) {
     return (
       <>
-        <NextSeo title={pageData.title.rendered} titleTemplate="" />
+        <Head>
+          <meta
+            name="robots"
+            content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+          />
+          <link rel="canonical" href="https://www.hiptoro.com/about-us/" />
+
+          <meta property="og:title" content="About Us" />
+          <meta
+            property="og:description"
+            content="Hiptoro is your destination for a good laugh, a moving story, and all the latest news updates from the world of entertainment. If it&#039;s viral, it&#039;s on Hiptoro."
+          />
+
+          <meta
+            property="article:publisher"
+            content="https://facebook.com/hiptoro"
+          />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="About Us" />
+          <meta
+            name="twitter:description"
+            content="Hiptoro is your destination for a good laugh, a moving story, and all the latest news updates from the world of entertainment. If it&#039;s viral, it&#039;s on Hiptoro."
+          />
+          <meta name="twitter:site" content="@HiptoroNews" />
+          <meta name="twitter:creator" content="@nox" />
+          <meta name="twitter:label1" content="Time to read" />
+          <meta name="twitter:data1" content="1 minute" />
+        </Head>
+        <NextSeo
+          title={pageData.title.rendered}
+          openGraph={{
+            title: pageData.title.rendered,
+            description: pageData.excerpt.rendered,
+            url: "https://www.hiptoro.com/" + pageData.slug,
+            locale: "en_US",
+            type: "article",
+            siteName: "Hiptoro",
+            article: { modifiedTime: "2023-03-28T11:01:52+05:30" },
+          }}
+          titleTemplate=""
+        />
 
         <div className="container mx-auto px-2 lg:px-8 py-8 max-w-site-full">
           <h1

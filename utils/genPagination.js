@@ -1,4 +1,5 @@
-export default function (currentPage) {
+export default function (cp) {
+  const currentPage = parseInt(cp);
   return [
     {
       label: `${currentPage > 1 ? "Previous" : ""}`,

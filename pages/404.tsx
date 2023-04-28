@@ -1,32 +1,21 @@
+import { NextSeo } from "next-seo";
+import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Custom404() {
   return (
-    <div className="mt-4">
-      <h1 className="text-2xl font-semibold my-4">This page does not exist.</h1>
-      <div className="flex justify-center">
-        <img src="/imgs/logo.webp" />
-      </div>
-      <div className="flex justify-center items-center gap-4">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-10 h-10"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-          />
-        </svg>
-
-        <Link className="text-2xl underline text-center" href={"/"}>
-          Go to Home
+    <div className="mt-36 t-gy-t">
+      <NextSeo title="404 Page " />
+      <center className="mb-16">
+        <Image width={1020} height={720} src="/imgs/404.png" alt="404 Page" />
+      </center>
+      <p className=" font-noto_sans text-center text-2xl lg:text-4xl mt-16 font-semibold  ">
+        <Link className="underline" href={"/"}>
+          Return
         </Link>
-      </div>
+        <span> to continue your adventure.</span>
+      </p>
     </div>
   );
 }

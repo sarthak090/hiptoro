@@ -1,10 +1,16 @@
 import formatInfitePost from "../../utils/formatInfitePost";
+const memo = [];
 export default async function handler(req, res) {
-  if (req.query.postid) {
+  const id = req.query.postid;
+  if (memo[id] != null) {
+    console.log("CACHE IS SERVED", id);
+    return res.status(200).json(memo[id]);
+  } else {
     const data = await getMorePost(req.query.postid);
-    return res.status(200).json(data);
+    res.status(200).json(data);
+    memo[id] = data;
+    return;
   }
-  res.status(200).json([]);
 }
 const getMorePost = async (id) => {
   const url = `${process.env.NEXT_PUBLIC_CUSTOM_WP_API_URL}/infinite-posts?exclude=${id}&start=1&limit=8`;
