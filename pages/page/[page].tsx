@@ -4,11 +4,13 @@ import Pagination from "@/components/Pagination";
 import PostGrid from "@/components/Grid/PostGrid";
 import { getPlaiceholder } from "plaiceholder";
 import NotFound from "@/components/UI/404";
+import { NextSeo } from "next-seo";
 
 export default function Page(props: any) {
   if (props.pageData.length > 0) {
     return (
       <>
+        <NextSeo noindex nofollow />
         <section className="grid md:grid-cols-12">
           <div className="md:col-span-12">
             <PostGrid posts={props.pageData} />
@@ -56,7 +58,6 @@ export const getStaticProps: GetStaticProps = async ({
     await Promise.all(formattedLatestPosts).then((r) => {
       latest_posts.push(...r);
     });
-    console.log(latest_posts);
 
     return {
       props: {

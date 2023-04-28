@@ -3,6 +3,7 @@ Sitemap: https://www.hiptoro.com/news-sitemap.xml
 
 User-agent: *
 Disallow: /api/
+Disallow: /page/*
 
 User-agent: Googlebot-News
 Disallow: /p/tag/*

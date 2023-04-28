@@ -1,4 +1,3 @@
-import { CldImage } from "next-cloudinary";
 import SEO from "@/components/Post/SEO";
 import { NextSeo } from "next-seo";
 import PostOutline from "@/components/Post/PostOutline";
@@ -7,6 +6,7 @@ import WPHTMLContent from "@/components/WPHTMLContent";
 import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
 import Script from "next/script";
+import Image from "next/image";
 
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
 const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
@@ -47,9 +47,9 @@ export default function Details({ post }: any) {
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
         <div className="flex justify-center my-4 ">
-          {post.base64 ? (
-            <CldImage
-              src={post.featuredImg.id}
+          {post.base64 && post.featuredImg.original ? (
+            <Image
+              src={post.featuredImg.original}
               width={1020}
               height={720}
               alt={post.title.rendered}
@@ -60,8 +60,8 @@ export default function Details({ post }: any) {
               title={post.title.rendered}
             />
           ) : (
-            <CldImage
-              src={post.featuredImg.id}
+            <Image
+              src={post.featuredImg.medium}
               width={1020}
               height={720}
               alt={post.title.rendered}

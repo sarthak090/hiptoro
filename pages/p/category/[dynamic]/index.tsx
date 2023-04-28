@@ -21,6 +21,8 @@ function CategoryBySlug(props: any) {
           description={data.description}
           titleTemplate="%s - Hiptoro"
           canonical={`${process.env.NEXT_PUBLIC_DOMAIN}/p/category/${data.slug}`}
+          nofollow
+          noindex
         />
         <MainGrid post={pageData[0]} />
 
@@ -102,6 +104,7 @@ export const getStaticProps: GetStaticProps = async (
         slug: dynamic,
         error: false,
       },
+      revalidate: 120,
     };
   } catch (err) {
     console.log(err);
@@ -109,6 +112,7 @@ export const getStaticProps: GetStaticProps = async (
       props: {
         notFound: true,
       },
+      revalidate: 120,
     };
   }
 };

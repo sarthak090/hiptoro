@@ -139,16 +139,16 @@ export default function App({ Component, pageProps }: AppProps) {
       <Header />
       <DefaultSeo
         openGraph={{
-          locale: "en",
+          locale: "en_US",
           siteName: "Hiptoro",
           url: process.env.WEBSITE_URL,
           images: [
             {
-              url: "https://cms.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png",
+              url: "https://secureback.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png",
               secureUrl:
-                "https://cms.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png",
-              width: 512,
-              height: 512,
+                "https://secureback.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png",
+              width: 1280,
+              height: 720,
               type: "image/png",
             },
           ],

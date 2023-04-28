@@ -13,6 +13,7 @@ const nextConfig = {
       "cms.hiptoro.com",
       "img.youtube.com",
       "res.cloudinary.com",
+      "secureback.hiptoro.com",
     ],
   },
   typescript: {

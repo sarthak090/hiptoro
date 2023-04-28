@@ -2,12 +2,14 @@
 
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from "next";
 import PostGrid from "@/components/Grid/PostGrid";
+import { NextSeo } from "next-seo";
 
 export const PostsByTag = (props: any) => {
   const { postsData, error } = props;
 
   return (
     <>
+      <NextSeo nofollow noindex />
       <section className="grid md:grid-cols-12">
         <div className="md:col-span-12">
           <PostGrid posts={postsData} />

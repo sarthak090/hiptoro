@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { CldImage } from "next-cloudinary";
+import Image from "next/image";
+
 export default function CategoriesGrid(props: any) {
   function oddOrEven(num: number) {
     if (num % 2 == 0) return "even";
@@ -40,9 +41,9 @@ export default function CategoriesGrid(props: any) {
                 post.featuredImg.id &&
                 post.featuredImg.id.length > 0 ? (
                   <>
-                    <CldImage
+                    <Image
                       alt={post.title.rendered}
-                      src={post.featuredImg.id}
+                      src={post.featuredImg.medium}
                       width={500}
                       height={500}
                       quality={40}
@@ -55,9 +56,9 @@ export default function CategoriesGrid(props: any) {
                     />
                   </>
                 ) : (
-                  <CldImage
+                  <Image
                     loading="eager"
-                    src={post.featuredImg.id}
+                    src={post.featuredImg.medium}
                     width={500}
                     height={500}
                     alt={post.title.rendered}

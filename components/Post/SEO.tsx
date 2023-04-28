@@ -10,11 +10,17 @@ export default function SEO(props: any) {
           post.nextSeoData.videos.map((v: any) => (
             <meta property="og:video" content={`${v.url}`} />
           ))}
-
+        {post.category.map((cat: any) => (
+          <meta property="article:section" content={cat.name} />
+        ))}
         <meta name="article:publisher" content="https://facebook.com/hiptoro" />
 
         <meta name="og:updated_time" content={post.publishDate} />
         <meta name="twitter:creator" content="@HiptoroNews" />
+        <meta name="twitter:title" content={post.title.rendered} />
+        <meta name="twitter:description" content={post.excerpt.rendered} />
+
+        <meta property="article:author" content={post.author.facebook} />
 
         <meta name="twitter:image" content={post.featuredImg.large} />
         <meta name="twitter:label1" content="Written by" />

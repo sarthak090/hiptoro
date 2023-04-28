@@ -1,6 +1,6 @@
 import decodeHTMLEntities from "@/utils/htmlDecoder";
 
-import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 import Link from "next/link";
 import MetaBox from "./MetaBox";
 export default function PostGrid(props: any) {
@@ -14,11 +14,14 @@ export default function PostGrid(props: any) {
           itemType="https://schema.org/Article"
         >
           <div className="flex  justify-center lg:justify-start">
-            {post.base64 && post.featuredImg.medium ? (
+            {post.base64 &&
+            post.featuredImg.medium &&
+            post.featuredImg.id &&
+            post.featuredImg.id.length > 0 ? (
               <>
-                <CldImage
+                <Image
                   alt={post.title.rendered}
-                  src={post.featuredImg.id}
+                  src={post.featuredImg.medium}
                   width={500}
                   height={500}
                   quality={40}
@@ -31,9 +34,9 @@ export default function PostGrid(props: any) {
                 />
               </>
             ) : (
-              <CldImage
+              <Image
                 alt={post.title.rendered}
-                src={post.featuredImg.id}
+                src={post.featuredImg.medium}
                 width={500}
                 height={500}
                 loading="lazy"

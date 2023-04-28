@@ -3,7 +3,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
 import decodeHTMLEntities from "@/utils/htmlDecoder";
 import MetaBox from "./MetaBox";
-import { CldImage } from "next-cloudinary";
+
+import Image from "next/image";
 
 type Props = {
   posts: any;
@@ -78,11 +79,14 @@ export default function InfinitePostGrid(props: Props) {
               key={post.id}
             >
               <div className="flex  justify-center lg:justify-start">
-                {post.base64 && post.featuredImg.medium ? (
+                {post.base64 &&
+                post.featuredImg.medium &&
+                post.featuredImg.id &&
+                post.featuredImg.id.length ? (
                   <>
-                    <CldImage
+                    <Image
                       alt={post.title.rendered}
-                      src={post.featuredImg.id}
+                      src={post.featuredImg.medium}
                       width={500}
                       height={500}
                       loading="lazy"
@@ -94,9 +98,9 @@ export default function InfinitePostGrid(props: Props) {
                     />
                   </>
                 ) : (
-                  <CldImage
+                  <Image
                     alt={post.title.rendered}
-                    src={post.featuredImg.id}
+                    src={post.featuredImg.medium}
                     width={500}
                     height={500}
                     loading="lazy"

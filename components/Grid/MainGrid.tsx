@@ -1,18 +1,20 @@
 import Link from "next/link";
 import MetaBox from "./MetaBox";
-import { CldImage } from "next-cloudinary";
-import CloudnaryImage from "../UI/image";
+import Image from "next/image";
 
 export default function MainGrid(props: any) {
   const { post } = props;
   return (
     <div className="grid md:grid-cols-2 gap-2 my-6">
       <div className="flex justify-center lg:justify-start">
-        {post.base64 && post.featuredImg.medium ? (
+        {post.base64 &&
+        post.featuredImg.medium &&
+        post.featuredImg.id &&
+        post.featuredImg.id.length > 0 ? (
           <>
-            <CloudnaryImage
+            <Image
               alt={post.title.rendered}
-              src={post.featuredImg.id}
+              src={post.featuredImg.medium}
               width={500}
               height={500}
               loading="eager"
@@ -25,9 +27,9 @@ export default function MainGrid(props: any) {
             />
           </>
         ) : (
-          <CldImage
+          <Image
             alt={post.title.rendered}
-            src={post.featuredImg.id}
+            src={post.featuredImg.medium}
             width={600}
             height={600}
             loading="eager"

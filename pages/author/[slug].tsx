@@ -82,8 +82,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   console.log(`${process.env.NEXT_CUSTOM_WP_API_URL}/authors`);
   return {
     paths,
-    fallback: false,
-    // paths:[{slug:}]
+    fallback: "blocking",
   };
 };
 
@@ -106,6 +105,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
         postsData: postsData.filter((p) => p.featuredImg.id.length > 0),
         error: false,
       },
+      revalidate: 720,
     };
   } else {
     return {

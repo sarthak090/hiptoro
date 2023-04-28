@@ -6,7 +6,8 @@ export default function (post) {
   const nextSeo = {
     openGraph: {
       site_name: "Hiptoro",
-      article: { tags: post.tags.map((t) => t.name) },
+      type: "article",
+      article: { tags: post.tags.map((t) => t.name), author: post.author.name },
     },
 
     twitter: {
@@ -45,8 +46,8 @@ export default function (post) {
   nextSeo.openGraph.images = [
     {
       url: post.featuredImg.original,
-      width: 1200,
-      height: 630,
+      width: 1280,
+      height: 720,
       alt: post.title.rendered,
       secureUrl: post.featuredImg.original,
       type: "image/webp",
@@ -55,7 +56,7 @@ export default function (post) {
   nextSeo.twitter.image = post.featuredImg.original;
   nextSeo.twitter.label1 = "Written by";
   nextSeo.twitter.data1 = post.author.name;
-  console.log(nextSeo);
+
   return nextSeo;
   const newsArticle = data.find((t) => t["@type"] === "NewsArticle");
   const imageObject = data.find((t) => t["@type"] === "ImageObject");
