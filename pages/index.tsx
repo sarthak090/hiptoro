@@ -1,13 +1,11 @@
 import { GetStaticProps } from "next";
 import MainGrid from "@/components/Grid/MainGrid";
 import Pagination from "@/components/Pagination";
-// import PostGrid from "@/components/Grid/PostGrid";
 import CategoriesGrid from "@/components/Grid/CategoriesGrid";
 import { getPlaiceholder } from "plaiceholder";
 import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-// const Pagination = dynamic(() => import("@/components/Pagination"));
 const PostGrid = dynamic(() => import("@/components/Grid/PostGrid"));
 
 export const getStaticProps: GetStaticProps = async () => {

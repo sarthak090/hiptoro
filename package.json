@@ -32,6 +32,7 @@
     "reading-time-estimator": "^1.8.1",
     "rehype-parse": "^8.0.4",
     "rehype-stringify": "^9.0.3",
+    "rss": "^1.2.2",
     "typescript": "5.0.2",
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.2"

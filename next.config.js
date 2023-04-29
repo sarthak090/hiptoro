@@ -29,10 +29,6 @@ const nextConfig = {
         source: "/sitemap.xml",
         destination: "/api/sitemap",
       },
-      {
-        source: "/rss",
-        destination: "/feed",
-      },
 
       {
         source: "/wp-content/:path*",
