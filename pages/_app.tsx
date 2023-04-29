@@ -5,6 +5,7 @@ import "@/styles/tmm.css";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { Roboto, Montserrat, Raleway, Noto_Sans } from "next/font/google";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 import { Analytics } from "@vercel/analytics/react";
 
@@ -50,7 +51,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       {/* <!-- Google tag (gtag.js) --> */}
-      <Script
+      {/* <Script
         async
         strategy="lazyOnload"
         src="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
@@ -63,6 +64,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 gtag('config', 'G-LE5P46J4FY');
             `}
       </Script>
+       */}
+      <GoogleAnalytics trackPageViews strategy="lazyOnload" />
+
       <Script
         async
         strategy="lazyOnload"

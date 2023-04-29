@@ -47,21 +47,9 @@ export default function Details({ post }: any) {
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
         <div className="flex justify-center my-4 ">
-          {post.base64 && post.featuredImg.original ? (
+          {post.base64 && post.featuredImg.original && (
             <Image
               src={post.featuredImg.original}
-              width={1020}
-              height={720}
-              alt={post.title.rendered}
-              blurDataURL={post.base64}
-              placeholder="blur"
-              loading="eager"
-              quality={40}
-              title={post.title.rendered}
-            />
-          ) : (
-            <Image
-              src={post.featuredImg.medium}
               width={1020}
               height={720}
               alt={post.title.rendered}
