@@ -14,6 +14,7 @@ const nextConfig = {
       "img.youtube.com",
       "res.cloudinary.com",
       "secureback.hiptoro.com",
+      "d3tdezlmdlho6n.cloudfront.net",
     ],
     unoptimized: true,
   },
