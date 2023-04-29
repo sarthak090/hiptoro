@@ -8,19 +8,18 @@ export default function MainGrid(props: any) {
     <div className="grid md:grid-cols-2 gap-2 my-6">
       <div className="flex justify-center lg:justify-start">
         {post.base64 &&
-        post.featuredImg.medium &&
+        post.featuredImg.large &&
         post.featuredImg.id &&
         post.featuredImg.id.length > 0 ? (
           <>
             <Image
               alt={post.title.rendered}
-              src={post.featuredImg.medium}
+              src={post.featuredImg.large}
               width={500}
               height={500}
               loading="eager"
               placeholder="blur"
               blurDataURL={post.base64}
-              quality={40}
               sizes="(max-width: 768px) 100vw,
            (max-width: 1200px) 50vw,
            33vw"
@@ -29,7 +28,7 @@ export default function MainGrid(props: any) {
         ) : (
           <Image
             alt={post.title.rendered}
-            src={post.featuredImg.medium}
+            src={post.featuredImg.large}
             width={600}
             height={600}
             loading="eager"
