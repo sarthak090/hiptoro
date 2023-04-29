@@ -7,8 +7,8 @@ export default function SEO(props: any) {
       <Head>
         {post.nextSeoData.videos &&
           post.nextSeoData.videos.length > 0 &&
-          post.nextSeoData.videos.map((v: any) => (
-            <meta property="og:video" content={`${v.url}`} />
+          post.nextSeoData.videos.map((v: any, i: any) => (
+            <meta property="og:video" key={i} content={v.url} />
           ))}
         {post.category.map((cat: any) => (
           <meta property="article:section" content={cat.name} />

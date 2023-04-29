@@ -87,6 +87,7 @@ export default function InfinitePostGrid(props: Props) {
                 post.featuredImg.id.length ? (
                   <>
                     <Image
+                      className="max-h-[500px]"
                       alt={post.title.rendered}
                       src={post.featuredImg.medium}
                       width={500}

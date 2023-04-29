@@ -5,6 +5,8 @@ import { NextSeo } from "next-seo";
 import { getPlaiceholder } from "plaiceholder";
 import dynamic from "next/dynamic";
 import { getRankMathHead } from "@/utils/formatInfitePost";
+import { getCategorySeo } from "@/utils/getCategorySeo";
+import NotFound from "@/components/UI/404";
 const InfinitePostGrid = dynamic(
   () => import("@/components/Grid/InfinitePostGrid")
 );
@@ -40,9 +42,7 @@ function CategoryBySlug(props: any) {
   }
   return (
     <>
-      <p className="text-3xl font-semibold h-screen flex justify-center items-center">
-        <p className="text-center"> No Category Found</p>
-      </p>
+      <NotFound />
     </>
   );
 }
@@ -55,6 +55,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "animation",
     "anime",
     "hiptoro-outliers",
+    "technology",
+    "science",
   ];
   const paths = catPath.map((post) => {
     return {
@@ -81,7 +83,8 @@ export const getStaticProps: GetStaticProps = async (
   try {
     const seoData = await fetch(seoUrl).then((r) => r.json());
     const pageData = await res.json();
-    const _seo = await getRankMathHead("/p/category/" + dynamic);
+
+    const _seo = await getCategorySeo(dynamic);
 
     const formatted = pageData.map(async (post: any) => {
       if (post.featuredImg && post.featuredImg.medium) {
@@ -97,7 +100,7 @@ export const getStaticProps: GetStaticProps = async (
       }
     });
 
-    var latest_posts = [];
+    var latest_posts: any = [];
     await Promise.all(formatted).then((r) => {
       latest_posts.push(...r);
     });
@@ -117,6 +120,7 @@ export const getStaticProps: GetStaticProps = async (
       props: {
         notFound: true,
       },
+      redirect: "/",
       revalidate: 120,
     };
   }
