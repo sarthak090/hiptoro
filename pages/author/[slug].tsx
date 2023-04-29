@@ -88,7 +88,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     };
   });
-  console.log(`${process.env.NEXT_CUSTOM_WP_API_URL}/authors`);
+
   return {
     paths,
     fallback: "blocking",

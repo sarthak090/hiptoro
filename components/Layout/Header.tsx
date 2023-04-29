@@ -39,8 +39,12 @@ export default function Header() {
   }, [router.asPath]);
   return (
     <>
-      <nav className=" w-full top-0 fixed   shadow-2xl  lg:mb-16   lg:py-2 py-2 px-4 font-raleway    lg:px-8  font-semibold   bg-black text-white    ">
-        <div className="max-w-site-full mx-auto flex lg:flex-col justify-between items-center">
+      <nav
+        className={` w-full top-0 fixed ${
+          isVisible ? "block" : "hidden"
+        }  shadow-2xl  lg:mb-16   lg:py-2 py-2 px-4 font-raleway    lg:px-8  font-semibold   bg-black text-white    `}
+      >
+        <div className="max-w-site-full  mx-auto flex lg:flex-col justify-between items-center">
           <div
             className={`flex gap-2  close-icon transition-all delay-150 ${
               isVisible ? "block" : "lg:hidden"
