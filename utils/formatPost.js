@@ -6,7 +6,7 @@ function youtube_parser(url) {
   return match && match[7].length == 11 ? match[7] : false;
 }
 
-function getYtEmbed(embedId) {
+function getYtEmbed(embedId, title) {
   const embedHtml = `
   <div style="width: 100%; max-width: 600px;  margin: 0 auto;">
   <div style="position: relative; padding-bottom: 56.15%; height: 0; overflow: hidden;">
@@ -50,6 +50,8 @@ function getYtEmbed(embedId) {
       src="https://www.youtube.com/embed/${embedId}" 
    
       frameborder="0"
+      title="${title}"
+
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen>
     </iframe>
@@ -105,7 +107,7 @@ export default function formatPost(post) {
   if (isYtEmbed) {
     const embedId = youtube_parser(iframeSrc);
 
-    $("iframe").replaceWith(getYtEmbed(embedId));
+    $("iframe").replaceWith(getYtEmbed(embedId, post.title.rendered));
 
     formattedPost.yt_embedd = iframeSrc;
 

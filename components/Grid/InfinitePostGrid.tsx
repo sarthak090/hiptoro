@@ -74,9 +74,11 @@ export default function InfinitePostGrid(props: Props) {
         {posts
           .filter((p: any) => p.featuredImg.id.length > 0)
           .map((post: any) => (
-            <div
+            <article
               className="lg:border-b-[2px] grid md:grid-cols-2 py-2"
               key={post.id}
+              itemScope
+              itemType="https://schema.org/Article"
             >
               <div className="flex  justify-center lg:justify-start">
                 {post.base64 &&
@@ -131,7 +133,7 @@ export default function InfinitePostGrid(props: Props) {
                 </Link>
                 <MetaBox author={post.author} diff={post.diff} />
               </div>
-            </div>
+            </article>
           ))}
       </InfiniteScroll>
     </section>

@@ -6,4 +6,6 @@
  
     @apply text-[22px] 
 }
- 
+ .infinite-scroll-component__outerdiv {
+    @apply  grid  md:col-span-1 ;
+ }
