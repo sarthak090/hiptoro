@@ -5,7 +5,7 @@ import "@/styles/tmm.css";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { Roboto, Montserrat, Raleway, Noto_Sans } from "next/font/google";
-import dynamic from "next/dynamic";
+
 import { Analytics } from "@vercel/analytics/react";
 
 import Header from "@/components/Layout/Header";
@@ -34,19 +34,9 @@ const raleway = Raleway({
   weight: ["100", "300", "400", "900", "700"],
 });
 
-// const Footer = dynamic(() => import("../components/Layout/Footer"));
-import "nprogress/nprogress.css";
-
-const TopProgressBar = dynamic(
-  () => {
-    return import("../components/TopProgressBar");
-  },
-  { ssr: false }
-);
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <TopProgressBar />
       <Head>
         <meta
           httpEquiv="Content-Security-Policy"

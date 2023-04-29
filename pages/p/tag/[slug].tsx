@@ -3,12 +3,20 @@
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from "next";
 import PostGrid from "@/components/Grid/PostGrid";
 import { NextSeo } from "next-seo";
+import { getRankMathHead } from "@/utils/formatInfitePost";
+import Head from "next/head";
 
 export const PostsByTag = (props: any) => {
-  const { postsData, error } = props;
+  const { postsData, seo } = props;
 
   return (
     <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: props.seo.schema }}
+        />
+      </Head>
       <NextSeo nofollow noindex />
       <section className="grid md:grid-cols-12">
         <div className="md:col-span-12">
@@ -42,7 +50,6 @@ export const getStaticProps: GetStaticProps = async (
   ctx: GetStaticPropsContext
 ) => {
   const slug = ctx.params !== undefined ? ctx.params.slug : "404";
-
   const res = await fetch(
     `${process.env.NEXT_CUSTOM_WP_API_URL}/tags/${slug}`
   ).then();
@@ -50,9 +57,12 @@ export const getStaticProps: GetStaticProps = async (
   const postsData = await res.json();
 
   if (postsData.length > 0) {
+    const seo = await getRankMathHead(`/tags/${slug}`);
+
     return {
       props: {
         postsData: postsData,
+        seo,
         error: false,
       },
     };

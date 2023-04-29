@@ -4,17 +4,18 @@ import SEO from "@/components/Category/SEO";
 import { NextSeo } from "next-seo";
 import { getPlaiceholder } from "plaiceholder";
 import dynamic from "next/dynamic";
+import { getRankMathHead } from "@/utils/formatInfitePost";
 const InfinitePostGrid = dynamic(
   () => import("@/components/Grid/InfinitePostGrid")
 );
 function CategoryBySlug(props: any) {
-  const { pageData, seoData, slug: categroySlug } = props;
+  const { pageData, seoData, slug: categroySlug, rankMathSeo } = props;
   if (pageData && pageData.length > 0) {
     const data = seoData[0];
 
     return (
       <>
-        <SEO data={seoData[0]} />
+        <SEO data={{ ...seoData[0], ...rankMathSeo }} />
         <NextSeo
           title={data.name}
           openGraph={{ title: data.name, description: data.description }}
@@ -76,9 +77,12 @@ export const getStaticProps: GetStaticProps = async (
     `${process.env.NEXT_CUSTOM_WP_API_URL}/category/${dynamic}`
   ).then();
   const seoUrl = process.env.NEXT_WP_API_URL + `/categories?slug=${dynamic}`;
+
   try {
     const seoData = await fetch(seoUrl).then((r) => r.json());
     const pageData = await res.json();
+    const _seo = await getRankMathHead("/p/category/" + dynamic);
+
     const formatted = pageData.map(async (post: any) => {
       if (post.featuredImg && post.featuredImg.medium) {
         const { base64, img } = await getPlaiceholder(post.featuredImg.medium);
@@ -102,6 +106,7 @@ export const getStaticProps: GetStaticProps = async (
         pageData: latest_posts,
         seoData,
         slug: dynamic,
+        rankMathSeo: _seo,
         error: false,
       },
       revalidate: 120,

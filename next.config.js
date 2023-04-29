@@ -30,6 +30,11 @@ const nextConfig = {
         destination: "/api/sitemap",
       },
       {
+        source: "/rss",
+        destination: "/feed",
+      },
+
+      {
         source: "/wp-content/:path*",
         destination: "https://secureback.hiptoro.com/wp-content/:path*",
       },

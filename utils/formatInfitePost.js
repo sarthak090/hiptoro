@@ -20,7 +20,7 @@ export default function (posts) {
       async (t) => await getTweetHtml(t)
     );
     const html = await Promise.all(htmlTweets).then((r) => r);
-    const rankmath = await getRankMathHead(post.slug);
+    const rankmath = await getRankMathHead("/p/" + post.slug);
     p._meta = rankmath;
     const tweetHtml = html.filter((t) => t !== undefined);
     const formattedHtmlWithTweet = await tweetFormatter(postTosend, tweetHtml);
@@ -36,9 +36,9 @@ async function getTweetHtml(url) {
   return tweet.html;
 }
 
-async function getRankMathHead(slug) {
+export async function getRankMathHead(slug) {
   const CMS_URL = process.env.CMS_URL;
-  const url = `${CMS_URL}/wp-json/rankmath/v1/getHead?url=${CMS_URL}/p/${slug}`;
+  const url = `${CMS_URL}/wp-json/rankmath/v1/getHead?url=${CMS_URL}${slug}`;
   const rankMathDaata = await fetch(url).then((r) => r.json());
   if (rankMathDaata.success) {
     const $ = cheerio.load(rankMathDaata.head.replaceAll("\n"), null, false);

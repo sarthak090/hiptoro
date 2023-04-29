@@ -7,7 +7,7 @@ export default function SEO(props: any) {
   return (
     <Head>
       <NextSeo
-        title={"data.name"}
+        title={data.name}
         openGraph={{ title: data.name, description: data.description }}
         description={data.description}
         canonical={`${process.env.NEXT_PUBLIC_DOMAIN}/p/category/${data.slug}`}
@@ -27,6 +27,10 @@ export default function SEO(props: any) {
       <meta name="twitter:site" content="@HiptoroNews" />
       <meta name="twitter:label1" content="Posts" />
       <meta name="twitter:data1" content={data.count} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: data.schema }}
+      />
     </Head>
   );
 }

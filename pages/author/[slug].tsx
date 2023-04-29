@@ -3,15 +3,23 @@ import AuthorBox from "@/components/Post/AuthorBox";
 import NotFound from "@/components/UI/404";
 
 import { GetStaticProps, GetStaticPaths } from "next";
-import { NextSeo } from "next-seo";
+import { NewsArticleJsonLd, NextSeo } from "next-seo";
 import Image from "next/image";
+import Head from "next/head";
 
 export const PostsByAuthor = (props: any) => {
   const { postsData, error } = props;
   if (postsData !== null) {
     return (
       <>
+        <Head>
+          <meta name="twitter:label1" content="Name" />
+          <meta name="twitter:data1" content={postsData[0].author.name} />
+          <meta name="twitter:label2" content="Posts" />
+          <meta name="twitter:data2" content="1668" />
+        </Head>
         <NextSeo
+          noindex
           title={postsData[0].author.name + " "}
           description={postsData[0].author.description}
           openGraph={{
@@ -27,6 +35,7 @@ export const PostsByAuthor = (props: any) => {
               }`,
           }}
         />
+
         <div>
           <div
             className="my-4
