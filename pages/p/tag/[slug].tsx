@@ -5,24 +5,33 @@ import PostGrid from "@/components/Grid/PostGrid";
 import { NextSeo } from "next-seo";
 import { getRankMathHead } from "@/utils/formatInfitePost";
 import Head from "next/head";
+import NotFound from "@/components/UI/404";
 
 export const PostsByTag = (props: any) => {
   const { postsData, seo } = props;
-
+  if (postsData.length > 0) {
+    return (
+      <>
+        {seo && (
+          <Head>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: seo.schema }}
+            />
+          </Head>
+        )}
+        <NextSeo nofollow noindex />
+        <section className="grid md:grid-cols-12">
+          <div className="md:col-span-12">
+            <PostGrid posts={postsData} />
+          </div>
+        </section>
+      </>
+    );
+  }
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: props.seo.schema }}
-        />
-      </Head>
-      <NextSeo nofollow noindex />
-      <section className="grid md:grid-cols-12">
-        <div className="md:col-span-12">
-          <PostGrid posts={postsData} />
-        </div>
-      </section>
+      <NotFound />
     </>
   );
 };
@@ -58,7 +67,6 @@ export const getStaticProps: GetStaticProps = async (
 
   if (postsData.length > 0) {
     const seo = await getRankMathHead(`/tags/${slug}`);
-
     return {
       props: {
         postsData: postsData,
