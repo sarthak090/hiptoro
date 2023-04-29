@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async (
   ctx: GetStaticPropsContext
 ) => {
   const dynamic = ctx.params !== undefined ? ctx.params.dynamic : "404";
-  console.log({ slug: ctx.params.dynamic });
+
   const res = await fetch(
     `${process.env.NEXT_CUSTOM_WP_API_URL}/category/${dynamic}`
   ).then();

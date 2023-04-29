@@ -1,7 +1,7 @@
 import Head from "next/head";
-
 export default function SEO(props: any) {
   const { post } = props;
+
   return (
     <>
       <Head>
@@ -27,6 +27,10 @@ export default function SEO(props: any) {
         <meta name="twitter:data1" content={post.author.name} />
         <meta name="twitter:label2" content="Time to read" />
         <meta name="twitter:data2" content={post.timeToRead + " minutes"} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: post._meta.schema }}
+        />
       </Head>
     </>
   );

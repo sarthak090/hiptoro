@@ -2,6 +2,7 @@ import { readingTime } from "reading-time-estimator";
 import formatPost from "./formatPost";
 import tweetFormatter from "./tweetFormatter";
 import genToc from "./genToc";
+import * as cheerio from "cheerio";
 export default function (posts) {
   let fomattedPosts = JSON.parse(JSON.stringify(posts));
 
@@ -19,6 +20,8 @@ export default function (posts) {
       async (t) => await getTweetHtml(t)
     );
     const html = await Promise.all(htmlTweets).then((r) => r);
+    const rankmath = await getRankMathHead(post.slug);
+    p._meta = rankmath;
     const tweetHtml = html.filter((t) => t !== undefined);
     const formattedHtmlWithTweet = await tweetFormatter(postTosend, tweetHtml);
     return formattedHtmlWithTweet;
@@ -31,4 +34,23 @@ async function getTweetHtml(url) {
     `https://www.tweetic.io/api/tweet?url=${url}&css=tailwind&show_media=true`
   ).then((r) => r.json());
   return tweet.html;
+}
+
+async function getRankMathHead(slug) {
+  const CMS_URL = process.env.CMS_URL;
+  const url = `${CMS_URL}/wp-json/rankmath/v1/getHead?url=${CMS_URL}/p/${slug}`;
+  const rankMathDaata = await fetch(url).then((r) => r.json());
+  if (rankMathDaata.success) {
+    const $ = cheerio.load(rankMathDaata.head.replaceAll("\n"), null, false);
+
+    return {
+      head: rankMathDaata.head.split("\n"),
+      schema: $("script")
+        .text()
+        .replaceAll(/\\/g, "")
+        .replaceAll("secureback.hiptoro.com", "www.hiptoro.com"),
+    };
+  } else {
+    return "";
+  }
 }

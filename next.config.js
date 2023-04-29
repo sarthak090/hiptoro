@@ -15,6 +15,7 @@ const nextConfig = {
       "res.cloudinary.com",
       "secureback.hiptoro.com",
     ],
+    unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: true,
@@ -27,6 +28,10 @@ const nextConfig = {
       {
         source: "/sitemap.xml",
         destination: "/api/sitemap",
+      },
+      {
+        source: "/wp-content/:path*",
+        destination: "https://secureback.hiptoro.com/wp-content/:path*",
       },
     ];
   },
