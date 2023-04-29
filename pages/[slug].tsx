@@ -1,3 +1,4 @@
+import NotFound from "@/components/UI/404";
 import WPHTMLContent from "@/components/WPHTMLContent";
 import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
@@ -60,7 +61,11 @@ export default function Single({ pageData, seo }: any) {
       </>
     );
   }
-  return <div>No Data Found</div>;
+  return (
+    <div>
+      <NotFound />
+    </div>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async ({
