@@ -16,6 +16,7 @@ const nextConfig = {
       "secureback.hiptoro.com",
       "d3tdezlmdlho6n.cloudfront.net",
       "d157oz2k2je2ba.cloudfront.net",
+      "static.hiptoro.com",
     ],
     unoptimized: true,
   },
