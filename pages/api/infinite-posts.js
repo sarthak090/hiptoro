@@ -1,12 +1,17 @@
 import formatInfitePost from "../../utils/formatInfitePost";
 const memo = [];
+
 export default async function handler(req, res) {
   const id = req.query.postid;
   if (memo[id] != null) {
     console.log("CACHE IS SERVED", id);
+    res.setHeader("Cache-Control", "s-maxage=600, stale-while-revalidate=30"); // set caching header
+
     return res.status(200).json(memo[id]);
   } else {
     const data = await getMorePost(req.query.postid);
+    res.setHeader("Cache-Control", "s-maxage=600, stale-while-revalidate=30"); // set caching header
+
     res.status(200).json(data);
     memo[id] = data;
     return;
