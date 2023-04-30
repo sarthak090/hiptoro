@@ -103,7 +103,7 @@ export default function formatPost(post) {
     formattedPost.twitter_embed = false;
     formattedPost.twitter_html = test;
   }
-
+  // console.log($("img")[0].attribs.src);
   if (isYtEmbed) {
     const embedId = youtube_parser(iframeSrc);
 
