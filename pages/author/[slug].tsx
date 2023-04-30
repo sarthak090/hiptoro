@@ -55,7 +55,11 @@ export const PostsByAuthor = (props: any) => {
               {postsData[0].author.name}
             </h1>
             <p className="text-center text-xs md:text-[16px] leading-5 md:leading-7">
-              {postsData[0].author.description}
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: postsData[0].author.description,
+                }}
+              />
             </p>
           </div>
         </div>
