@@ -7,6 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Details from "@/components/Post/Details";
 import Loading from "@/components/UI/Loading";
 import NotFound from "@/components/UI/404";
+import Script from "next/script";
 
 export default function SinglePost(props: any) {
   const { post } = props;
@@ -30,6 +31,25 @@ export default function SinglePost(props: any) {
 
     return (
       <>
+        <Script
+          async={true}
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
+          crossOrigin="anonymous"
+          onError={(e) => {
+            console.error("Script failed to load", e);
+          }}
+          strategy="beforeInteractive"
+        />
+        {/* <!-- Adsense New --> */}
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-7099984888351146"
+          data-ad-slot="5392495815"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <Script>{` (adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
         <InfiniteScroll
           dataLength={8}
           next={getMorePost}
