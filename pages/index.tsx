@@ -6,9 +6,11 @@ import { getPlaiceholder } from "plaiceholder";
 import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import generateRSSFeed from "../utils/generateRSSFeed";
 const PostGrid = dynamic(() => import("@/components/Grid/PostGrid"));
 
 export const getStaticProps: GetStaticProps = async () => {
+  await generateRSSFeed();
   const url = process.env.NEXT_CUSTOM_WP_API_URL + `/home`;
   const homePage = await fetch(url).then((r) => r.json());
   let idsRendered: any = [];

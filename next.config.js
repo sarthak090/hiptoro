@@ -32,7 +32,14 @@ const nextConfig = {
         source: "/sitemap.xml",
         destination: "/api/sitemap",
       },
-
+      {
+        source: "/rss",
+        destination: "/rss.xml",
+      },
+      {
+        source: "/feed",
+        destination: "/rss.xml",
+      },
       {
         source: "/wp-content/:path*",
         destination: "https://secureback.hiptoro.com/wp-content/:path*",

@@ -20,7 +20,8 @@ export default function SinglePost(props: any) {
       const res = await fetch(url);
       const newPosts = await res.json();
       if (newPosts.length > 0) {
-        setPosts((post: any) => [...post, ...newPosts]);
+        const excludedPosts = newPosts.filter((p: any) => p.id !== post.id);
+        setPosts((post: any) => [...post, ...excludedPosts]);
         setHasMore(false);
       } else {
         setHasMore(false);
