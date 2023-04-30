@@ -48,7 +48,7 @@ export async function getRankMathHead(slug) {
       head: rankMathDaata.head.split("\n"),
       schema: $("script")
         .text()
-        .replaceAll(/\\/g, "")
+
         .replaceAll("secureback.hiptoro.com", "www.hiptoro.com"),
     };
   } else {

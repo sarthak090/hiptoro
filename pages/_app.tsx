@@ -47,6 +47,12 @@ export default function App({ Component, pageProps }: AppProps) {
           name="twitter:image"
           content="https://cms.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png"
         />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Hiptoro &raquo; Feed"
+          href="https://www.hiptoro.com/feed/"
+        />
       </Head>
 
       {/* <!-- Google tag (gtag.js) --> */}
