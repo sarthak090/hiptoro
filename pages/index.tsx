@@ -91,7 +91,7 @@ export default function Home(props: any) {
       <MainGrid post={latest_posts[0]} />
       <NextSeo titleTemplate="%s - Buzzworthy Entertainment, Anime, Sports, and Pop Culture" />
       <CategoriesGrid isHeader posts={postsByCategory} />
-      <section className="grid md:grid-cols-12">
+      <section className="grid md:grid-cols-12 overflow-hidden">
         <div className="md:col-span-12">
           <PostGrid posts={latest_posts.slice(1, latest_posts.length)} />
         </div>
