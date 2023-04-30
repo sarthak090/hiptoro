@@ -17,7 +17,7 @@ export default function SinglePost(props: any) {
   const [hasMore, setHasMore] = useState(true);
   if (post !== null) {
     const getMorePost = async () => {
-      const url = `/api/infinite-posts?postid=${post.id}`;
+      const url = `/api/infinite-posts?postid=${post.id}&start=${posts.length}&limit=1`;
 
       const res = await fetch(url);
       const newPosts = await res.json();
