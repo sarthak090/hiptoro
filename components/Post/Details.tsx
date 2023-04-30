@@ -7,6 +7,7 @@ import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import Image from "next/image";
+import AutoAds from "../Ads/AutoAds";
 
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
 const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
@@ -39,6 +40,7 @@ export default function Details({ post }: any) {
             />
           </>
         )}
+        <AutoAds />
 
         <CategoryBox category={post.category} />
 

@@ -31,8 +31,7 @@ export default function SinglePost(props: any) {
     };
 
     return (
-      <>
-        <AutoAds />
+      <div className="container mx-auto max-w-site-full">
         <InfiniteScroll
           dataLength={8}
           next={getMorePost}
@@ -46,7 +45,7 @@ export default function SinglePost(props: any) {
             </div>
           ))}
         </InfiniteScroll>
-      </>
+      </div>
     );
   } else {
     return <NotFound />;
