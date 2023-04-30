@@ -43,9 +43,12 @@ export default function Details({ post }: any) {
         <CategoryBox category={post.category} />
 
         <h1
-          className="text-24px lg:text-[44px] text-center my-3 font-montserrat font-bold"
-          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+          className="text-24px lg:text-[44px]   text-center my-3 font-montserrat font-bold"
+          dangerouslySetInnerHTML={{
+            __html: post.title.rendered.toString(),
+          }}
         />
+
         <div className="flex justify-center my-4 ">
           {post.base64 && post.featuredImg.original && (
             <Image

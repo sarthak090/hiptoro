@@ -70,20 +70,18 @@ export default function App({ Component, pageProps }: AppProps) {
             `}
       </Script>
       <Script
-        async
-        strategy="lazyOnload"
+        strategy="beforeInteractive"
+        async={true}
+        onError={(e) => {
+          console.error("Script failed to load", e);
+        }}
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
         crossOrigin="anonymous"
       />
+
       <Script strategy="lazyOnload">
         {`!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);`}
       </Script>
-      <Script
-        async
-        strategy="lazyOnload"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
-        crossOrigin="anonymous"
-      />
 
       {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE START---> */}
 

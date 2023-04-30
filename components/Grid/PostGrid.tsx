@@ -15,13 +15,13 @@ export default function PostGrid(props: any) {
         >
           <div className="flex  justify-center lg:justify-start">
             {post.base64 &&
-            post.featuredImg.medium &&
+            post.featuredImg.large &&
             post.featuredImg.id &&
             post.featuredImg.id.length > 0 ? (
               <>
                 <Image
                   alt={post.title.rendered}
-                  src={post.featuredImg.medium}
+                  src={post.featuredImg.large}
                   width={500}
                   height={500}
                   quality={40}
