@@ -39,7 +39,7 @@ export default function Page(props: any) {
 }
 export const getStaticPaths = async () => {
   return {
-    paths: Array.from({ length: 50 }).map((_, i) => `/page/${i + 2}`),
+    paths: Array.from({ length: 10 }).map((_, i) => `/page/${i + 2}`),
     fallback: "blocking",
   };
 };
