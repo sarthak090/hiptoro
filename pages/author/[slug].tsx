@@ -114,7 +114,6 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
         postsData: postsData.filter((p) => p.featuredImg.id.length > 0),
         error: false,
       },
-      revalidate: 720,
     };
   } else {
     return {
