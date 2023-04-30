@@ -112,7 +112,6 @@ export const getStaticProps: GetStaticProps = async (
         rankMathSeo: _seo,
         error: false,
       },
-      revalidate: 120,
     };
   } catch (err) {
     console.log(err);
@@ -120,8 +119,6 @@ export const getStaticProps: GetStaticProps = async (
       props: {
         notFound: true,
       },
-      redirect: "/",
-      revalidate: 120,
     };
   }
 };
