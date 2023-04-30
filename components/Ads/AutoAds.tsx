@@ -3,7 +3,7 @@ import Script from "next/script";
 export default function AutoAds() {
   return (
     <>
-      <div className="mt-16"></div>
+      <div className="mt-8"></div>
       <br />
       <Script
         async={true}

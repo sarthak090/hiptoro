@@ -80,6 +80,23 @@ function releatedPost(related_posts) {
     </div>
     `;
 }
+
+function autoAds() {
+  return `
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
+     crossorigin="anonymous"></script>
+<!-- Adsense New -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7099984888351146"
+     data-ad-slot="5392495815"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  `;
+}
 export default function formatPost(post) {
   let formattedPost = post;
 
@@ -103,7 +120,7 @@ export default function formatPost(post) {
     formattedPost.twitter_embed = false;
     formattedPost.twitter_html = test;
   }
-  // console.log($("img")[0].attribs.src);
+  console.log($("img")[0].attribs.src);
   if (isYtEmbed) {
     const embedId = youtube_parser(iframeSrc);
 
