@@ -123,7 +123,11 @@ export default function formatPost(post) {
 
   $("p").each((i, p) => {
     if (i % 2 === 0) {
-      $(p).append($(`<div class="google-auto-ads my-8">${autoAds()}</div>`));
+      $(p).append(
+        $(
+          `<div class="google-auto-ads flex justify-center items-center my-8">${autoAds()}</div>`
+        )
+      );
     }
   });
 
