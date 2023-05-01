@@ -6,7 +6,7 @@ export default async function generateRssFeed() {
     r.text()
   );
   const format = c.replaceAll(`secureback.hiptoro.com`, "www.hiptoro.com");
-  generatePostForInfiniteScroll();
+  await generatePostForInfiniteScroll();
   fs.writeFileSync("./public/rss.xml", format);
 }
 const generatePostForInfiniteScroll = async () => {
