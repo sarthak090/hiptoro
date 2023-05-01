@@ -5,7 +5,6 @@ import PostMeta from "@/components/Post/PostMeta";
 import WPHTMLContent from "@/components/WPHTMLContent";
 import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
-import Script from "next/script";
 import Image from "next/image";
 import AutoAds from "../Ads/AutoAds";
 
