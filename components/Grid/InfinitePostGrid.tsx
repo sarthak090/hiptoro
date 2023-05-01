@@ -82,14 +82,14 @@ export default function InfinitePostGrid(props: Props) {
             >
               <div className="flex  justify-center lg:justify-start">
                 {post.base64 &&
-                post.featuredImg.medium &&
+                post.featuredImg.large &&
                 post.featuredImg.id &&
                 post.featuredImg.id.length ? (
                   <>
                     <Image
                       className="max-h-[500px]"
                       alt={post.title.rendered}
-                      src={post.featuredImg.medium}
+                      src={post.featuredImg.large}
                       width={500}
                       height={500}
                       loading="lazy"
@@ -103,7 +103,11 @@ export default function InfinitePostGrid(props: Props) {
                 ) : (
                   <Image
                     alt={post.title.rendered}
-                    src={post.featuredImg.medium}
+                    src={
+                      post.featuredImg.large
+                        ? post.featuredImg.large
+                        : post.featuredImg.medium
+                    }
                     width={500}
                     height={500}
                     loading="lazy"

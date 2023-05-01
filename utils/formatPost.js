@@ -120,7 +120,12 @@ export default function formatPost(post) {
     formattedPost.twitter_embed = false;
     formattedPost.twitter_html = test;
   }
-  // console.log($("img")[0].);
+  $("p").each((i, p) => {
+    if (i % 2 === 0) {
+      $(p).append(`<div class="google-auto-ads my-8">${autoAds()}</div>`);
+    }
+  });
+
   if (isYtEmbed) {
     const embedId = youtube_parser(iframeSrc);
 
