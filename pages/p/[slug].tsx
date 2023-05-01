@@ -11,28 +11,30 @@ import NotFound from "@/components/UI/404";
 export default function SinglePost(props: any) {
   const { post } = props;
 
-  const [posts, setPosts] = useState([props.post]);
-  const [hasMore, setHasMore] = useState(true);
+  // const [posts, setPosts] = useState([props.post]);
+  // const [hasMore, setHasMore] = useState(true);
   if (post !== null) {
-    const getMorePost = async () => {
-      const url = `/infinite-posts.json`;
+    // const getMorePost = async () => {
+    //   const url = `/infinite-posts.json`;
 
-      const res = await fetch(url);
-      const newPosts = await res.json();
-      if (newPosts.length > 0) {
-        const excludedPosts = newPosts.filter((p: any) => p.id !== post.id);
+    //   const res = await fetch(url);
+    //   const newPosts = await res.json();
+    //   if (newPosts.length > 0) {
+    //     const excludedPosts = newPosts.filter((p: any) => p.id !== post.id);
 
-        setPosts((post: any) => [...post, ...excludedPosts]);
+    //     setPosts((post: any) => [...post, ...excludedPosts]);
 
-        setHasMore(false);
-      } else {
-        setHasMore(false);
-      }
-    };
+    //     setHasMore(false);
+    //   } else {
+    //     setHasMore(false);
+    //   }
+    // };
 
     return (
       <div className="container mx-auto max-w-site-full">
-        <InfiniteScroll
+        <Details post={post} />
+
+        {/* <InfiniteScroll
           dataLength={4}
           next={getMorePost}
           hasMore={hasMore}
@@ -43,10 +45,9 @@ export default function SinglePost(props: any) {
         >
           {posts.map((p) => (
             <div key={p.id}>
-              <Details post={p} />
             </div>
           ))}
-        </InfiniteScroll>
+        </InfiniteScroll> */}
       </div>
     );
   } else {
