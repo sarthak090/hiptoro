@@ -23,7 +23,6 @@ export default function AutoAds() {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
-      <Script>{` (adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
     </>
   );
 }

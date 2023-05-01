@@ -70,15 +70,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 gtag('config', 'G-LE5P46J4FY');
             `}
       </Script>
-      <Script
-        strategy="beforeInteractive"
-        async={true}
-        onError={(e) => {
-          console.error("Script failed to load", e);
-        }}
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
-        crossOrigin="anonymous"
-      />
 
       {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE START---> */}
 
