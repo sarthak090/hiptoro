@@ -67,9 +67,8 @@ const itemFormatter = (item) => {
       .map((cat) => `  <category><![CDATA[${cat.name}]]></category>`)
       .join("")}
       <guid isPermaLink="false">${item.id}</guid>
- 
       <description></description>
-  <enclosure url="${item.featuredImg.large}" type="image/webp"/>
+      <enclosure url="${item.featuredImg.large}" type="image/webp"/>
 		
 		
 			</item>
