@@ -120,9 +120,10 @@ export default function formatPost(post) {
     formattedPost.twitter_embed = false;
     formattedPost.twitter_html = test;
   }
+
   $("p").each((i, p) => {
     if (i % 2 === 0) {
-      $(p).append(`<div class="google-auto-ads my-8">${autoAds()}</div>`);
+      $(p).append($(`<div class="google-auto-ads my-8">${autoAds()}</div>`));
     }
   });
 
@@ -132,14 +133,13 @@ export default function formatPost(post) {
     $("iframe").replaceWith(getYtEmbed(embedId, post.title.rendered));
 
     formattedPost.yt_embedd = iframeSrc;
-
-    formattedPost.content.rendered = $.html()
-      .replaceAll(`secureback.hiptoro.com`, `www.hiptoro.com`)
-      .replaceAll(
-        "https://www.hiptoro.com/wp-content/uploads/",
-        "https://secureback.hiptoro.com/wp-content/uploads/"
-      );
   }
+  formattedPost.content.rendered = $.html()
+    .replaceAll(`secureback.hiptoro.com`, `www.hiptoro.com`)
+    .replaceAll(
+      "https://www.hiptoro.com/wp-content/uploads/",
+      "https://secureback.hiptoro.com/wp-content/uploads/"
+    );
 
   formattedPost.author = {
     ...post.author,
