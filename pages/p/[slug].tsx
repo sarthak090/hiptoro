@@ -8,8 +8,6 @@ import Details from "@/components/Post/Details";
 import Loading from "@/components/UI/Loading";
 import NotFound from "@/components/UI/404";
 
-import AutoAds from "@/components/Ads/AutoAds";
-
 export default function SinglePost(props: any) {
   const { post } = props;
 
@@ -17,13 +15,15 @@ export default function SinglePost(props: any) {
   const [hasMore, setHasMore] = useState(true);
   if (post !== null) {
     const getMorePost = async () => {
-      const url = `/api/infinite-posts?postid=${post.id}&start=${posts.length}&limit=1`;
+      const url = `/api/infinite-posts-edge`;
 
       const res = await fetch(url);
       const newPosts = await res.json();
       if (newPosts.length > 0) {
         const excludedPosts = newPosts.filter((p: any) => p.id !== post.id);
+
         setPosts((post: any) => [...post, ...excludedPosts]);
+
         setHasMore(false);
       } else {
         setHasMore(false);
@@ -33,11 +33,13 @@ export default function SinglePost(props: any) {
     return (
       <div className="container mx-auto max-w-site-full">
         <InfiniteScroll
-          dataLength={8}
+          dataLength={3}
           next={getMorePost}
           hasMore={hasMore}
           loader={<Loading />}
-          endMessage={<h4>Nothing more to show</h4>}
+          endMessage={
+            <h4 className="text-center my-8">Nothing more to show</h4>
+          }
         >
           {posts.map((p) => (
             <div key={p.id}>

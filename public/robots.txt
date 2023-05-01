@@ -8,3 +8,4 @@ Disallow: /api/
 User-agent: Googlebot-News
 Disallow: /p/tag/*
 Disallow: /page/*
+Disallow: /author/*
