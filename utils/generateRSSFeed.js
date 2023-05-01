@@ -68,7 +68,7 @@ const itemFormatter = (item) => {
       .join("")}
       <guid isPermaLink="false">${item.id}</guid>
       <description></description>
-      <enclosure url="${item.featuredImg.large}" type="image/webp"/>
+      <enclosure url="${item.featuredImg.original}" type="image/webp"/>
 		
 		
 			</item>
