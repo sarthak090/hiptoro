@@ -73,6 +73,7 @@ export const getStaticProps: GetStaticProps = async (
         seo,
         error: false,
       },
+      revalidate: 60,
     };
   } else {
     return {

@@ -4,7 +4,6 @@ import tweetFormatter from "./tweetFormatter";
 import genToc from "./genToc";
 import * as cheerio from "cheerio";
 export default function (posts) {
-  console.log(posts[0].id);
   let fomattedPosts = JSON.parse(JSON.stringify(posts));
 
   fomattedPosts = fomattedPosts.map(async (post) => {
@@ -40,7 +39,7 @@ async function getTweetHtml(url) {
 export async function getRankMathHead(slug) {
   const CMS_URL = process.env.CMS_URL;
   const url = `${CMS_URL}/wp-json/rankmath/v1/getHead?url=${CMS_URL}${slug}`;
-  console.log({ slug });
+
   const rankMathDaata = await fetch(url).then((r) => r.json());
   if (rankMathDaata.success) {
     const $ = cheerio.load(rankMathDaata.head.replaceAll("\n"), null, false);

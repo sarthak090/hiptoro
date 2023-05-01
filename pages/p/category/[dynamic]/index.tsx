@@ -112,6 +112,7 @@ export const getStaticProps: GetStaticProps = async (
         rankMathSeo: _seo,
         error: false,
       },
+      revalidate: 60,
     };
   } catch (err) {
     console.log(err);
