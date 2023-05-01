@@ -69,10 +69,8 @@ const itemFormatter = (item) => {
       <guid isPermaLink="false">${item.id}</guid>
  
       <content:encoded>
-      <![CDATA[<img src="${item.featuredImg.thumbnail}" /> <div>${
-    item.content.rendered
-  }<div>]]></content:encoded>
-					
+      <![CDATA[]]></content:encoded>
+  <enclosure url="${item.featuredImg.large}" type="image/webp"/>
 		
 		
 			</item>
