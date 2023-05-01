@@ -15,16 +15,18 @@ export default function SinglePost(props: any) {
   const [hasMore, setHasMore] = useState(true);
   if (post !== null) {
     const getMorePost = async () => {
-      const url = `/api/infinite-posts-edge`;
+      const url = `/api/infinite-posts?postid=${post.id}&start=${posts.length}&limit=1`;
 
       const res = await fetch(url);
       const newPosts = await res.json();
       if (newPosts.length > 0) {
-        const excludedPosts = newPosts.filter((p: any) => p.id !== post.id);
-
+        const excludedPosts = newPosts
+          .filter((p: any) => p.id !== post.id)
+          .slice(0, posts.length + 1);
         setPosts((post: any) => [...post, ...excludedPosts]);
-
-        setHasMore(false);
+        if (posts.length === 7) {
+          setHasMore(false);
+        }
       } else {
         setHasMore(false);
       }
@@ -33,13 +35,11 @@ export default function SinglePost(props: any) {
     return (
       <div className="container mx-auto max-w-site-full">
         <InfiniteScroll
-          dataLength={3}
+          dataLength={8}
           next={getMorePost}
           hasMore={hasMore}
           loader={<Loading />}
-          endMessage={
-            <h4 className="text-center my-8">Nothing more to show</h4>
-          }
+          endMessage={<h4>Nothing more to show</h4>}
         >
           {posts.map((p) => (
             <div key={p.id}>
