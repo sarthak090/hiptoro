@@ -156,7 +156,7 @@ export default function Header() {
                                   <>
                                     <Link
                                       key={Math.random()}
-                                      className="hover:text-white hover:bg-navHover p-2 px-7    "
+                                      className="hover:text-white   hover:bg-navHover p-2 px-7    "
                                       href={l.href}
                                     >
                                       {l.label}

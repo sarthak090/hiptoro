@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function CategoryBox(props: any) {
   const { category } = props;
   return (
-    <div className="flex gap-3 my-6 justify-center">
+    <div className="flex flex-wrap gap-3 my-6 justify-center">
       {category &&
         category.map((cat: any) => (
           <div

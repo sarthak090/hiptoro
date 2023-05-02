@@ -24,6 +24,7 @@ export default function AuthorBox(props: Props) {
               src={author.gravatar}
               width={100}
               height={100}
+              className="rounded-full"
               alt={author.name}
               loading="lazy"
             />
@@ -41,7 +42,7 @@ export default function AuthorBox(props: Props) {
               </Link>
             </p>
             <p
-              className="text-xs md:text-md font-montserrat"
+              className="text-[16px] md:text-md font-montserrat"
               dangerouslySetInnerHTML={{ __html: author.description }}
             />
           </div>

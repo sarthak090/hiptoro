@@ -30,6 +30,10 @@ p.read-more{
 }
 .wp-video{
   margin: 0 auto;
+  max-width: 400px !important;
+}
+.twitter-embed{
+  font-size: 18px;
 }
 footer {
   position: absolute;
@@ -322,10 +326,13 @@ main {
   line-height: 36px;
 
 }
+video{
+  max-width: 400px;
+}
 .post-content p {
   line-height: 1.6em;
   margin: 0.5rem 0;
-  font-size: 16px;
+  font-size: 18px;
 color:#424242;
 }
 .text-grid-a-inline-block  a{

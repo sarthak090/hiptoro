@@ -32,7 +32,7 @@ export default function MobileMenuStatic() {
                 className={`font-isidorasans_regular ${
                   router.asPath === i.href ? "text-brand-blue-dark" : ""
                 }   hover:underline hover:bg-navDropDown
-                    flex items-center gap-1 py-2 px-3 text-13px font-medium cursor-pointer relative`}
+                    flex items-center gap-1 my-4 py-1 px-3 text-13px font-medium cursor-pointer relative`}
               >
                 <Link href={i.href}>{i.label}</Link>
 
@@ -44,7 +44,7 @@ export default function MobileMenuStatic() {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-4 h-4"
+                    className="w-4 h-4  "
                   >
                     <path
                       strokeLinecap="round"
@@ -64,7 +64,7 @@ export default function MobileMenuStatic() {
                         {i.subItems.map((l) => (
                           <>
                             <Link
-                              className="hover:text-white hover:bg-navHover p-2 px-7    "
+                              className="hover:text-white   hover:bg-navHover p-2 px-7    "
                               href={l.href}
                             >
                               {l.label}
