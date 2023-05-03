@@ -45,6 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     }
   }, []);
+
   return (
     <>
       <Head>
@@ -84,7 +85,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Script>
 
       {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE START---> */}
-
+      <Script>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
       <Script
         data-cfasync="false"
         lang="javascript"
