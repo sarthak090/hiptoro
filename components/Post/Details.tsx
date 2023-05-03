@@ -45,7 +45,7 @@ export default function Details({ post }: any) {
         <CategoryBox category={post.category} />
 
         <h1
-          className="text-24px lg:text-[44px] break-words  text-center my-3 font-montserrat font-bold"
+          className="text-24px capitalize lg:text-[44px] break-words  text-center my-3 font-montserrat font-bold"
           dangerouslySetInnerHTML={{
             __html: post.title.rendered.toString(),
           }}
