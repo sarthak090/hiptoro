@@ -39,9 +39,9 @@ export default function App({ Component, pageProps }: AppProps) {
     for (var i = 0; i < ads; i++) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
-        console.log("executed sads");
+        console.log("executed ads");
       } catch (e) {
-        console.log(`Error While Loading Ads`, { e });
+        console.error(`Error While Loading Ads`, { message: e?.message });
       }
     }
   }, []);
