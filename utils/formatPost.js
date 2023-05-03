@@ -124,6 +124,8 @@ export default function formatPost(post) {
     }
   });
 
+  $("blockquote .google-auto-ads").remove();
+
   if (isYtEmbed) {
     const embedId = youtube_parser(iframeSrc);
 
