@@ -81,6 +81,7 @@ export default function Details({ post }: any) {
 
         <PostMeta {...post} />
         <SocialShares {...post} />
+        <AutoAds />
         <script
           async
           id="40e3be63c06a42be96a4956227a96693"
@@ -96,6 +97,8 @@ export default function Details({ post }: any) {
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
 
         <WPHTMLContent html={post.content.rendered} />
+        <AutoAds />
+
         {post.related_posts && post.related_posts.length > 4 && (
           <div className="">
             <p className="bg-gray-bg text-darkText hover:underline  font-bold p-4">
@@ -109,6 +112,7 @@ export default function Details({ post }: any) {
             </p>
           </div>
         )}
+        <AutoAds />
 
         <TagBox tags={post.tags} />
         <AuthorBox author={post.author} />
