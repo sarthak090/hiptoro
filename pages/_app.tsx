@@ -10,6 +10,7 @@ import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import Head from "next/head";
 import Script from "next/script";
+import { useEffect } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -33,6 +34,17 @@ const raleway = Raleway({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    var ads = document.getElementsByClassName("adsbygoogle").length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        console.log("executed sads");
+      } catch (e) {
+        console.log(`Error While Loading Ads`, { e });
+      }
+    }
+  }, []);
   return (
     <>
       <Head>
