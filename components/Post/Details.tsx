@@ -34,6 +34,7 @@ export default function Details({ post }: any) {
                 maxSnippet: -1,
               }}
               title={post.title.rendered}
+              titleTemplate="%s "
               description={post.excerpt.rendered}
               {...post.nextSeoData}
             />
