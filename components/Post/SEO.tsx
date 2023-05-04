@@ -11,7 +11,11 @@ export default function SEO(props: any) {
             <meta property="og:video" key={i} content={v.url} />
           ))}
         {post.category.map((cat: any) => (
-          <meta property="article:section" content={cat.name} />
+          <meta
+            property="article:section"
+            key={Math.random()}
+            content={cat.name}
+          />
         ))}
         <meta name="article:publisher" content="https://facebook.com/hiptoro" />
 

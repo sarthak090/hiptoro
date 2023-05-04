@@ -11,7 +11,7 @@ import NotFound from "@/components/UI/404";
 export default function SinglePost(props: any) {
   const { post } = props;
 
-  // const [posts, setPosts] = useState([props.post]);
+  // const [post, setPosts] = useState(props.post);
   // const [hasMore, setHasMore] = useState(true);
   if (post !== null) {
     // const getMorePost = async () => {

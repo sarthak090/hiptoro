@@ -6,15 +6,16 @@ import WPHTMLContent from "@/components/WPHTMLContent";
 import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import Script from "next/script";
 import AutoAds from "../Ads/AutoAds";
+import { useEffect, useState } from "react";
+import RelatedPost from "./RelatedPost";
 
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
 const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
 const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
-  const rnd = Math.floor(Math.random() * 4);
-
   return (
     <>
       <div>
@@ -52,7 +53,7 @@ export default function Details({ post }: any) {
         />
 
         <div className="flex justify-center my-4 ">
-          {post.base64 && post.featuredImg.original ? (
+          {post.featuredImg.original ? (
             <Image
               src={post.featuredImg.original}
               width={1020}
@@ -87,8 +88,7 @@ export default function Details({ post }: any) {
           id="40e3be63c06a42be96a4956227a96693"
           dangerouslySetInnerHTML={{
             __html: `
-          
-          (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
+                   (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
           
           `,
           }}
@@ -99,30 +99,18 @@ export default function Details({ post }: any) {
         <WPHTMLContent html={post.content.rendered} />
         <AutoAds />
 
-        {post.related_posts && post.related_posts.length > 4 && (
-          <div className="">
-            <p className="bg-gray-bg text-darkText hover:underline  font-bold p-4">
-              Read More:
-              <a
-                className=" underline"
-                href={`/p/${post.related_posts[rnd].slug}`}
-              >
-                {post.related_posts[rnd].title.rendered}
-              </a>
-            </p>
-          </div>
-        )}
+        <RelatedPost related_posts={post.related_posts} />
         <AutoAds />
 
         <TagBox tags={post.tags} />
         <AuthorBox author={post.author} />
       </div>
       <div className="OUTBRAIN" data-widget-id="GS_1"></div>
-      <script
+      <Script
         type="text/javascript"
         async
-        src="//widgets.outbrain.com/outbrain.js"
-      ></script>
+        src="https://widgets.outbrain.com/outbrain.js"
+      ></Script>
     </>
   );
 }
