@@ -96,8 +96,15 @@ function autoAds() {
 }
 export default function formatPost(post) {
   let formattedPost = post;
-
+  let iframes = [];
   const $ = cheerio.load(post.content.rendered, null, false);
+
+  $("iframe").each((i, el) => {
+    if (el.attribs && el.attribs.src) {
+      iframes.push(el.attribs.src);
+    }
+  });
+  // console.log({ iframes });
   const iframeSrc = $("iframe").attr("src");
   const isYtEmbed = iframeSrc?.includes("youtube");
   const tweetBlockQuotes = $(".twitter-tweet a");
@@ -131,9 +138,16 @@ export default function formatPost(post) {
   $("blockquote .google-auto-ads").remove();
 
   if (isYtEmbed) {
-    const embedId = youtube_parser(iframeSrc);
+    if (iframes.length > 0) {
+      iframes.forEach((src) => {
+        const embedId = youtube_parser(src);
 
-    $("iframe").replaceWith(getYtEmbed(embedId, post.title.rendered));
+        $(`iframe[src^="${src}"]`).replaceWith(
+          getYtEmbed(embedId, post.title.rendered)
+        );
+      });
+    }
+    // $("iframe").replaceWith(getYtEmbed(embedId, post.title.rendered));
 
     formattedPost.yt_embedd = iframeSrc;
   }

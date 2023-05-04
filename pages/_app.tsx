@@ -74,7 +74,7 @@ export default function App({ Component, pageProps }: AppProps) {
       {/* <!-- Google tag (gtag.js) --> */}
       <Script
         async
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
       />
       <Script id="google-analytics" strategy="afterInteractive">
