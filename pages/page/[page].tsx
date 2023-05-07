@@ -50,24 +50,26 @@ export const getStaticProps: GetStaticProps = async ({
   const { page } = params!;
 
   const url = process.env.NEXT_CUSTOM_WP_API_URL + `/posts?page=${page}`;
+
   try {
     const pageData = await fetch(url).then((r) => r.json());
 
     const seo = await getRankMathHead(`/page/${page}`);
-    const formattedLatestPosts = pageData.map(async (post: any) => {
-      const { base64, img } = await getPlaiceholder(post.featuredImg.medium);
+    const formattedLatestPosts = pageData
+      .filter((t) => t.featuredImg.id && t.featuredImg.id.length > 0)
+      .map(async (post: any) => {
+        const { base64, img } = await getPlaiceholder(post.featuredImg.medium);
 
-      return {
-        ...post,
-        base64,
-        img,
-      };
-    });
+        return {
+          ...post,
+          base64,
+          img,
+        };
+      });
     var latest_posts: any = [];
     await Promise.all(formattedLatestPosts).then((r) => {
       latest_posts.push(...r);
     });
-
     return {
       props: {
         pageData: latest_posts,
