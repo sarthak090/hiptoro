@@ -136,7 +136,15 @@ export default function formatPost(post) {
   });
 
   $("blockquote .google-auto-ads").remove();
-
+  if (
+    $("img") &&
+    $("img")?.parent() &&
+    $("img")?.parent()?.attr("href") &&
+    $("img")?.parent()?.attr("href").length > 0
+  ) {
+    $("img")?.unwrap();
+    console.log("Anchor Tag");
+  }
   if (isYtEmbed) {
     if (iframes.length > 0) {
       iframes.forEach((src) => {

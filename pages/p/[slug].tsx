@@ -76,7 +76,11 @@ export const getStaticProps: GetStaticProps = async ({
       };
     }
 
-    const { base64, img } = await getPlaiceholder(post.featuredImg.large);
+    const { base64, img } = await getPlaiceholder(
+      post.featuredImg.large
+        ? post.featuredImg.large
+        : "https://www.hiptoro.com/imgs/placeholder-image.png"
+    );
 
     const postTosend = {
       ...(await formatInfitePost([post])[0]),
