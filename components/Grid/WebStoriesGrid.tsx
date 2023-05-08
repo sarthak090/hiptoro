@@ -3,7 +3,7 @@ import decodeHTMLEntities from "@/utils/htmlDecoder";
 import Image from "next/image";
 import Link from "next/link";
 import MetaBox from "./MetaBox";
-export default function PostGrid(props: any) {
+export default function WebStoriesGrid(props: any) {
   return (
     <section className="grid sm:grid-cols-2 md:grid-cols-1 gap-4 my-6 md:my-8">
       {props.posts.map((post: any) => (
@@ -53,8 +53,12 @@ export default function PostGrid(props: any) {
             )}
           </div>
 
-          <div className="md:px-2 ">
-            <Link className="hover:text-red-400" href={`/p/${post.slug}`}>
+          <div className="md:px-2 lg:flex lg:flex-col lg:justify-center">
+            <Link
+              className="hover:text-red-400"
+              href={`/web-stories/${post.slug}`}
+              target="_blank"
+            >
               <p
                 className="text-md md:text-xl mt-3 md:mt-0 font-semibold   "
                 dangerouslySetInnerHTML={{
