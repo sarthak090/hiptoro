@@ -52,6 +52,9 @@ export async function getRankMathHead(slug) {
         .replaceAll("secureback.hiptoro.com", "www.hiptoro.com"),
     };
   } else {
-    return "";
+    return {
+      head: "",
+      schema: "",
+    };
   }
 }
