@@ -45,7 +45,7 @@ export default function Single({ pageData, seo }: any) {
             locale: "en_US",
             type: "article",
             siteName: "Hiptoro",
-            article: { modifiedTime: "2023-03-28T11:01:52+05:30" },
+            article: { modifiedTime: "2023-05-10T11:01:52+05:30" },
           }}
           titleTemplate=""
         />
@@ -95,15 +95,16 @@ export const getServerSideProps: GetServerSideProps = async ({
     const url = process.env.NEXT_WP_API_URL + `/pages?slug=${slug}`;
 
     const pageData = await fetch(url).then((r) => r.json());
-    const rankMathHeadUrl =
-      process.env.NEXT_CUSTOM_WP_API_URL + `/rank-seo?url=/${slug}`;
-    const seo = await fetch(rankMathHeadUrl).then((r) => r.json());
+
     res.setHeader(
       "Cache-Control",
       "public, s-maxage=20, stale-while-revalidate=59"
     );
 
     if (pageData.length > 0) {
+      const rankMathHeadUrl =
+        process.env.NEXT_CUSTOM_WP_API_URL + `/rank-seo?url=/${slug}`;
+      const seo = await fetch(rankMathHeadUrl).then((r) => r.json());
       return {
         props: {
           pageData: pageData[0],
