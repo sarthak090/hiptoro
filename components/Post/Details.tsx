@@ -101,8 +101,8 @@ export default function Details({ post }: any) {
 
         <RelatedPost related_posts={post.related_posts} />
         <AutoAds />
+        {post.tags && <TagBox tags={post.tags} />}
 
-        <TagBox tags={post.tags} />
         <AuthorBox author={post.author} />
       </div>
       <div className="OUTBRAIN" data-widget-id="GS_1"></div>

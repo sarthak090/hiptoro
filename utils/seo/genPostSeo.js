@@ -7,7 +7,10 @@ export default function (post) {
     openGraph: {
       site_name: "Hiptoro",
       type: "article",
-      article: { tags: post.tags.map((t) => t.name), author: post.author.name },
+      article: {
+        tags: post.tags.length > 0 && post.tags.map((t) => t.name),
+        author: post.author.name,
+      },
     },
 
     twitter: {
