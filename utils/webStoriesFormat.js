@@ -9,5 +9,9 @@ const scrpt = (schema) => {
 export default function webStoriesFormat(content, rankMathSeoSchema) {
   const $ = cheerio.load(content);
   $("head").append(scrpt(rankMathSeoSchema));
-  return $.html();
+
+  const html = `<!DOCTYPE html>
+   ${$.html()}
+  `;
+  return html;
 }
