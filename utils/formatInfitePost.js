@@ -16,15 +16,15 @@ export default function (posts) {
       },
     };
     const postTosend = formatPost(p);
-    const htmlTweets = await postTosend.twitter_html.map(
-      async (t) => await getTweetHtml(t)
-    );
-    const html = await Promise.all(htmlTweets).then((r) => r);
+    // const htmlTweets = await postTosend.twitter_html?.map(
+    //   async (t) => await getTweetHtml(t)
+    // );
+    // const html = await Promise.all(htmlTweets).then((r) => r);
     const rankmath = await getRankMathHead("/p/" + post.slug);
     p._meta = rankmath;
-    const tweetHtml = html.filter((t) => t !== undefined);
-    const formattedHtmlWithTweet = await tweetFormatter(postTosend, tweetHtml);
-    return formattedHtmlWithTweet;
+    // const tweetHtml = html.filter((t) => t !== undefined);
+    // const formattedHtmlWithTweet = await tweetFormatter(postTosend, tweetHtml);
+    return postTosend;
   });
 
   return fomattedPosts;

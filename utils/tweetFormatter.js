@@ -15,7 +15,7 @@ export default async function tweetFormatter(post, tweetHtml) {
         }</div>`
       );
   });
-  if (tweetHtml) {
+  if (tweetHtml && tweetHtml.length > 0 && tweetHtml[0].length > 0) {
     formattedPost.content.rendered = $.html();
   }
   return formattedPost;
