@@ -30,10 +30,15 @@ export default function (posts) {
   return fomattedPosts;
 }
 async function getTweetHtml(url) {
-  const tweet = await fetch(
-    `https://www.tweetic.io/api/tweet?url=${url}&css=tailwind&show_media=true`
-  ).then((r) => r.json());
-  return tweet.html;
+  try {
+    const tweet = await fetch(
+      `https://www.tweetic.io/api/tweet?url=${url}&css=tailwind&show_media=true`
+    ).then((r) => r.json());
+    return tweet.html;
+  } catch (err) {
+    console.log("err");
+    return ``;
+  }
 }
 
 export async function getRankMathHead(slug) {
