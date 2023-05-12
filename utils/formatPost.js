@@ -118,12 +118,12 @@ export default function formatPost(post) {
     test.push(href);
   });
 
-  // if (isTweetEmbed !== undefined && isTweetEmbed === true);
-  // {
-  //   // $("script").replaceWith("");
-  //   formattedPost.twitter_embed = false;
-  //   formattedPost.twitter_html = test;
-  // }
+  if (isTweetEmbed !== undefined && isTweetEmbed === true);
+  {
+    // $("script").replaceWith("");
+    formattedPost.twitter_embed = false;
+    formattedPost.twitter_html = test;
+  }
 
   $("p").each((i, p) => {
     if (i % 4 === 0) {

@@ -16,15 +16,15 @@ export default function (posts) {
       },
     };
     const postTosend = formatPost(p);
-    // const htmlTweets = await postTosend.twitter_html?.map(
-    //   async (t) => await getTweetHtml(t)
-    // );
-    // const html = await Promise.all(htmlTweets).then((r) => r);
+    const htmlTweets = await postTosend.twitter_html?.map(
+      async (t) => await getTweetHtml(t)
+    );
+    const html = await Promise.all(htmlTweets).then((r) => r);
     const rankmath = await getRankMathHead("/p/" + post.slug);
     p._meta = rankmath;
-    // const tweetHtml = html.filter((t) => t !== undefined);
-    // const formattedHtmlWithTweet = await tweetFormatter(postTosend, tweetHtml);
-    return postTosend;
+    const tweetHtml = html.filter((t) => t !== undefined);
+    const formattedHtmlWithTweet = await tweetFormatter(postTosend, tweetHtml);
+    return formattedHtmlWithTweet;
   });
 
   return fomattedPosts;
@@ -32,8 +32,9 @@ export default function (posts) {
 async function getTweetHtml(url) {
   try {
     const tweet = await fetch(
-      `https://www.tweetic.io/api/tweet?url=${url}&css=tailwind&show_media=true`
+      `https://tweetic.zernonia.com/api/tweet?url=${url}&css=tailwind&show_media=true`
     ).then((r) => r.json());
+
     return tweet.html;
   } catch (err) {
     console.log("err");
