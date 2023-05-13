@@ -1,5 +1,5 @@
 import { GetStaticProps, GetStaticPropsContext } from "next";
-import genPagination from "../../../utils/genPagination";
+import genPagination from "../../../utils/getWebStoriesPagination";
 import Pagination from "@/components/Pagination";
 import { getPlaiceholder } from "plaiceholder";
 import NotFound from "@/components/UI/404";

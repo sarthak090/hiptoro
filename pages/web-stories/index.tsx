@@ -2,6 +2,8 @@ import React from "react";
 import { GetStaticProps, GetStaticPropsContext } from "next";
 import WebStoriesGrid from "@/components/Grid/WebStoriesGrid";
 import { NextSeo } from "next-seo";
+import Pagination from "@/components/Pagination";
+import genPagination from "@/utils/getWebStoriesPagination";
 
 export default function WebStories(props: any) {
   return (
@@ -25,6 +27,10 @@ export default function WebStories(props: any) {
       />
 
       <WebStoriesGrid posts={props.stories} />
+      <Pagination
+        pagination={props.pagination}
+        currentPage={parseInt(props.currentPageNo)}
+      />
     </>
   );
 }
@@ -44,6 +50,8 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: {
       stories: data,
+      pagination: genPagination(1),
+      currentPageNo: 1,
     },
   };
 };
