@@ -5,7 +5,7 @@ export default function AutoAds() {
     <>
       <br />
       <br />
-      <Script
+      {/* <Script
         async={true}
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
         crossOrigin="anonymous"
@@ -13,7 +13,7 @@ export default function AutoAds() {
           console.error("Script failed to load", e);
         }}
         strategy="beforeInteractive"
-      />
+      /> */}
       {/* <!-- Adsense New --> */}
       <ins
         className="adsbygoogle"
@@ -23,7 +23,7 @@ export default function AutoAds() {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
-      <Script>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
+      <Script strategy="lazyOnload">{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
     </>
   );
 }
