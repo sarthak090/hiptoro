@@ -39,7 +39,6 @@ export default function App({ Component, pageProps }: AppProps) {
     for (var i = 0; i < ads; i++) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
-        console.log("executed ads");
       } catch (e) {
         console.error(`Error While Loading Ads`, { message: e?.message });
       }
@@ -67,7 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </Head>
-      <Script strategy="beforeInteractive">
+      <Script strategy="lazyOnload">
         {`!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);`}
       </Script>
 

@@ -106,11 +106,11 @@ export default function Details({ post }: any) {
         <AuthorBox author={post.author} />
       </div>
       <div className="OUTBRAIN" data-widget-id="GS_1"></div>
-      <Script
+      <script
         type="text/javascript"
-        async
+        defer
         src="https://widgets.outbrain.com/outbrain.js"
-      ></Script>
+      ></script>
     </>
   );
 }
