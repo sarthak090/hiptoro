@@ -63,20 +63,15 @@ export default function App({ Component, pageProps }: AppProps) {
           title="Hiptoro &raquo; Feed"
           href="https://www.hiptoro.com/feed/"
         />
-        <link rel="dns-prefetch" href="//platform.twitter.com" />
+        {/* <link rel="dns-prefetch" href="//platform.twitter.com" /> */}
 
         {/* <link
           href="//www.googletagmanager.com"
           rel="preconnect"
           crossOrigin="anonymous"
         /> */}
-        <link rel="dns-prefetch" href="//adservice.google.com" />
-        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
-        <link
-          href="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
-          rel="preload"
-          as="script"
-        />
+        {/* <link rel="dns-prefetch" href="//adservice.google.com" />
+        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" /> */}
 
         <script
           data-cfasync="false"
