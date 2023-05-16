@@ -60,7 +60,7 @@ function getYtEmbed(embedId, title) {
   return embedHtml;
 }
 function releatedPost(related_posts) {
-  const rnd = Math.floor(Math.random() * 4);
+  const rnd = Math.floor(Math.random() * related_posts.length);
 
   return `
     <div className="">
