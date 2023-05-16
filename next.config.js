@@ -37,6 +37,10 @@ const nextConfig = {
         destination: "/rss.xml",
       },
       {
+        source: "/hot",
+        destination: "/p/category/trending",
+      },
+      {
         source: "/feed",
         destination: "/rss.xml",
       },

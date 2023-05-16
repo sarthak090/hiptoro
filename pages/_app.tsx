@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
-        console.error(`Error While Loading Ads`, { message: e?.message });
+        console.error(`Error While Loading Ads`);
       }
     }
   }, []);
@@ -55,7 +55,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta charSet="UTF-8" />
         <meta
           name="twitter:image"
-          content="https://cms.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png"
+          content="https://static.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png"
         />
         <link
           rel="alternate"
@@ -63,37 +63,48 @@ export default function App({ Component, pageProps }: AppProps) {
           title="Hiptoro &raquo; Feed"
           href="https://www.hiptoro.com/feed/"
         />
+        <link rel="dns-prefetch" href="//platform.twitter.com" />
 
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        {/* <link
+          href="//www.googletagmanager.com"
+          rel="preconnect"
+          crossOrigin="anonymous"
+        /> */}
+        <link rel="dns-prefetch" href="//adservice.google.com" />
+        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+        <link
+          href="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
+          rel="preload"
+          as="script"
+        />
+
+        <script
+          data-cfasync="false"
+          lang="javascript"
+          defer
+          referrerPolicy="no-referrer-when-downgrade"
+          src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
+        />
+        <script async>
+          {`!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);`}
+        </script>
       </Head>
-      <Script strategy="lazyOnload">
-        {`!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);`}
-      </Script>
 
       {/* <!-- Google tag (gtag.js) --> */}
       <Script
-        async
-        strategy="afterInteractive"
+        defer
         src="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-                window.dataLayer = window.dataLayer || [];
+      <Script strategy="lazyOnload" id="google-analytics">
+        {` window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());          
                 gtag('config', 'G-LE5P46J4FY');
-            `}
+        `}
       </Script>
-
       {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE START---> */}
       <Script>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
-      <Script
-        data-cfasync="false"
-        lang="javascript"
-        async
-        referrerPolicy="no-referrer-when-downgrade"
-        src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
-      />
+
       {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE END---> */}
 
       <style jsx global>{`

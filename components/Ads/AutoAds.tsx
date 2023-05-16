@@ -5,15 +5,15 @@ export default function AutoAds() {
     <>
       <br />
       <br />
-      {/* <Script
+      <Script
         async={true}
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
         crossOrigin="anonymous"
         onError={(e) => {
           console.error("Script failed to load", e);
         }}
-        strategy="beforeInteractive"
-      /> */}
+        strategy="lazyOnload"
+      />
       {/* <!-- Adsense New --> */}
       <ins
         className="adsbygoogle"
