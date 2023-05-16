@@ -72,19 +72,18 @@ export default function App({ Component, pageProps }: AppProps) {
         /> */}
         {/* <link rel="dns-prefetch" href="//adservice.google.com" />
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" /> */}
-
-        <script
-          data-cfasync="false"
-          lang="javascript"
-          defer
-          referrerPolicy="no-referrer-when-downgrade"
-          src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
-        />
-        <script async>
-          {`!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);`}
-        </script>
       </Head>
 
+      <Script
+        data-cfasync="false"
+        lang="javascript"
+        defer
+        referrerPolicy="no-referrer-when-downgrade"
+        src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
+      />
+      <Script async>
+        {`!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);`}
+      </Script>
       {/* <!-- Google tag (gtag.js) --> */}
       <Script
         defer

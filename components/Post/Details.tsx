@@ -9,6 +9,7 @@ import Image from "next/image";
 // import Script from "next/script";
 import AutoAds from "../Ads/AutoAds";
 import RelatedPost from "./RelatedPost";
+import Script from "next/script";
 // const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"));
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
 const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
@@ -82,7 +83,7 @@ export default function Details({ post }: any) {
         <PostMeta {...post} />
         <SocialShares {...post} />
         <AutoAds />
-        <script
+        <Script
           async
           id="40e3be63c06a42be96a4956227a96693"
           dangerouslySetInnerHTML={{
@@ -91,7 +92,7 @@ export default function Details({ post }: any) {
           
           `,
           }}
-        ></script>
+        ></Script>
 
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
 
@@ -105,12 +106,11 @@ export default function Details({ post }: any) {
         <AuthorBox author={post.author} />
       </div>
       <div className="OUTBRAIN" data-widget-id="GS_1"></div>
-      <script
+      <Script
         type="text/javascript"
         defer
         src="https://widgets.outbrain.com/outbrain.js"
-      ></script>
-      {/* <OutbrainAds /> */}
+      ></Script>
     </>
   );
 }
