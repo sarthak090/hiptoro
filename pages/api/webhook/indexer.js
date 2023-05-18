@@ -13,6 +13,8 @@ const handler = async (req, res) => {
     if (verifyPostSlug.status) {
       res.status(404).send({ error: true, msg: `Post Was Not Found` });
     } else {
+      await redeployHook();
+
       const auth = new google.auth.JWT(
         services.client_email,
         null,
@@ -41,9 +43,26 @@ const handler = async (req, res) => {
       res.status(404).send({ error: "True", msg: "Some Error was there " });
     }
   } catch (error) {
-    console.log("error :>> ", error);
-    res.status(400).send(error);
+    console.log("error while indexing");
+    res.status(400).send(error.response.data.error);
   }
 };
+async function redeployHook() {
+  const url = process.env.DO_PORJECT_URL;
+  const TOKEN = process.env.DO_TOKEN;
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "json",
+      Authorization: `Bearer ${TOKEN}`,
+    },
+  })
+    .then((r) => r.json())
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => console.log(`Error`, err));
+}
 
 export default handler;
