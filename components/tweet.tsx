@@ -4,9 +4,9 @@ export default function TweetHTML() {
   return (
     <div
       className="w-[500px] p-8 text-black border border-gray-200 bg-white rounded-2xl "
-      data-style="undefined"
+      data-style="undefined2"
     >
-      <div className=" flex items-center justify-between">
+      <div className=" flex items-center  justify-between">
         <div className="relative flex items-center">
           <img
             className="w-12 h-12 rounded-full"
