@@ -4,7 +4,7 @@ export default function TweetHTML() {
   return (
     <div
       className="w-[500px] p-8 text-black border border-gray-200 bg-white rounded-2xl "
-      data-style="undefined2"
+      data-style="undefined2 asasa"
     >
       <div className=" flex items-center  justify-between">
         <div className="relative flex items-center">
