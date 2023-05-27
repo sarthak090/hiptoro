@@ -13,7 +13,7 @@ const handler = async (req, res) => {
     if (verifyPostSlug.status) {
       res.status(404).send({ error: true, msg: `Post Was Not Found` });
     } else {
-      await redeployHook();
+      // await redeployHook();
 
       const auth = new google.auth.JWT(
         services.client_email,
