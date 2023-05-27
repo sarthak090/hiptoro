@@ -105,6 +105,7 @@ export const getStaticProps: GetStaticProps = async ({
     };
   } catch (err) {
     console.log(err);
+    console.log(`Error While Fetching: `, url);
     return {
       props: {
         post: null,

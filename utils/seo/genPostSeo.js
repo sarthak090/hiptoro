@@ -1,7 +1,19 @@
 import decode from "@/utils/htmlDecoder";
+import * as cheerio from "cheerio";
 
+function getImgSrcFromContent(post) {
+  const $ = cheerio.load(post?.content?.rendered);
+
+  const img_src = $("img")?.first()?.attr("src");
+  if (img_src.length > 0) {
+    return img_src;
+  } else {
+    return `https://secureback.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png`;
+  }
+}
 export default function (post) {
   const data = post.seo;
+  let hasFeaturedImage = post.featuredImg.id.length > 0;
 
   const nextSeo = {
     openGraph: {
@@ -52,7 +64,9 @@ export default function (post) {
       width: 1280,
       height: 720,
       alt: post.title.rendered,
-      secureUrl: post.featuredImg.original,
+      secureUrl: hasFeaturedImage
+        ? post.featuredImg.original
+        : getImgSrcFromContent(post),
       type: "image/webp",
     },
   ];
