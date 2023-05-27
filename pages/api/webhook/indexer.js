@@ -56,6 +56,9 @@ async function redeployHook() {
     headers: {
       "Content-Type": "json",
       Authorization: `Bearer ${TOKEN}`,
+      body: JSON.stringify({
+        force_build: true,
+      }),
     },
   })
     .then((r) => r.json())

@@ -53,31 +53,19 @@ export default function Details({ post }: any) {
         />
 
         <div className="flex justify-center my-4 ">
-          {post.featuredImg.original ? (
-            <Image
-              src={post.featuredImg.original}
-              width={1020}
-              height={720}
-              alt={post.title.rendered}
-              loading="eager"
-              quality={40}
-              title={post.title.rendered}
-            />
-          ) : (
-            <Image
-              src={
-                post.featuredImg.large
-                  ? post.featuredImg.large
-                  : post.featuredImg.medium
-              }
-              width={1020}
-              height={720}
-              alt={post.title.rendered}
-              loading="eager"
-              quality={40}
-              title={post.title.rendered}
-            />
-          )}
+          {post.featuredImg &&
+            post.featuredImg.length > 0 &&
+            post.featuredImg.original && (
+              <Image
+                src={post.featuredImg.original}
+                width={1020}
+                height={720}
+                alt={post.title.rendered}
+                loading="eager"
+                quality={40}
+                title={post.title.rendered}
+              />
+            )}
         </div>
 
         <PostMeta {...post} />
