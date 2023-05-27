@@ -54,7 +54,7 @@ export default function Details({ post }: any) {
 
         <div className="flex justify-center my-4 ">
           {post.featuredImg &&
-            post.featuredImg.length > 0 &&
+            post.featuredImg.id.length > 0 &&
             post.featuredImg.original && (
               <Image
                 src={post.featuredImg.original}
