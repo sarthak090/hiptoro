@@ -71,7 +71,7 @@ export default function Details({ post }: any) {
         <PostMeta {...post} />
         <SocialShares {...post} />
         <AutoAds />
-        <Script
+        {/* <Script
           async
           id="40e3be63c06a42be96a4956227a96693"
           dangerouslySetInnerHTML={{
@@ -80,7 +80,7 @@ export default function Details({ post }: any) {
           
           `,
           }}
-        ></Script>
+        ></Script> */}
 
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
 

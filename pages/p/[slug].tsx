@@ -11,43 +11,10 @@ import NotFound from "@/components/UI/404";
 export default function SinglePost(props: any) {
   const { post } = props;
 
-  // const [post, setPosts] = useState(props.post);
-  // const [hasMore, setHasMore] = useState(true);
   if (post !== null) {
-    // const getMorePost = async () => {
-    //   const url = `/infinite-posts.json`;
-
-    //   const res = await fetch(url);
-    //   const newPosts = await res.json();
-    //   if (newPosts.length > 0) {
-    //     const excludedPosts = newPosts.filter((p: any) => p.id !== post.id);
-
-    //     setPosts((post: any) => [...post, ...excludedPosts]);
-
-    //     setHasMore(false);
-    //   } else {
-    //     setHasMore(false);
-    //   }
-    // };
-
     return (
       <div className="container mx-auto max-w-site-full">
         <Details post={post} />
-
-        {/* <InfiniteScroll
-          dataLength={4}
-          next={getMorePost}
-          hasMore={hasMore}
-          loader={<Loading />}
-          endMessage={
-            <h4 className="text-center my-8 ">Nothing more to show</h4>
-          }
-        >
-          {posts.map((p) => (
-            <div key={p.id}>
-            </div>
-          ))}
-        </InfiniteScroll> */}
       </div>
     );
   } else {
