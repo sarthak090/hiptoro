@@ -8,5 +8,5 @@ export default function middleware(req, res) {
 }
 // config with custom matcher
 export const config = {
-    matcher: '/p/:path*',
+    matcher: '/',
 };
