@@ -1,6 +1,7 @@
 import Script from "next/script";
-
+import LazyLoadAd from "./LazyLoadAd";
 export default function AutoAds() {
+  return <LazyLoadAd />;
   return (
     <>
       <Script
