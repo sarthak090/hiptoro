@@ -27,6 +27,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-lazyload": "^3.2.0",
     "reading-time-estimator": "^1.8.1",
     "rehype-parse": "^8.0.4",
     "rehype-stringify": "^9.0.3",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@types/parameterize": "^1.0.1",
+    "@types/react-lazyload": "^3.2.0",
     "autoprefixer": "^10.4.14",
     "cross-env": "^7.0.3",
     "postcss": "^8.4.21",
