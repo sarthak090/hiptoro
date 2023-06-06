@@ -1,16 +1,8 @@
 import Script from "next/script";
-import lazyLoadInstance from "../../public/lazyload";
 
 export default function AutoAds() {
   return (
     <>
-      <div id="ad-container" className="lazy" />
-    </>
-  );
-  return (
-    <>
-      <br />
-      <br />
       <Script
         async={true}
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146"
