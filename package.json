@@ -34,7 +34,8 @@
     "rss": "^1.2.2",
     "typescript": "5.0.2",
     "unified": "^10.1.2",
-    "unist-util-visit": "^4.1.2"
+    "unist-util-visit": "^4.1.2",
+    "vanilla-lazyload": "^17.8.3"
   },
   "devDependencies": {
     "@types/parameterize": "^1.0.1",

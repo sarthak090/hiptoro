@@ -1,6 +1,12 @@
 import Script from "next/script";
+import lazyLoadInstance from "../../public/lazyload";
 
 export default function AutoAds() {
+  return (
+    <>
+      <div id="ad-container" className="lazy" />
+    </>
+  );
   return (
     <>
       <br />
