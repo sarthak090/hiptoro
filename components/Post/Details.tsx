@@ -7,10 +7,13 @@ import AuthorBox from "@/components/Post/AuthorBox";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 // import Script from "next/script";
-import AutoAds from "../Ads/AutoAds";
+// import AutoAds from "../Ads/AutoAds";
 import RelatedPost from "./RelatedPost";
 import Script from "next/script";
 // const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"));
+const AutoAds = dynamic(() => import("@/components/Ads/AutoAds"), {
+  ssr: false,
+});
 const TagBox = dynamic(() => import("@/components/Post/TagBox"));
 const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
 const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
@@ -74,6 +77,7 @@ export default function Details({ post }: any) {
         <Script
           async
           id="40e3be63c06a42be96a4956227a96693"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
                    (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
@@ -97,6 +101,7 @@ export default function Details({ post }: any) {
       <Script
         type="text/javascript"
         defer
+        strategy="lazyOnload"
         src="https://widgets.outbrain.com/outbrain.js"
       ></Script>
     </>
