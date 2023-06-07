@@ -10,13 +10,7 @@ import Image from "next/image";
 // import AutoAds from "../Ads/AutoAds";
 import RelatedPost from "./RelatedPost";
 import Script from "next/script";
-// import ConnatixAds from "../Ads/ConnatixAds";
-const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"), {
-  ssr: false,
-});
-const ConnatixAds = dynamic(() => import("@/components/Ads/ConnatixAds"), {
-  ssr: false,
-});
+const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"));
 const AutoAds = dynamic(() => import("@/components/Ads/AutoAds"), {
   ssr: false,
 });
@@ -51,7 +45,7 @@ export default function Details({ post }: any) {
           </>
         )}
         <AutoAds />
-        <ConnatixAds />
+
         <CategoryBox category={post.category} />
 
         <h1
@@ -80,6 +74,17 @@ export default function Details({ post }: any) {
         <PostMeta {...post} />
         <SocialShares {...post} />
         <AutoAds />
+        <Script
+          async
+          id="40e3be63c06a42be96a4956227a96693"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+                   (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
+          
+          `,
+          }}
+        ></Script>
 
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
 
@@ -92,14 +97,13 @@ export default function Details({ post }: any) {
 
         <AuthorBox author={post.author} />
       </div>
-      <OutbrainAds />
-      {/* <div className="OUTBRAIN" data-widget-id="GS_1"></div>
+      <div className="OUTBRAIN" data-widget-id="GS_1"></div>
       <Script
         type="text/javascript"
         defer
         strategy="lazyOnload"
         src="https://widgets.outbrain.com/outbrain.js"
-      ></Script> */}
+      ></Script>
     </>
   );
 }
