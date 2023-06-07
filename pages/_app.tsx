@@ -93,7 +93,6 @@ export default function App({ Component, pageProps }: AppProps) {
         referrerPolicy="no-referrer-when-downgrade"
         src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
       />
-      <Script strategy="beforeInteractive" src="/js/connatix.js" />
 
       {/* <Script strategy="afterInteractive">
         {`
