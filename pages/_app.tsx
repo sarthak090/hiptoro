@@ -89,16 +89,15 @@ export default function App({ Component, pageProps }: AppProps) {
         referrerPolicy="no-referrer-when-downgrade"
         src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
       />
-      <Script strategy="worker">
+      <Script strategy="lazyOnload">
         {`!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);`}
       </Script>
       {/* <!-- Google tag (gtag.js) --> */}
-      {/* <Script
+      <Script
         defer
         strategy="lazyOnload"
         src="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
-      /> */}
-      <Script async src="/analytics.js"></Script>
+      />
 
       <Script strategy="lazyOnload" id="google-analytics">
         {` window.dataLayer = window.dataLayer || [];
