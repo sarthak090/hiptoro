@@ -10,7 +10,7 @@ import Image from "next/image";
 // import AutoAds from "../Ads/AutoAds";
 import RelatedPost from "./RelatedPost";
 import Script from "next/script";
-// const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"));
+const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"));
 const AutoAds = dynamic(() => import("@/components/Ads/AutoAds"), {
   ssr: false,
 });
