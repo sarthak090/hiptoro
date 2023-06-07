@@ -7,9 +7,12 @@ import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import generateRSSFeed from "../utils/generateRSSFeed";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Loading from "@/components/UI/Loading";
 const PostGrid = dynamic(() => import("@/components/Grid/PostGrid"));
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   await generateRSSFeed();
   const url = process.env.NEXT_CUSTOM_WP_API_URL + `/home`;
   const homePage = await fetch(url).then((r) => r.json());
@@ -77,6 +80,34 @@ const p = [
 ];
 export default function Home(props: any) {
   const { postsByCategory, latest_posts } = props;
+  // const router = useRouter();
+  // const [isRedirecting, setIsRedirecting] = useState(false);
+  // useEffect(() => {
+  //   if (router.query && router.query.page_id) {
+  //     setIsRedirecting(true);
+
+  //     const { page_id } = router.query;
+  //     const url =
+  //     console.log("Page ID", router.query.page_id);
+  //     // router.push(`/static/${page_id}`);
+  //   }
+  // }, [router]);
+  // if (isRedirecting) {
+  //   return (
+  //     <>
+  //       <Head>
+  //         <script
+  //           type="application/ld+json"
+  //           dangerouslySetInnerHTML={{
+  //             __html: `{"@context":"https://schema.org","@graph":[{"@type":"NewsMediaOrganization","@id":"https://www.hiptoro.com/#organization","name":"Hiptoro","url":"https://www.hiptoro.com","sameAs":["https://facebook.com/hiptoro","https://twitter.com/HiptoroNews","https://www.pinterest.com/HiptoroNews/","https://www.youtube.com/@hiptoro"],"logo":{"@type":"ImageObject","@id":"https://www.hiptoro.com/#logo","url":"https://www.hiptoro.com/wp-content/uploads/2022/12/hiptorosplash1000x.png","contentUrl":"https://www.hiptoro.com/wp-content/uploads/2022/12/hiptorosplash1000x.png","caption":"Hiptoro","inLanguage":"en-US","width":"1000","height":"1000"}},{"@type":"WebSite","@id":"https://www.hiptoro.com/#website","url":"https://www.hiptoro.com","name":"Hiptoro","publisher":{"@id":"https://www.hiptoro.com/#organization"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":"https://www.hiptoro.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"CollectionPage","@id":"https://www.hiptoro.com/#webpage","url":"https://www.hiptoro.com/","name":"Hiptoro - Buzzworthy Entertainment, Anime, Sports, and Pop Culture","about":{"@id":"https://www.hiptoro.com/#organization"},"isPartOf":{"@id":"https://www.hiptoro.com/#website"},"inLanguage":"en-US"}]}`,
+  //           }}
+  //         />
+  //       </Head>
+  //       <NextSeo titleTemplate="%s - Buzzworthy Entertainment, Anime, Sports, and Pop Culture" />
+  //       <Loading />
+  //     </>
+  //   );
+  // }
 
   return (
     <>
