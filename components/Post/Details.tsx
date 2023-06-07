@@ -50,17 +50,16 @@ export default function Details({ post }: any) {
         <AutoAds />
 
         <CategoryBox category={post.category} />
-        <Script
+        <script
           async
           id="40e3be63c06a42be96a4956227a96693"
-          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
                    (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
           
           `,
           }}
-        ></Script>
+        ></script>
         <h1
           className="text-24px capitalize lg:text-[44px] break-words  text-center my-3 font-montserrat font-bold"
           dangerouslySetInnerHTML={{
