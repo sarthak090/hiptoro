@@ -11,6 +11,7 @@ import Footer from "@/components/Layout/Footer";
 import Head from "next/head";
 import Script from "next/script";
 import { useEffect } from "react";
+import useLazyLoadScripts from "@/hooks/useLazyLoadScripts";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -34,6 +35,9 @@ const raleway = Raleway({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const scripts = ["/js/connatix.js"];
+  const scriptsLoaded = useLazyLoadScripts(scripts);
+
   useEffect(() => {
     var ads = document.getElementsByClassName("adsbygoogle").length;
     for (var i = 0; i < ads; i++) {
@@ -44,40 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     }
   }, []);
-  useEffect(() => {
-    const loadThirdPartyCode = () => {
-      if (!window.cnx) {
-        window.cnx = {};
-        window.cnx.cmd = [];
 
-        const iframe = document.createElement("iframe");
-        iframe.src = "javascript:false";
-        iframe.style.display = "none";
-        iframe.onload = () => {
-          const doc = iframe.contentWindow.document;
-          const script = doc.createElement("script");
-          script.src =
-            "//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41";
-          script.setAttribute("async", "1");
-          script.setAttribute("type", "text/javascript");
-          doc.body.appendChild(script);
-        };
-
-        document.head.appendChild(iframe);
-      }
-    };
-
-    // Check if the page has finished loading
-    if (document.readyState === "complete") {
-      loadThirdPartyCode();
-    } else {
-      window.addEventListener("load", loadThirdPartyCode);
-    }
-
-    return () => {
-      // Cleanup function if needed
-    };
-  }, []);
   return (
     <>
       <Head>
@@ -122,6 +93,8 @@ export default function App({ Component, pageProps }: AppProps) {
         referrerPolicy="no-referrer-when-downgrade"
         src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
       />
+      <Script strategy="beforeInteractive" src="/js/connatix.js" />
+
       {/* <Script strategy="afterInteractive">
         {`
        
