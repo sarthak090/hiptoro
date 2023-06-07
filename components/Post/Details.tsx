@@ -11,6 +11,7 @@ import Image from "next/image";
 import RelatedPost from "./RelatedPost";
 import Script from "next/script";
 import useLazyLoadScriptsBody from "@/hooks/useLazyLoadScriptsBody";
+import useLazyLoadScripts from "@/hooks/useLazyLoadScripts";
 const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"));
 const AutoAds = dynamic(() => import("@/components/Ads/AutoAds"), {
   ssr: false,
@@ -20,12 +21,10 @@ const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
 const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
-  const scripts = [
-    "https://widgets.outbrain.com/outbrain.js",
-    "https://cds.connatix.com/p/277794/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41",
-    "https://cds.connatix.com/a/hls.1.3.4.js",
-  ];
+  const scripts = ["https://widgets.outbrain.com/outbrain.js"];
+  const scripts2 = ["/js/connatix.js"];
   const scriptsLoaded = useLazyLoadScriptsBody(scripts);
+  const scriptsLoaded2 = useLazyLoadScripts(scripts2);
   return (
     <>
       <div>
@@ -80,7 +79,7 @@ export default function Details({ post }: any) {
 
         <PostMeta {...post} />
         <SocialShares {...post} />
-        {scriptsLoaded && (
+        {scriptsLoaded2 && (
           <div className="my-4">
             <script
               async
