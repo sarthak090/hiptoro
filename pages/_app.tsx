@@ -95,11 +95,11 @@ export default function App({ Component, pageProps }: AppProps) {
       {/* <!-- Google tag (gtag.js) --> */}
       <Script
         defer
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
       />
 
-      <Script strategy="lazyOnload" id="google-analytics">
+      <Script strategy="afterInteractive" id="google-analytics">
         {` window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());          
