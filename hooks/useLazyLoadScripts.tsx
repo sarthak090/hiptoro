@@ -11,7 +11,7 @@ const useLazyLoadScripts = (scripts: string[]) => {
           const scriptElement = document.createElement("script");
           scriptElement.src = scriptSrc;
           scriptElement.async = true;
-          document.body.appendChild(scriptElement);
+          document.head.appendChild(scriptElement);
         });
 
         setScriptsLoaded(true);
