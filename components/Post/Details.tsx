@@ -20,7 +20,11 @@ const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
 const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
-  const scripts = ["https://widgets.outbrain.com/outbrain.js"];
+  const scripts = [
+    "https://widgets.outbrain.com/outbrain.js",
+    "https://cds.connatix.com/p/277794/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41",
+    "https://cds.connatix.com/a/hls.1.3.4.js",
+  ];
   const scriptsLoaded = useLazyLoadScriptsBody(scripts);
   return (
     <>
@@ -50,16 +54,7 @@ export default function Details({ post }: any) {
         <AutoAds />
 
         <CategoryBox category={post.category} />
-        <script
-          async
-          id="40e3be63c06a42be96a4956227a96693"
-          dangerouslySetInnerHTML={{
-            __html: `
-                   (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
-          
-          `,
-          }}
-        ></script>
+
         <h1
           className="text-24px capitalize lg:text-[44px] break-words  text-center my-3 font-montserrat font-bold"
           dangerouslySetInnerHTML={{
@@ -85,6 +80,21 @@ export default function Details({ post }: any) {
 
         <PostMeta {...post} />
         <SocialShares {...post} />
+        {scriptsLoaded && (
+          <div className="my-4">
+            <script
+              async
+              id="40e3be63c06a42be96a4956227a96693"
+              dangerouslySetInnerHTML={{
+                __html: `
+                   (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
+          
+          `,
+              }}
+            ></script>
+          </div>
+        )}
+
         <AutoAds />
 
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
