@@ -63,6 +63,13 @@ export default function App({ Component, pageProps }: AppProps) {
           title="Hiptoro &raquo; Feed"
           href="https://www.hiptoro.com/feed/"
         />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//ssl.google-analytics.com" />
+        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="//googleads.g.doubleclick.net" />
+        <link rel="dns-prefetch" href="//tpc.googlesyndication.com" />
+        <link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
+        <link rel="dns-prefetch" href="//www.gstatic.com" />
         {/* <link rel="dns-prefetch" href="//platform.twitter.com" /> */}
 
         {/* <link
