@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useLazyLoadScripts = (scripts: string[]) => {
+const useLazyLoadScriptsBody = (scripts: string[]) => {
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
 
   useEffect(() => {
@@ -28,4 +28,4 @@ const useLazyLoadScripts = (scripts: string[]) => {
   return scriptsLoaded;
 };
 
-export default useLazyLoadScripts;
+export default useLazyLoadScriptsBody;

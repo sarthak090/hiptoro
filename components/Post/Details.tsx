@@ -10,6 +10,7 @@ import Image from "next/image";
 // import AutoAds from "../Ads/AutoAds";
 import RelatedPost from "./RelatedPost";
 import Script from "next/script";
+import useLazyLoadScriptsBody from "@/hooks/useLazyLoadScriptsBody";
 const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"));
 const AutoAds = dynamic(() => import("@/components/Ads/AutoAds"), {
   ssr: false,
@@ -19,6 +20,8 @@ const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
 const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
+  const scripts = ["/js/connatixbody.js"];
+  const scriptsLoaded = useLazyLoadScriptsBody(scripts);
   return (
     <>
       <div>
@@ -74,7 +77,7 @@ export default function Details({ post }: any) {
         <PostMeta {...post} />
         <SocialShares {...post} />
         <AutoAds />
-        <Script
+        {/* <Script
           async
           id="40e3be63c06a42be96a4956227a96693"
           strategy="lazyOnload"
@@ -84,7 +87,7 @@ export default function Details({ post }: any) {
           
           `,
           }}
-        ></Script>
+        ></Script> */}
 
         {post.toc && post.toc.length > 0 && <PostOutline toc={post.toc} />}
 
