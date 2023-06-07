@@ -41,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
     "https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;",
     "https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY",
     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146",
+    "https://cds.connatix.com/p/277794/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41&tier=1",
   ];
   const scriptsLoaded = useLazyLoadScripts(scripts);
 
