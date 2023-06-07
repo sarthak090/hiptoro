@@ -35,7 +35,13 @@ const raleway = Raleway({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const scripts = ["/js/connatix.js"];
+  const scripts = [
+    "/js/connatix.js",
+    "/js/adsense.js",
+    "/js/gtag.js",
+    "https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;",
+    "https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY",
+  ];
   const scriptsLoaded = useLazyLoadScripts(scripts);
 
   useEffect(() => {
@@ -85,14 +91,14 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" /> */}
       </Head>
 
-      <Script
+      {/* <Script
         data-cfasync="false"
         lang="javascript"
         defer
         strategy="afterInteractive"
         referrerPolicy="no-referrer-when-downgrade"
         src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
-      />
+      /> */}
 
       {/* <Script strategy="afterInteractive">
         {`
@@ -103,21 +109,21 @@ export default function App({ Component, pageProps }: AppProps) {
         `}
       </Script> */}
       {/* <!-- Google tag (gtag.js) --> */}
-      <Script
+      {/* <Script
         defer
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
-      />
+      /> */}
 
-      <Script strategy="afterInteractive" id="google-analytics">
+      {/* <Script strategy="afterInteractive" id="google-analytics">
         {` window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());          
                 gtag('config', 'G-LE5P46J4FY');
         `}
-      </Script>
+      </Script> */}
       {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE START---> */}
-      <Script strategy="afterInteractive">{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
+      {/* <Script strategy="afterInteractive">{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script> */}
 
       {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE END---> */}
 
