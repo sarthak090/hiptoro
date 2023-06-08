@@ -23,4 +23,6 @@ export default function AutoAds() {
       </>
     );
   }
+
+  return null;
 }

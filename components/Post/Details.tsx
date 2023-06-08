@@ -22,9 +22,8 @@ const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
   // const scripts = ["https://widgets.outbrain.com/outbrain.js"];
-  const scripts2 = ["/js/connatix.js"];
+
   // const scriptsLoaded = useLazyLoadScriptsBody(scripts);
-  const scriptsLoaded2 = useLazyLoadScripts(scripts2);
   return (
     <>
       <div>
