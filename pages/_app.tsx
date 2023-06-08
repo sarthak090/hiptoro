@@ -50,7 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
-        console.error(`Error While Loading Ads`);
+        console.error(`Error While Loading Ads`, e);
       }
     }
   }, []);

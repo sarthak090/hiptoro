@@ -21,9 +21,9 @@ const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
 const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
-  const scripts = ["https://widgets.outbrain.com/outbrain.js"];
+  // const scripts = ["https://widgets.outbrain.com/outbrain.js"];
   const scripts2 = ["/js/connatix.js"];
-  const scriptsLoaded = useLazyLoadScriptsBody(scripts);
+  // const scriptsLoaded = useLazyLoadScriptsBody(scripts);
   const scriptsLoaded2 = useLazyLoadScripts(scripts2);
   return (
     <>
@@ -50,7 +50,9 @@ export default function Details({ post }: any) {
             />
           </>
         )}
-        <AutoAds />
+        <div className="my-4">
+          <AutoAds />
+        </div>
 
         <CategoryBox category={post.category} />
 
@@ -79,20 +81,19 @@ export default function Details({ post }: any) {
 
         <PostMeta {...post} />
         <SocialShares {...post} />
-        {scriptsLoaded2 && (
-          <div className="my-4">
-            <script
-              async
-              id="40e3be63c06a42be96a4956227a96693"
-              dangerouslySetInnerHTML={{
-                __html: `
+
+        <div className="my-4">
+          <script
+            async
+            id="40e3be63c06a42be96a4956227a96693"
+            dangerouslySetInnerHTML={{
+              __html: `
                    (new Image()).src = 'https://capi.connatix.com/tr/si?token=ce0c756d-574b-49f5-9888-57d30090e003&cid=d7375c7c-a8aa-4449-891e-4b3af534cf41';  cnx.cmd.push(function() {    cnx({      playerId: "ce0c756d-574b-49f5-9888-57d30090e003"    }).render("40e3be63c06a42be96a4956227a96693");  });
           
           `,
-              }}
-            ></script>
-          </div>
-        )}
+            }}
+          ></script>
+        </div>
 
         <AutoAds />
 
@@ -107,14 +108,14 @@ export default function Details({ post }: any) {
 
         <AuthorBox author={post.author} />
       </div>
-      {scriptsLoaded && <div className="OUTBRAIN" data-widget-id="GS_1"></div>}
 
-      {/* <Script
+      <div className="OUTBRAIN" data-widget-id="GS_1"></div>
+
+      <script
         type="text/javascript"
         defer
-        strategy="lazyOnload"
         src="https://widgets.outbrain.com/outbrain.js"
-      ></Script> */}
+      ></script>
     </>
   );
 }
