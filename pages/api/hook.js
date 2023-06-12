@@ -20,8 +20,19 @@ export default function handler(req, res) {
     await generateRSSFeed();
 
     console.log(`Git pull completed. Output: ${stdout}`);
-    exec("git add .");
-    exec(`git commit -m "Deployment From Hook" `);
+    exec("git add .", (error, stdout) => {
+      if (error) {
+        console.error(`Error Adding: ${error.message}`);
+        res.status(500).json({ error: "Deployment failed" });
+        return;
+      }
+      exec(`git commit -m "Deployment From Hook" `, (error, stdout) => {
+        console.error(`Error Commiting: ${error.message}`);
+        res.status(500).json({ error: "Deployment failed" });
+      });
+      return res.status(200).json({ message: "Deployment successful" });
+    });
+
     exec("git push ", (error, stdout, stderr) => {
       if (error) {
         console.error(`Error: ${error.message}`);
