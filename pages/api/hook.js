@@ -31,19 +31,18 @@ export default function handler(req, res) {
           console.error(`Error Commiting: ${error.message}`);
           res.status(500).json({ error: "Deployment failed" });
         }
+
+        exec("git push ", (error, stdout, stderr) => {
+          if (error) {
+            console.error(`Error: ${error.message}`);
+            res.status(500).json({ error: "Deployment on Heroku failed" });
+            return;
+          }
+
+          console.log(`Heroku deployment completed. Output: ${stdout}`);
+          res.status(200).json({ message: "Deployment successful" });
+        });
       });
-      return res.status(200).json({ message: "Deployment successful" });
-    });
-
-    exec("git push ", (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Error: ${error.message}`);
-        res.status(500).json({ error: "Deployment on Heroku failed" });
-        return;
-      }
-
-      console.log(`Heroku deployment completed. Output: ${stdout}`);
-      res.status(200).json({ message: "Deployment successful" });
     });
   });
 }
