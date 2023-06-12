@@ -18,7 +18,8 @@ export default function handler(req, res) {
     }
 
     console.log(`Git pull completed. Output: ${stdout}`);
-
+    exec("git add .");
+    exec(`git commit -m "Deployment From Hook" `);
     exec("git push heroku main", (error, stdout, stderr) => {
       if (error) {
         console.error(`Error: ${error.message}`);
