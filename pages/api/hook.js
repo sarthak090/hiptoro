@@ -10,9 +10,7 @@ export default function handler(req, res) {
   }
 
   // Execute a Git pull request to update the code
-  exec("git add .");
-  exec('git commit -m "Added New Deployment"');
-  exec("git push ", (error, stdout, stderr) => {
+  exec("git pull origin main", (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       res.status(500).json({ error: "Deployment failed" });
@@ -20,6 +18,16 @@ export default function handler(req, res) {
     }
 
     console.log(`Git pull completed. Output: ${stdout}`);
-    res.status(200).json({ message: "Deployment successful" });
+
+    exec("git push heroku main", (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error: ${error.message}`);
+        res.status(500).json({ error: "Deployment on Heroku failed" });
+        return;
+      }
+
+      console.log(`Heroku deployment completed. Output: ${stdout}`);
+      res.status(200).json({ message: "Deployment successful" });
+    });
   });
 }
