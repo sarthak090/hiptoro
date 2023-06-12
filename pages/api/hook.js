@@ -26,9 +26,11 @@ export default function handler(req, res) {
         res.status(500).json({ error: "Deployment failed" });
         return;
       }
-      exec(`git commit -m "Deployment From Hook" `, (error2, stdout) => {
-        console.error(`Error Commiting: ${error2.message}`);
-        res.status(500).json({ error: "Deployment failed" });
+      exec(`git commit -m "Deployment From Hook" `, (error, stdout) => {
+        if (error) {
+          console.error(`Error Commiting: ${error.message}`);
+          res.status(500).json({ error: "Deployment failed" });
+        }
       });
       return res.status(200).json({ message: "Deployment successful" });
     });
