@@ -10,7 +10,9 @@ export default function handler(req, res) {
   }
 
   // Execute a Git pull request to update the code
-  exec("git push heroku main", (error, stdout, stderr) => {
+  exec("git add .");
+  exec('git commit -m "Added New Deployment"');
+  exec("git push ", (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       res.status(500).json({ error: "Deployment failed" });
