@@ -1,4 +1,5 @@
 import { exec } from "child_process";
+import generateRSSFeed from "../../utils/generateRSSFeed";
 
 export default function handler(req, res) {
   const { secret } = req.query;
@@ -10,17 +11,18 @@ export default function handler(req, res) {
   }
 
   // Execute a Git pull request to update the code
-  exec("git pull origin main", (error, stdout, stderr) => {
+  exec("git pull origin main", async (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       res.status(500).json({ error: "Deployment failed" });
       return;
     }
+    await generateRSSFeed();
 
     console.log(`Git pull completed. Output: ${stdout}`);
     exec("git add .");
     exec(`git commit -m "Deployment From Hook" `);
-    exec("git push heroku main", (error, stdout, stderr) => {
+    exec("git push ", (error, stdout, stderr) => {
       if (error) {
         console.error(`Error: ${error.message}`);
         res.status(500).json({ error: "Deployment on Heroku failed" });
