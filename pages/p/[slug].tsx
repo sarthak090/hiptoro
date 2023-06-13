@@ -40,6 +40,7 @@ export const getStaticProps: GetStaticProps = async ({
           post: null,
           notFound: true,
         },
+        revalidate: 120,
       };
     }
 
@@ -69,6 +70,7 @@ export const getStaticProps: GetStaticProps = async ({
       props: {
         post: postTosend,
       },
+      revalidate: 120,
     };
   } catch (err) {
     console.log(err);
@@ -78,6 +80,7 @@ export const getStaticProps: GetStaticProps = async ({
         post: null,
         notFound: true,
       },
+      revalidate: 120,
     };
   }
 };
