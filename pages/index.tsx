@@ -54,6 +54,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       postsByCategory,
       latest_posts,
     },
+    revalidate: 15,
   };
 };
 const p = [

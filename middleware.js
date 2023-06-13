@@ -8,6 +8,9 @@ export default function middleware(req, res) {
 
   if (requestUrl.includes("page_id") || requestUrl.includes("?p")) {
     let pid = req.url.split("=").pop();
+    if (pid.length < 4) {
+      return;
+    }
     return Response.redirect(
       new URL(`https://secureback.hiptoro.com/?page_id=${pid}`)
     );
