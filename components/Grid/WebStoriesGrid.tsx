@@ -31,7 +31,7 @@ export default function WebStoriesGrid(props: any) {
                   sizes="(max-width: 768px) 100vw,
                   (max-width: 1200px) 50vw,
                   33vw"
-                  className="max-h-[400px] object-cover  "
+                  className="max-h-[400px] object-contain  "
                 />
               </>
             ) : (

@@ -11,7 +11,7 @@ export default function webStoriesFormat(content, rankMathSeoSchema) {
   $("head").append(scrpt(rankMathSeoSchema));
 
   const html = `<!DOCTYPE html>
-   ${$.html()}
+   ${$.html().replaceAll("secureback.hiptoro.com", "www.hiptoro.com")}
   `;
   return html;
 }
