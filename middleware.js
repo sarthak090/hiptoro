@@ -6,9 +6,10 @@ export default function middleware(req, res) {
 
   const requestUrl = req.url;
 
-  if (requestUrl.includes("page_id") || requestUrl.includes("?p")) {
+  if (requestUrl.includes("page_id") || requestUrl.includes("?p=")) {
     let pid = req.url.split("=").pop();
-    if (pid.length < 4) {
+    console.log(parseInt(pid));
+    if (pid.length < 4 || parseInt(pid) === NaN) {
       return;
     }
     return Response.redirect(
