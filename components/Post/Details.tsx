@@ -81,7 +81,7 @@ export default function Details({ post }: any) {
         <PostMeta {...post} />
         <SocialShares {...post} />
 
-        {/* <div className="my-4">
+        <div className="my-4">
           <script
             async
             id="40e3be63c06a42be96a4956227a96693"
@@ -92,7 +92,7 @@ export default function Details({ post }: any) {
           `,
             }}
           ></script>
-        </div> */}
+        </div>
 
         <AutoAds />
 
