@@ -28,17 +28,19 @@ export default function Details({ post }: any) {
   // const scriptsLoaded = useLazyLoadScriptsBody(scripts);
   useEffect(() => {
     asyncScriptLoader({
+      src: "/js/connatixbody.js",
+      attachTo: document.getElementById("connatix-ads"),
+      loadWithAsync: true,
+      onUserInteraction: true,
+      attributes: [{ key: "id", value: "40e3be63c06a42be96a4956227a96693" }],
+    });
+
+    asyncScriptLoader({
       src: "https://widgets.outbrain.com/outbrain.js",
       attachTo: document.getElementById("outbrain-script"),
       loadWithAsync: true,
       onUserInteraction: true,
-    })
-      .then(() => {
-        console.log("Script loaded successfully!");
-      })
-      .catch((error) => {
-        console.error("Error loading script:", error);
-      });
+    });
   }, []);
   return (
     <>
@@ -97,8 +99,8 @@ export default function Details({ post }: any) {
         <PostMeta {...post} />
         <SocialShares {...post} />
 
-        <div className="my-4">
-          <script
+        <div id="connatix-ads" className="my-4 connatix-ads">
+          {/* <script
             async
             id="40e3be63c06a42be96a4956227a96693"
             dangerouslySetInnerHTML={{
@@ -107,7 +109,7 @@ export default function Details({ post }: any) {
           
           `,
             }}
-          ></script>
+          ></script> */}
         </div>
 
         <AutoAds />
