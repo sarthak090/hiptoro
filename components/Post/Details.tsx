@@ -10,8 +10,10 @@ import Image from "next/image";
 // import AutoAds from "../Ads/AutoAds";
 import RelatedPost from "./RelatedPost";
 import Script from "next/script";
+import asyncScriptLoader from "@/utils/asyncScriptLoader";
 import useLazyLoadScriptsBody from "@/hooks/useLazyLoadScriptsBody";
 import useLazyLoadScripts from "@/hooks/useLazyLoadScripts";
+import { useEffect } from "react";
 const OutbrainAds = dynamic(() => import("@/components/Ads/Outbrain"));
 const AutoAds = dynamic(() => import("@/components/Ads/AutoAds"), {
   ssr: false,
@@ -24,6 +26,20 @@ export default function Details({ post }: any) {
   // const scripts = ["https://widgets.outbrain.com/outbrain.js"];
 
   // const scriptsLoaded = useLazyLoadScriptsBody(scripts);
+  useEffect(() => {
+    asyncScriptLoader({
+      src: "https://widgets.outbrain.com/outbrain.js",
+      attachTo: document.getElementById("outbrain-script"),
+      loadWithAsync: true,
+      onUserInteraction: true,
+    })
+      .then(() => {
+        console.log("Script loaded successfully!");
+      })
+      .catch((error) => {
+        console.error("Error loading script:", error);
+      });
+  }, []);
   return (
     <>
       <div>
@@ -109,8 +125,8 @@ export default function Details({ post }: any) {
       </div>
 
       <div className="OUTBRAIN" data-widget-id="GS_1"></div>
-
-      <Script defer src="https://widgets.outbrain.com/outbrain.js"></Script>
+      <div id="outbrain-script"></div>
+      {/* <Script defer src="https://widgets.outbrain.com/outbrain.js"></Script> */}
     </>
   );
 }
