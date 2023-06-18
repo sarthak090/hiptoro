@@ -44,6 +44,8 @@ export default function Details({ post }: any) {
   }, []);
   return (
     <>
+      <Script src="/js/lozad.js" strategy="beforeInteractive" />
+
       <div>
         {post.nextSeoData && (
           <>
@@ -125,7 +127,46 @@ export default function Details({ post }: any) {
 
         <AuthorBox author={post.author} />
       </div>
-
+      <Script strategy="lazyOnload">
+        {`
+            const observer = lozad('.lozad', {
+              load: el => {
+  
+  
+  
+                  if (el.tagName === "IMG") {
+                      // For Image Lazy Loading
+                      console.log('Added Lozad Lazy')
+                      el.src = el.dataset.src
+                  }
+  
+                  const bq = document.createElement('blockquote');
+                  bq.className = 'twitter-tweet';
+  
+                  const p = document.createElement('p');
+                  p.lang = 'ja';
+                  p.dir = 'ltr';
+                  bq.appendChild(p);
+  
+                  const twitterSrc = el.dataset.twitterSrc;
+                  const a = document.createElement('a');
+                  a.href = twitterSrc;
+                  bq.appendChild(a);
+  
+                  const script = document.createElement('script');
+                  script.src = 'https://platform.twitter.com/widgets.js';
+                  script.charset = 'utf-8';
+                  script.async = true;
+  
+                  el.insertAdjacentElement('beforeEnd', bq);
+                  el.insertAdjacentElement('beforeEnd', script);
+              },
+  
+          });
+          observer.observe();
+  
+          `}
+      </Script>
       <div className="OUTBRAIN" data-widget-id="GS_1"></div>
       <div id="outbrain-script"></div>
       {/* <Script defer src="https://widgets.outbrain.com/outbrain.js"></Script> */}

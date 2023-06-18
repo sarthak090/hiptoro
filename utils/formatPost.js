@@ -136,7 +136,9 @@ export default function formatPost(post) {
   });
 
   $("blockquote .google-auto-ads").remove();
-
+  $("img").each((i, el) => {
+    $(el).addClass("lozad");
+  });
   if (
     $("img") &&
     $("img")?.parent() &&

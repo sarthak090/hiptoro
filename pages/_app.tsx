@@ -12,6 +12,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { useEffect } from "react";
 import useLazyLoadScripts from "@/hooks/useLazyLoadScripts";
+import asyncScriptLoader from "@/utils/asyncScriptLoader";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const scripts = [
     "/js/adsense.js",
     "/js/gtag.js",
+
     "https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;",
     "https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY",
     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146",
@@ -45,6 +47,12 @@ export default function App({ Component, pageProps }: AppProps) {
   const scriptsLoaded = useLazyLoadScripts(scripts);
 
   useEffect(() => {
+    asyncScriptLoader({
+      src: "/js/connatix.js",
+      attachTo: document.head,
+      loadWithAsync: true,
+      onUserInteraction: true,
+    });
     var ads = document.getElementsByClassName("adsbygoogle").length;
     for (var i = 0; i < ads; i++) {
       try {
@@ -62,11 +70,13 @@ export default function App({ Component, pageProps }: AppProps) {
           httpEquiv="Content-Security-Policy"
           content="block-all-mixed-content"
         />
+
         <meta charSet="UTF-8" />
         <meta
           name="twitter:image"
           content="https://static.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png"
         />
+
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -90,7 +100,6 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* <link rel="dns-prefetch" href="//adservice.google.com" />
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" /> */}
       </Head>
-
       {/* <Script
         data-cfasync="false"
         lang="javascript"
