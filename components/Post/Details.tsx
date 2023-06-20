@@ -21,18 +21,16 @@ const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 export default function Details({ post }: any) {
   useEffect(() => {
     // replace(/https:\/\/platform\.twitter\.com\/widgets\.js/g, '')
-    console.log(
-      post.content.rendered.includes("https://platform.twitter.com/widgets.js")
-    );
+
     const observer = lozad(".lozad", {
       load: (el) => {
         if (el.tagName === "IMG" || el.tagName === "VIDEO") {
           // For Image Lazy Loading
-
+          if (el.dataset.srcset !== undefined) {
+            el.srcset = el.dataset.srcset;
+          }
           el.src = el.dataset.src;
-          // if (el.tagName === "IMG") {
-          //   el.srcset = el.dataset.srcset;
-          // }
+
           return;
         }
 
