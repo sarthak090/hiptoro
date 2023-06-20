@@ -100,9 +100,11 @@ export default function Details({ post }: any) {
   
                   if (el.tagName === "IMG") {
                       // For Image Lazy Loading
-                      console.log('Added Lozad Lazy')
+                      console.log('Added Lozad Lazy',el.dataset.src)
                       el.src = el.dataset.src
+                      return
                   }
+                  
   
                   const bq = document.createElement('blockquote');
                   bq.className = 'twitter-tweet';

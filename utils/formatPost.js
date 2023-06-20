@@ -138,6 +138,11 @@ export default function formatPost(post) {
   $("blockquote .google-auto-ads").remove();
   $("img").each((i, el) => {
     $(el).addClass("lozad");
+
+    $(el).attr("data-srcset", $(el).attr("srcset"));
+    $(el).attr("data-src", $(el).attr("src"));
+    $(el).attr("srcset", "");
+    $(el).attr("src", "");
   });
   if (
     $("img") &&
