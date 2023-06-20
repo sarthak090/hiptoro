@@ -12,7 +12,10 @@ export default function (posts) {
       timeToRead: readingTime(post.content.rendered),
       toc: genToc(post.content).toc,
       content: {
-        rendered: genToc(post.content).parsedcontent,
+        rendered: genToc(post.content).parsedcontent.replace(
+          /https:\/\/platform\.twitter\.com\/widgets\.js/g,
+          ""
+        ),
       },
     };
     const postTosend = formatPost(p);
