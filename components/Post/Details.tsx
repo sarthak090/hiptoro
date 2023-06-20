@@ -21,8 +21,6 @@ const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 export default function Details({ post }: any) {
   return (
     <>
-      <Script src="/js/lozad.js" strategy="beforeInteractive" />
-
       <div>
         {post.nextSeoData && (
           <>
@@ -100,33 +98,19 @@ export default function Details({ post }: any) {
   
                   if (el.tagName === "IMG") {
                       // For Image Lazy Loading
-                      console.log('Added Lozad Lazy',el.dataset.src)
-                      el.src = el.dataset.src
+                       el.src = el.dataset.src
                       return
                   }
-                  
-  
-                  const bq = document.createElement('blockquote');
-                  bq.className = 'twitter-tweet';
-  
-                  const p = document.createElement('p');
-                  p.lang = 'ja';
-                  p.dir = 'ltr';
-                  bq.appendChild(p);
-  
-                  const twitterSrc = el.dataset.twitterSrc;
-                  const a = document.createElement('a');
-                  a.href = twitterSrc;
-                  bq.appendChild(a);
-  
-                  const script = document.createElement('script');
-                  script.src = 'https://platform.twitter.com/widgets.js';
-                  script.charset = 'utf-8';
-                  script.async = true;
-  
-                  el.insertAdjacentElement('beforeEnd', bq);
-                  el.insertAdjacentElement('beforeEnd', script);
-              },
+                   
+                if(el.tagName === "IFRAME"){
+                  console.log(el.srcdoc)
+                  return
+                }
+   
+                 
+
+              // ends here
+                },
   
           });
           observer.observe();
