@@ -13,9 +13,12 @@ export default function SinglePost(props: any) {
 
   if (post !== null) {
     return (
-      <div className="container mx-auto max-w-site-full">
-        <Details post={post} />
-      </div>
+      <>
+        <div className="container mx-auto max-w-site-full">
+          <Details post={post} />
+        </div>
+        <script src="/js/lozad-body.js"></script>
+      </>
     );
   } else {
     return <NotFound />;
