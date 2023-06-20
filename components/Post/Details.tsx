@@ -22,10 +22,13 @@ export default function Details({ post }: any) {
   useEffect(() => {
     const observer = lozad(".lozad", {
       load: (el) => {
-        if (el.tagName === "IMG") {
+        if (el.tagName === "IMG" || el.tagName === "VIDEO") {
           // For Image Lazy Loading
-          console.log("first");
+          console.log(el.src, el.dataset.src);
           el.src = el.dataset.src;
+          if (el.tagName === "IMG") {
+            el.srcset = el.dataset.srcset;
+          }
           return;
         }
 

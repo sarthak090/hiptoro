@@ -28,6 +28,11 @@ function reformatHtml(tweet) {
     $(el).attr("data-src", $(el).attr("src"));
     $(el).attr("src", "");
   });
+  $("video").each((i, el) => {
+    $(el).addClass("lozad");
+    $(el).attr("data-src", $(el).attr("src"));
+    $(el).attr("src", "");
+  });
 
   return $.html();
 }

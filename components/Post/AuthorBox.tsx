@@ -24,7 +24,7 @@ export default function AuthorBox(props: Props) {
               src={author.gravatar}
               width={100}
               height={100}
-              className="rounded-full"
+              className="rounded-full  "
               alt={author.name}
               loading="lazy"
             />
