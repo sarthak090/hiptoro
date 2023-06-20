@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function RelatedPost({ related_posts }: any) {
-  const rnd = 2;
+  const rnd = random();
 
   return (
     <div>

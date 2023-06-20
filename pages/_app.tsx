@@ -37,30 +37,38 @@ const raleway = Raleway({
 
 export default function App({ Component, pageProps }: AppProps) {
   const scripts = [
-    "/js/adsense.js",
     "/js/gtag.js",
 
-    "https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;",
     "https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY",
-    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7099984888351146",
   ];
   const scriptsLoaded = useLazyLoadScripts(scripts);
 
   useEffect(() => {
     asyncScriptLoader({
-      src: "/js/connatix.js",
+      src: "https://scripts.pubnation.com/tags/f97a5118-a8dd-43ac-ac4d-220fd1d2edaf.js",
       attachTo: document.head,
       loadWithAsync: true,
       onUserInteraction: true,
+      attributes: [
+        { key: "data-noptimize", value: "1" },
+        { key: "data-cfasync", value: "false" },
+      ],
     });
-    var ads = document.getElementsByClassName("adsbygoogle").length;
-    for (var i = 0; i < ads; i++) {
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {
-        console.error(`Error While Loading Ads`, e);
-      }
-    }
+
+    // asyncScriptLoader({
+    //   src: "/js/connatix.js",
+    //   attachTo: document.head,
+    //   loadWithAsync: true,
+    //   onUserInteraction: true,
+    // });
+    // var ads = document.getElementsByClassName("adsbygoogle").length;
+    // for (var i = 0; i < ads; i++) {
+    //   try {
+    //     (adsbygoogle = window.adsbygoogle || []).push({});
+    //   } catch (e) {
+    //     console.error(`Error While Loading Ads`, e);
+    //   }
+    // }
   }, []);
 
   return (
@@ -99,42 +107,14 @@ export default function App({ Component, pageProps }: AppProps) {
         /> */}
         {/* <link rel="dns-prefetch" href="//adservice.google.com" />
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" /> */}
+        {/* <script
+          type="text/javascript"
+          async="true"
+          data-noptimize="1"
+          data-cfasync="false"
+          src="scripts.pubnation.com/tags/f97a5118-a8dd-43ac-ac4d-220fd1d2edaf.js"
+        ></script> */}
       </Head>
-      {/* <Script
-        data-cfasync="false"
-        lang="javascript"
-        defer
-        strategy="afterInteractive"
-        referrerPolicy="no-referrer-when-downgrade"
-        src="https://udmserve.net/udm/img.fetch?sid=15497;tid=1;dt=6;"
-      /> */}
-
-      <Script strategy="beforeInteractive">
-        {`
-       
-        !function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.src='javascript:false'; t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js?cid=d7375c7c-a8aa-4449-891e-4b3af534cf41',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);
-        
-       
-        `}
-      </Script>
-      {/* <!-- Google tag (gtag.js) --> */}
-      {/* <Script
-        defer
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-LE5P46J4FY"
-      /> */}
-
-      {/* <Script strategy="afterInteractive" id="google-analytics">
-        {` window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());          
-                gtag('config', 'G-LE5P46J4FY');
-        `}
-      </Script> */}
-      {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE START---> */}
-      {/* <Script strategy="afterInteractive">{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script> */}
-
-      {/* <!--- UNDERDOGMEDIA EDGE_hiptoro.com JavaScript ADCODE END---> */}
 
       <style jsx global>{`
         :root {

@@ -1,119 +1,38 @@
-google.com, pub-7099984888351146, DIRECT, f08c47fec0942fa0
-### UDM START ###
-udmserve.net, 3119, DIRECT, 0cf60ed62b5f3e40
-33across.com, 0015a00002y4bCYAAY, RESELLER, bbea06d9c4d2853c
-amxrtb.com, dW5kZXJkb2dtZWRpYS5jb20, RESELLER
-appnexus.com, 10239, RESELLER, f5ab79cb980f11d1
-appnexus.com, 11786, RESELLER, f5ab79cb980f11d1
-appnexus.com, 12290, RESELLER, f5ab79cb980f11d1
-appnexus.com, 1610, RESELLER, f5ab79cb980f11d1
-appnexus.com, 7874, RESELLER, f5ab79cb980f11d1
-contextweb.com, 508738, RESELLER, 89ff185a4c4e857c
-contextweb.com, 561516, RESELLER, 89ff185a4c4e857c
-conversantmedia.com, 100141, RESELLER
-criteo.com, B-061296, RESELLER, 9fac4a4a87c2a44f
-indexexchange.com, 191503, RESELLER, 50b1c356f2c5c8fc
-indexexchange.com, 191973, RESELLER, 50b1c356f2c5c8fc
-indexexchange.com, 194564, RESELLER, 50b1c356f2c5c8fc
-indexexchange.com, 199174, RESELLER, 50b1c356f2c5c8fc
-openx.com, 537120563, RESELLER, 6a698e2ec38604c6
-openx.com, 537124574, RESELLER, 6a698e2ec38604c6
-openx.com, 540274407, RESELLER, 6a698e2ec38604c6
-pubmatic.com, 156423, RESELLER, 5d62403b186f2ace
-pubmatic.com, 156505, RESELLER, 5d62403b186f2ace
-pubmatic.com, 156557, RESELLER, 5d62403b186f2ace
-pubmatic.com, 158355, RESELLER, 5d62403b186f2ace
-pubmatic.com, 159955, RESELLER, 5d62403b186f2ace
-rubiconproject.com, 16414, RESELLER, 0bfd66d529a55807
-rubiconproject.com, 18694, RESELLER, 0bfd66d529a55807
-rubiconproject.com, 21642, RESELLER, 0bfd66d529a55807
-rubiconproject.com, 23844, RESELLER, 0bfd66d529a55807
-rubiconproject.com, 24042, RESELLER, 0bfd66d529a55807
-sharethrough.com, gaUCB2YI, RESELLER, d53b998a7bd4ecd2
-smartadserver.com, 3056, RESELLER
-sonobi.com, 5fa6044d8d, RESELLER, d1a215d9eb5aee9e
-sonobi.com, f9d43d3da6, RESELLER, d1a215d9eb5aee9e
-synacor.com, 82078, RESELLER
-themediagrid.com, CIQERY, RESELLER, 35d5010d7789b49d
-triplelift.com, 12503, RESELLER, 6c33edb13117fd86
-yahoo.com, 49648, RESELLER, e1a5b5b6e3255540
-yahoo.com, 56692, RESELLER, e1a5b5b6e3255540
-yahoo.com, 57289, RESELLER, e1a5b5b6e3255540
-yahoo.com, 59531, RESELLER, e1a5b5b6e3255540
-### UDM END ###
-connatix.com, 1180034149503331, DIRECT, 2af98acdee0e81ed
-pubmatic.com, 156592, RESELLER, 5d62403b186f2ace
-rubiconproject.com, 19564, RESELLER, 0bfd66d529a55807
-spotxchange.com, 136839, RESELLER, 7842df1d2fe2db34
-telaria.com, cd009, RESELLER, 1a4e959a1b50034a
-google.com, pub-1929615694373103, RESELLER,f08c47fec0942fa0
-indexexchange.com, 190549, RESELLER
-openx.com, 539496816, RESELLER, 6a698e2ec38604c6
-triplelift.com, 12200, RESELLER, 6c33edb13117fd86
-google.com, pub-5717092533913515, RESELLER, f08c47fec0942fa0 #NPMpartners
-inmobi.com, 64d831e7ed4840ac8ea2283745f07d75, RESELLER, 83e75a7ae333ca9d
-appnexus.com, 9733, RESELLER
-freewheel.tv, 1064705, RESELLER
-contextweb.com, 561340, RESELLER, 89ff185a4c4e857c
-synacor.com, 82461, RESELLER, e108f11b2cdf7d5b
-media.net, 8CUP5F2LD, RESELLER
-media.net, 8CU95X561, RESELLER
-criteo.com, B-068506, RESELLER, 9fac4a4a87c2a44f
-superawesome.tv, 337, RESELLER, 706a53c9da3b4cee
-risecodes.com, 60053eeffc482800014c29be, RESELLER
-33across.com, 0015a00002y7TWTAA2, RESELLER, bbea06d9c4d2853c #33Across #hb #tag
-supply.colossusssp.com, 332, RESELLER, 6c5b49d96ec1b458
-smartadserver.com, 3630, RESELLER
-lkqd.net, 593, RESELLER, 59c49fa9598a0117
-EMXDGT.com, 1781, RESELLER, 1e1d41537f7cad7f
-conversantmedia.com, 42111, RESELLER, 03113cd04947736d
-improvedigital.com, 1845, RESELLER
-loopme.com, 11186, RESELLER, 6c8d5f95897a5a3b
-outbrain.com, 005a654f14274cd175207abc0e578e8155, DIRECT
-appnexus.com, 7597, RESELLER, f5ab79cb980f11d1
-tremorhub.com, q017o-78mlk, RESELLER, 1a4e959a1b50034a # Premium video demand aka Telaria
-spotxchange.com, 225721, RESELLER # Premium video demand
-Freewheel.tv, 741650, RESELLER # Premium video demand
-rubiconproject.com, 17130, RESELLER, 0bfd66d529a55807 # Premium video demand
-lkqd.net, 450, RESELLER, 59c49fa9598a0117 # Premium video demand
-openx.com, 540393169, RESELLER, 6a698e2ec38604c6 # Premium video demand
-rubiconproject.com, 19668, RESELLER, 0bfd66d529a55807
-indexexchange.com, 190856, RESELLER, 50b1c356f2c5c8fc # Premium Video Demand
-pubmatic.com, 158615, RESELLER, 5d62403b186f2ace # Premium video & display demand
-vidazoo.com, 1773068026, RESELLER, b6ada874b4d7d0b2 # Premium Video Demand
-indexexchange.com, 193091, RESELLER, 50b1c356f2c5c8fc # Premium video demand from Outbrain
-pubmatic.com, 160065, RESELLER, 5d62403b186f2ace # Premium video demand from Outbrain
-improvedigital.com, 1863, RESELLER # Premium video demand from Outbrain
-freewheel.tv, 1220655, RESELLER # Premium video demand from Outbrain
-yahoo.com, 59052, RESELLER # Premium Video Demand
-risecodes.com,6022acddc8b2f90001767980, RESELLER
-yahoo.com, 59040, RESELLER, e1a5b5b6e3255540
-emxdgt.com, 2014, RESELLER, 1e1d41537f7cad7f
-google.com, pub-5617098146054077, RESELLER, f08c47fec0942fa0 #instream video by outbrain
-pubmatic.com, 158055, RESELLER, 5d62403b186f2ace #instream video by outbrain
-xandr.com, 10736, RESELLER #instream video by outbrain
-rubiconproject.com, 21506, RESELLER, 0bfd66d529a55807 #instream video by outbrain
-rhythmone.com, 1014191143, RESELLER, a670c89d4a324e47 #instream video by outbrain
-video.unrulymedia.com, 1014191143, RESELLER #instream video by outbrain
-Indexexchange.com, 190500, RESELLER #instream video by outbrain
-smartadserver.com,2776,RESELLER #instream video by outbrain
-openx.com, 540362347, RESELLER, 6a698e2ec38604c6 #instream video by outbrain
-spotxchange.com, 304237, RESELLER, 7842df1d2fe2db34 #instream video by outbrain
-spotx.tv, 304237, RESELLER, 7842df1d2fe2db34 #instream video by outbrain
-yahoo.com, 59658, RESELLER #instream video by outbrain
-media.net, 8CUIH830U, RESELLER #instream video by outbrain
-triplelift.com, 11547, RESELLER, 6c33edb13117fd86 #instream video by outbrain
-improvedigital.com, 1552, Reseller #instream video by outbrain
-contextweb.com, 562709, RESELLER, 89ff185a4c4e857c
-aps.amazon.com, 3965, RESELLER #instream video by outbrain
-lkqd.net, 602, RESELLER, 59c49fa9598a0117 # Premium Video Demand
-beachfront.com, 14027, RESELLER, e2541279e8e2ca4d # Premium Video Demand
-smartadserver.com, 3820, RESELLER # Premium Video Demand
-video.unrulymedia.com, 367782854, RESELLER # Premium video demand from Outbrain
-synacor.com, 82423, RESELLER, e108f11b2cdf7d5b # Premium video demand from Outbrain
-smaato.com, 1100048704, RESELLER, 07bcf65f187117b4 # Premium video demand from Outbrain
-contextweb.com, 562145, RESELLER, 89ff185a4c4e857c # Premium video demand from Outbrain
-vi.ai, g-nan, DIRECT #instream video by outbrain
-imds.tv, 82423, RESELLER, ae6c32151e71f19d # Premium video demand from Outbrain
-freewheel.tv, 1220559, RESELLER # Premium video demand from Outbrain
-freewheel.tv, 1133073, RESELLER #instream video by outbrain
+# PubNation Ads.txt v20230321
+managerdomain=pubnation.com
+contact=sales@pubnation.com
+ownerdomain=hiptoro.com
+pubnation.com, 14304, DIRECT, 1363c924529b3998
+pubnation.com, f97a5118-a8dd-43ac-ac4d-220fd1d2edaf, DIRECT, 1363c924529b3998
+aps.amazon.com, b8e296dd-fc9f-4561-b5be-0262680b7abd, DIRECT
+appnexus.com, 13329, DIRECT, f5ab79cb980f11d1
+indexexchange.com, 199830, DIRECT, 50b1c356f2c5c8fc
+indexexchange.com, 199825, DIRECT, 50b1c356f2c5c8fc
+indexexchange.com, 199823, DIRECT, 50b1c356f2c5c8fc
+google.com, pub-6445234841753687, RESELLER, f08c47fec0942fa0
+pubnation.com, 143be7a194e98d44ecdc0cca49d33a94, DIRECT
+openx.com, 557899709, DIRECT, 6a698e2ec38604c6
+openx.com, 557903419, DIRECT, 6a698e2ec38604c6
+contextweb.com, 562728, DIRECT, 89ff185a4c4e857c
+yahoo.com, 59914, DIRECT, e1a5b5b6e3255540
+yahoo.com, 59976, DIRECT, e1a5b5b6e3255540
+triplelift.com, 12324, DIRECT, 6c33edb13117fd86
+triplelift.com, 12324-eb, DIRECT, 6c33edb13117fd86
+lijit.com, 406310, DIRECT, fafdf38b16bf6b2b
+lijit.com, 406310-eb, DIRECT, fafdf38b16bf6b2b
+gumgum.com, 15635, DIRECT, ffdef49475d318a9
+yieldmo.com, 3037227543858979302, DIRECT
+yieldmo.com, 3077814941638402211, DIRECT
+rubiconproject.com, 24214, DIRECT, 0bfd66d529a55807
+rubiconproject.com, 24854, DIRECT, 0bfd66d529a55807
+media.net, 8CU78ML61, DIRECT
+media.net, 8CU5PDM78, DIRECT
+pubmatic.com, 162150, DIRECT, 5d62403b186f2ace
+pubmatic.com, 162244, DIRECT, 5d62403b186f2ace
+themediagrid.com, J54GBA, DIRECT, 35d5010d7789b49d
+themediagrid.com, JS8F4Y, DIRECT, 35d5010d7789b49d
+improvedigital.com, 2042, DIRECT
+supply.colossusssp.com, 455, DIRECT, 6c5b49d96ec1b458
+sharethrough.com, nCAkiYrZ, DIRECT, d53b998a7bd4ecd2
+nativo.com, 5833, DIRECT, 59521ca7cc5e9fee
+
