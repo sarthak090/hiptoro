@@ -2,6 +2,7 @@ const observer = lozad(".lozad", {
   load: (el) => {
     if (el.tagName === "IMG") {
       // For Image Lazy Loading
+      console.log("first");
       el.src = el.dataset.src;
       return;
     }

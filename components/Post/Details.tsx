@@ -19,6 +19,26 @@ const SocialShares = dynamic(() => import("@/components/Post/SocialShares"));
 const CategoryBox = dynamic(() => import("@/components/Post/CategoryBox"));
 
 export default function Details({ post }: any) {
+  useEffect(() => {
+    const observer = lozad(".lozad", {
+      load: (el) => {
+        if (el.tagName === "IMG") {
+          // For Image Lazy Loading
+          console.log("first");
+          el.src = el.dataset.src;
+          return;
+        }
+
+        if (el.tagName === "IFRAME") {
+          console.log(el.srcdoc);
+          return;
+        }
+
+        // ends here
+      },
+    });
+    observer.observe();
+  }, []);
   return (
     <>
       <div>

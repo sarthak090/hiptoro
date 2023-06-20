@@ -17,7 +17,7 @@ export default function SinglePost(props: any) {
         <div className="container mx-auto max-w-site-full">
           <Details post={post} />
         </div>
-        <script src="/js/lozad-body.js"></script>
+        {/* <script src="/js/lozad-body.js"></script> */}
       </>
     );
   } else {

@@ -22,9 +22,12 @@ export default async function tweetFormatter(post, tweetHtml) {
 }
 function reformatHtml(tweet) {
   const $ = cheerio.load(tweet, null, false);
-  $("img").attr("alt", "profile img");
-  $("img").addClass("lozad");
-  $("img").attr("data-src", $("img").attr("src"));
-  $("img").attr("src", "");
+  $("img").each((i, el) => {
+    $(el).attr("alt", "profile img");
+    $(el).addClass("lozad");
+    $(el).attr("data-src", $(el).attr("src"));
+    $(el).attr("src", "");
+  });
+
   return $.html();
 }
