@@ -838,7 +838,7 @@ ul.wp-block-gallery>li>figure>img {
   .post-content blockquote{
     padding-left: 5px;
   }
-  .post-content iframe {
+  .post-content iframe.yotube-embed {
 
     
     margin: 1rem auto;
