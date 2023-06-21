@@ -418,7 +418,7 @@ ul ul ul {
 }
 
 
-.post-content iframe {
+.post-content iframe.youtube-embed {
   /* width: 400px;
   height: 300px;
   margin: 1rem 0; */
