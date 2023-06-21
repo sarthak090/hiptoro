@@ -89,6 +89,7 @@ export default function Details({ post }: any) {
               <Image
                 src={post.featuredImg.original}
                 width={1020}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 height={720}
                 alt={post.title.rendered}
                 loading="eager"
