@@ -215,12 +215,13 @@ footer {
 .post-content p{
   font-family: var(--noto_sans-font);
   overflow: hidden;
+  
 }
 .post-content h2 {
   font-size: 36px;
   font-weight: 700;
   color: #424242;
-  margin: 10px 0;
+  margin: 25px 0;
   font-family: var(--montserrat-font);
 }
 .post-content   a {
@@ -332,7 +333,7 @@ video{
 }
 .post-content p {
   line-height: 1.6em;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
   font-size: 18px;
 color:#424242;
 }
@@ -376,6 +377,7 @@ dir {
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
   -webkit-padding-start: 40px;
+  margin-left: 2em;
 }
 
 .post-content ol {
@@ -386,6 +388,8 @@ dir {
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
   -webkit-padding-start: 40px;
+  margin-left: 2em;
+
 }
 
 .post-content li {
@@ -418,7 +422,7 @@ ul ul ul {
 }
 
 
-.post-content iframe.youtube-embed {
+.post-content iframe {
   /* width: 400px;
   height: 300px;
   margin: 1rem 0; */
@@ -838,7 +842,7 @@ ul.wp-block-gallery>li>figure>img {
   .post-content blockquote{
     padding-left: 5px;
   }
-  .post-content iframe.yotube-embed {
+  .post-content iframe {
 
     
     margin: 1rem auto;
