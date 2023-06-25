@@ -25,6 +25,11 @@ function reformatHtml(tweet) {
   $("img").each((i, el) => {
     $(el).attr("alt", "profile img");
     $(el).addClass("lozad");
+
+    $(el).attr("width", "500");
+    $(el).attr("height", "500");
+    $(el).css("height", "auto");
+
     $(el).attr("data-src", $(el).attr("src"));
     $(el).attr("src", "");
   });
