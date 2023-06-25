@@ -100,6 +100,9 @@ footer {
 
 
   }
+  .post-content table{
+    max-width: 500px;
+   }
 
   .hero-heading {
     font-size: 53px;
@@ -145,6 +148,9 @@ footer {
   .below-hero{
     margin-top: 4rem;
   }
+  .post-content table{
+    max-width: 400px;
+   }
 }
 @media (max-width:460px) {
   .hero-section{
@@ -959,7 +965,7 @@ ul.wp-block-gallery>li>figure>img {
     min-height: 200px;
     object-fit: cover;
   }
-
+ 
 }
 
 .alignnone {
