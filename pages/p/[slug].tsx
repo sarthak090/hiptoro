@@ -29,7 +29,6 @@ export const getStaticProps: GetStaticProps = async ({
   params,
   preview,
 }: GetStaticPropsContext) => {
-  console.log({ preview });
   const { slug } = params!;
   const url = process.env.NEXT_CUSTOM_WP_API_URL + `/posts/${slug}`;
 
