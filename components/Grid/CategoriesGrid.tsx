@@ -43,7 +43,7 @@ export default function CategoriesGrid(props: any) {
                   <>
                     <Image
                       alt={post.title.rendered}
-                      src={post.featuredImg.medium}
+                      src={post.featuredImg.large}
                       width={500}
                       height={500}
                       quality={40}
@@ -58,7 +58,7 @@ export default function CategoriesGrid(props: any) {
                 ) : (
                   <Image
                     loading="eager"
-                    src={post.featuredImg.medium}
+                    src={post.featuredImg.large}
                     width={500}
                     height={500}
                     alt={post.title.rendered}
