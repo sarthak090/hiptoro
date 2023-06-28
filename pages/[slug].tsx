@@ -85,6 +85,10 @@ export const getServerSideProps: GetServerSideProps = async ({
 
     res.setHeader("Content-Type", "text/xml");
 
+    res.setHeader(
+      "Cache-Control",
+      "public, s-maxage=20, stale-while-revalidate=59"
+    );
     res.write(format);
     res.end();
 

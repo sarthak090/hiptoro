@@ -9,3 +9,6 @@ User-agent: Googlebot-News
 Disallow: /p/tag/*
 Disallow: /page/*
 Disallow: /author/*
+Disallow: /tv-shows/*
+Disallow: /anime/*
+Disallow: /movies/*
