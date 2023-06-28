@@ -170,7 +170,7 @@ export default function Header() {
                     </div>
                   </Link>
                 ))}
-              <div>
+              <div className="w-1/6">
                 <HeaderSearch />
               </div>
             </div>

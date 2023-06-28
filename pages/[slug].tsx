@@ -3,7 +3,7 @@ import WPHTMLContent from "@/components/WPHTMLContent";
 import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
-export default function Single({ pageData, seo }: any) {
+export default function Single({ pageData, slug }: any) {
   if (pageData !== null) {
     return (
       <>
@@ -12,9 +12,9 @@ export default function Single({ pageData, seo }: any) {
             name="robots"
             content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
           />
-          <link rel="canonical" href="https://www.hiptoro.com/about-us/" />
+          <link rel="canonical" href={`https://www.hiptoro.com/${slug}`} />
 
-          <meta property="og:title" content="About Us" />
+          <meta property="og:title" content={pageData.title.rendered} />
           <meta
             property="og:description"
             content="Hiptoro is your destination for a good laugh, a moving story, and all the latest news updates from the world of entertainment. If it&#039;s viral, it&#039;s on Hiptoro."
@@ -26,10 +26,10 @@ export default function Single({ pageData, seo }: any) {
           />
 
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="About Us" />
+          <meta name="twitter:title" content={pageData.title.rendered} />
           <meta
             name="twitter:description"
-            content="Hiptoro is your destination for a good laugh, a moving story, and all the latest news updates from the world of entertainment. If it&#039;s viral, it&#039;s on Hiptoro."
+            content={pageData.excerpt.rendered}
           />
           <meta name="twitter:site" content="@HiptoroNews" />
           <meta name="twitter:creator" content="@nox" />
@@ -109,6 +109,7 @@ export const getServerSideProps: GetServerSideProps = async ({
         props: {
           pageData: pageData[0],
           seo,
+          slug,
         },
       };
     } else {
@@ -116,6 +117,7 @@ export const getServerSideProps: GetServerSideProps = async ({
         props: {
           pageData: null,
         },
+        notFound: true,
       };
     }
   }

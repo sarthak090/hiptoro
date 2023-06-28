@@ -13,7 +13,7 @@ export default function HeaderSearch() {
     <form onSubmit={onFormSubmit}>
       <div className="hidden xl:flex items-center">
         <input
-          className="p-2 outline-none text-black"
+          className="p-2 outline-none text-black w-3/4"
           placeholder="Search..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}

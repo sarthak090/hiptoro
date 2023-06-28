@@ -184,6 +184,7 @@ export default function Footer() {
             key={Math.random()}
             className="  text-[12px] text-white"
             href={l.slug}
+            target="_blank"
           >
             <div> {l.name} </div>
           </Link>

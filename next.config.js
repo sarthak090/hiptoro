@@ -18,8 +18,9 @@ const nextConfig = {
       "d3tdezlmdlho6n.cloudfront.net",
       "d157oz2k2je2ba.cloudfront.net",
       "static.hiptoro.com",
+      "image.tmdb.org",
     ],
-    // unoptimized: true,
+    unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: true,

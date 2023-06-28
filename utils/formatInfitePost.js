@@ -52,7 +52,7 @@ export async function getRankMathHead(slug) {
   const rankMathDaata = await fetch(url).then((r) => r.json());
   if (rankMathDaata.success) {
     const $ = cheerio.load(rankMathDaata.head.replaceAll("\n"), null, false);
-
+    const arr = rankMathDaata.head.split("\n");
     return {
       head: rankMathDaata.head.split("\n"),
       schema: $("script")
@@ -66,4 +66,24 @@ export async function getRankMathHead(slug) {
       schema: "",
     };
   }
+}
+
+function parseMetaData(metaString) {
+  const metaData = {};
+
+  // Remove unnecessary characters and split the string into individual meta tags
+
+  const metaTags = metaString;
+
+  // Process each meta tag
+  metaTags.forEach((tag) => {
+    const keyValueArr = tag.split("=");
+    const key = keyValueArr[0].replace(/[<>"]/g, "").trim();
+    const value = keyValueArr[1].replace(/"|'/g, "").trim();
+
+    metaData[key] = value;
+  });
+  console.log(metaData);
+
+  return metaData;
 }

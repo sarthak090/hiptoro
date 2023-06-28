@@ -121,9 +121,15 @@ footer {
   .hero-btn{
     padding-top: 123px;
   }
+ 
 }
 
-
+.swiper-slide-prev{
+  margin-right: 37px !important;
+}
+.swiper-wrapper{
+  /* transform: translate3d(-1332px, 0px, 0px) !important; */
+}
 
 
 @media (max-width:690px) {
@@ -692,7 +698,7 @@ ul.wp-block-gallery>li>figure>img {
     justify-content: center;
     margin: 0 auto;
   }
-
+ 
   .post-content h1 {
     font-size: 24px;
   }
