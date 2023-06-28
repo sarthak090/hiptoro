@@ -20,8 +20,8 @@ export function formateMoviesList(movies = []) {
 
       release_date: formatReleaseDate(movie.release_date || ""),
       releaseStatus: isDatePassed(movie.release_date)
-        ? `Released on : ${formatReleaseDate(movie.release_date || "")} `
-        : `Releasing on : ${formatReleaseDate(movie.release_date || "")}`,
+        ? `Released on: ${formatReleaseDate(movie.release_date || "")} `
+        : `Releasing on: ${formatReleaseDate(movie.release_date || "")}`,
     }));
 }
 
