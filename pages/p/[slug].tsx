@@ -7,16 +7,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Details from "@/components/Post/Details";
 import Loading from "@/components/UI/Loading";
 import NotFound from "@/components/UI/404";
-
+import LastestPost from "@/seed/latest_posts.json";
 export default function SinglePost(props: any) {
   const [posts, setPosts] = useState([props.post]);
   const [hasMore, setHasMore] = useState(true);
   const getNextPosts = async () => {
     if (posts.length < 7) {
-      const postsFetched = await fetch(
-        "/api/infinite-posts?postid=" + props.post.id
-      ).then((r) => r.json());
-      const newPosts = postsFetched;
+      const newPosts = LastestPost.filter((p) => p.id !== props.post.id);
       setPosts((post: any) => [...post, ...newPosts]);
     } else {
       setHasMore(false);

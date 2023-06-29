@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 }
 
 const getMorePost = async (id) => {
-  const url = `${process.env.NEXT_PUBLIC_CUSTOM_WP_API_URL}/infinite-posts?start=1&limit=2&exclude=${id}`;
+  const url = `${process.env.NEXT_PUBLIC_CUSTOM_WP_API_URL}/infinite-posts?start=1&limit=8&exclude=${id}`;
 
   const res = await fetch(url);
   const newPosts = await res.json();
