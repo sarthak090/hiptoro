@@ -10,9 +10,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     // fetch your web story here
     const url =
       process.env.NEXT_PUBLIC_CUSTOM_WP_API_URL + "/web-stories/" + slug;
+    const data = await fetch(url).then((r) => r.json());
+    if (data && data.msg) {
+      return {
+        props: {},
+        notFound: true,
+      };
+    }
+
     const seo = await getRankMathHead(`/web-stories/${slug}`);
 
-    const data = await fetch(url).then((r) => r.json());
     if (!data.content) {
       return {
         notFound: true,

@@ -35,7 +35,6 @@ export default function Details({ post }: any) {
         }
 
         if (el.tagName === "IFRAME") {
-          console.log(el.srcdoc);
           return;
         }
 
@@ -46,8 +45,8 @@ export default function Details({ post }: any) {
   }, []);
   return (
     <>
-      <div>
-        {post.nextSeoData && (
+      <div className="overflow-hidden ">
+        {/* {post.nextSeoData && (
           <>
             <SEO
               post={{
@@ -68,7 +67,7 @@ export default function Details({ post }: any) {
               {...post.nextSeoData}
             />
           </>
-        )}
+        )} */}
         <div className="my-4">
           <AutoAds />
         </div>
@@ -83,7 +82,8 @@ export default function Details({ post }: any) {
         />
 
         <div className="flex justify-center my-4 ">
-          {post.featuredImg &&
+          {post.base64 &&
+            post.featuredImg &&
             post.featuredImg.id.length > 0 &&
             post.featuredImg.original && (
               <Image
@@ -96,6 +96,22 @@ export default function Details({ post }: any) {
                 placeholder="blur"
                 quality={80}
                 blurDataURL={post.base64}
+                title={post.title.rendered}
+              />
+            )}
+
+          {!post.base64 &&
+            post.featuredImg &&
+            post.featuredImg.id.length > 0 &&
+            post.featuredImg.original && (
+              <Image
+                src={post.featuredImg.original}
+                width={1020}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                height={720}
+                alt={post.title.rendered}
+                loading="eager"
+                quality={80}
                 title={post.title.rendered}
               />
             )}

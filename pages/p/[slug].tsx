@@ -9,15 +9,41 @@ import Loading from "@/components/UI/Loading";
 import NotFound from "@/components/UI/404";
 
 export default function SinglePost(props: any) {
-  const { post } = props;
-
-  if (post !== null) {
+  const [posts, setPosts] = useState([props.post]);
+  const [hasMore, setHasMore] = useState(true);
+  const getNextPosts = async () => {
+    if (posts.length < 7) {
+      const postsFetched = await fetch(
+        "/api/infinite-posts?postid=" + props.post.id
+      ).then((r) => r.json());
+      const newPosts = postsFetched;
+      setPosts((post: any) => [...post, ...newPosts]);
+    } else {
+      setHasMore(false);
+    }
+  };
+  if (posts !== null) {
     return (
       <>
         <div className="container mx-auto max-w-site-full">
-          <Details post={post} />
+          <InfiniteScroll
+            hasMore={hasMore}
+            next={getNextPosts}
+            dataLength={posts.length}
+            loader={<Loading />}
+            endMessage={
+              <div className="my-4 text-center font-montserrat text-2xl">
+                Nothing more to show
+              </div>
+            }
+          >
+            {posts.map((post) => (
+              <div key={post.id}>
+                <Details post={post} />
+              </div>
+            ))}
+          </InfiniteScroll>
         </div>
-        {/* <script src="/js/lozad-body.js"></script> */}
       </>
     );
   } else {

@@ -130,6 +130,9 @@ footer {
 .swiper-wrapper{
   /* transform: translate3d(-1332px, 0px, 0px) !important; */
 }
+.infinite-scroll-component {
+  overflow: hidden !important;
+}
 
 
 @media (max-width:690px) {
@@ -429,6 +432,7 @@ ul ul ul {
 .share-bottom {
   display: none;
 }
+
 .post-content{
   max-width: 1400px;
 }
@@ -789,6 +793,7 @@ ul.wp-block-gallery>li>figure>img {
   body{
     padding-bottom: 25rem;
   }
+  
   ul.wp-block-gallery {
     padding: 0;
     display: grid;
@@ -812,6 +817,11 @@ ul.wp-block-gallery>li>figure>img {
 @media (max-width:400px) {
   .hero-btn {
     padding-top: 120px;
+  }
+  .post-content{
+    /* max-width: 370px; */
+    max-width: 95vw;
+    padding: 0 5px;
   }
   body{
     padding-bottom: 24rem;
