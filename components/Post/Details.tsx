@@ -46,7 +46,7 @@ export default function Details({ post }: any) {
   return (
     <>
       <div className="overflow-hidden ">
-        {/* {post.nextSeoData && (
+        {post.nextSeoData && (
           <>
             <SEO
               post={{
@@ -67,7 +67,7 @@ export default function Details({ post }: any) {
               {...post.nextSeoData}
             />
           </>
-        )} */}
+        )}
         <div className="my-4">
           <AutoAds />
         </div>
