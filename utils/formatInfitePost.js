@@ -8,16 +8,16 @@ import { getWebpBase64 } from "./images/getWebpBase64";
 export default function (posts) {
   let fomattedPosts = JSON.parse(JSON.stringify(posts));
   fomattedPosts = fomattedPosts.map(async (post) => {
-    const img = await getWebpBase64(post.featuredImg.large);
+    // const img = await getWebpBase64(post.featuredImg.large);
 
     const p = {
       ...post,
       timeToRead: readingTime(post.content.rendered),
       toc: genToc(post.content).toc,
-      featuredImg: {
-        ...post.featuredImg,
-        large: img,
-      },
+      // featuredImg: {
+      //   ...post.featuredImg,
+      //   large: img,
+      // },
       content: {
         rendered: genToc(post.content).parsedcontent.replace(
           /https:\/\/platform\.twitter\.com\/widgets\.js/g,

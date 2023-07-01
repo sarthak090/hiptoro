@@ -1,6 +1,6 @@
 import axios from "axios";
 import sharp from "sharp";
-
+import zlib from "zlib";
 export async function getWebpBase64(imageSrc = "") {
   if (imageSrc == "") {
     return;
@@ -12,6 +12,7 @@ export async function getWebpBase64(imageSrc = "") {
 
     .toBuffer();
   const base64Image = Buffer.from(optimizedImage).toString("base64");
+  // const compressed = zlib.deflate(optimizedImage, err);
   const dataURI = `data:image/avif;base64,${base64Image}`;
 
   return dataURI;
