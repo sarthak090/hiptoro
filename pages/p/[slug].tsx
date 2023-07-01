@@ -55,19 +55,19 @@ export const getStaticProps: GetStaticProps = async ({
   const { slug } = params!;
   const url = process.env.NEXT_CUSTOM_WP_API_URL + `/posts/${slug}`;
 
-  const rankMathHeadUrl = process.env.NEXT_WP_API_URL + `/posts/?slug=${slug}`;
+  const rankMathHeadUrl = process.env.NEXT_WP_API_URL + `/posts/`;
 
   try {
     const post = await fetch(url).then((r) => r.json());
-    const _post = await fetch(rankMathHeadUrl).then((r) => r.json());
+    const _post = await fetch(rankMathHeadUrl + post.id).then((r) => r.json());
 
     if (post.status) {
       return {
         props: {
           post: null,
-          notFound: true,
         },
         revalidate: 120,
+        notFound: true,
       };
     }
 
@@ -76,6 +76,14 @@ export const getStaticProps: GetStaticProps = async ({
         ? post.featuredImg.large
         : "https://www.hiptoro.com/imgs/placeholder-image.png"
     );
+    const nextSeoData = genNextSeo({
+      videoObject: _post.x_metadata.rank_math_schema_VideoObject
+        ? _post.x_metadata.rank_math_schema_VideoObject
+        : null,
+      tags: post.tags,
+      slug: post.slug,
+      ...post,
+    });
 
     const postTosend = {
       ...(await formatInfitePost([post])[0]),
@@ -83,14 +91,7 @@ export const getStaticProps: GetStaticProps = async ({
       base64,
       img,
 
-      nextSeoData: genNextSeo({
-        videoObject: _post[0].x_metadata.rank_math_schema_VideoObject
-          ? _post[0].x_metadata.rank_math_schema_VideoObject
-          : null,
-        tags: post.tags,
-        slug: post.slug,
-        ...post,
-      }),
+      nextSeoData: nextSeoData,
     };
 
     return {
@@ -105,9 +106,9 @@ export const getStaticProps: GetStaticProps = async ({
     return {
       props: {
         post: null,
-        notFound: true,
       },
       revalidate: 120,
+      notFound: true,
     };
   }
 };

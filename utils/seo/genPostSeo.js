@@ -5,7 +5,8 @@ function getImgSrcFromContent(post) {
   const $ = cheerio.load(post?.content?.rendered);
 
   const img_src = $("img")?.first()?.attr("src");
-  if (img_src.length > 0) {
+
+  if (img_src && img_src.length > 0) {
     return img_src;
   } else {
     return `https://secureback.hiptoro.com/wp-content/uploads/2022/12/cropped-hiptoro.png`;
