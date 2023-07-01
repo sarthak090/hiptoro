@@ -86,17 +86,16 @@ export default function Details({ post }: any) {
             post.featuredImg &&
             post.featuredImg.id.length > 0 &&
             post.featuredImg.original && (
-              <img
+              <Image
                 src={post.featuredImg.original}
                 width={1020}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 height={720}
                 alt={post.title.rendered}
                 loading="eager"
-                // placeholder="blur"
-                // quality={80}
-                // blurDataURL={post.base64}
-
+                placeholder="blur"
+                quality={80}
+                blurDataURL={post.base64}
                 title={post.title.rendered}
               />
             )}
