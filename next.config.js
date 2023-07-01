@@ -20,7 +20,7 @@ const nextConfig = {
       "static.hiptoro.com",
       "image.tmdb.org",
     ],
-    unoptimized: true,
+    // unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: true,
