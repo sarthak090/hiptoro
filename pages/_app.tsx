@@ -91,6 +91,8 @@ export default function App({ Component, pageProps }: AppProps) {
           title="Hiptoro &raquo; Feed"
           href="https://www.hiptoro.com/feed/"
         />
+        <link rel="dns-prefetch" href="//static.hiptoro.com" />
+
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//ssl.google-analytics.com" />
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
