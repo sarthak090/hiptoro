@@ -21,7 +21,7 @@ const nextConfig = {
       "image.tmdb.org",
       "www.ratingconsumer.com",
     ],
-    unoptimized: true,
+    // unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: true,
