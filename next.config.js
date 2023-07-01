@@ -19,8 +19,9 @@ const nextConfig = {
       "d157oz2k2je2ba.cloudfront.net",
       "static.hiptoro.com",
       "image.tmdb.org",
+      "www.ratingconsumer.com",
     ],
-    // unoptimized: true,
+    unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: true,

@@ -87,7 +87,7 @@ export default function Details({ post }: any) {
             post.featuredImg.id.length > 0 &&
             post.featuredImg.original && (
               <Image
-                src={post.featuredImg.original}
+                src={`https://www.ratingconsumer.com/api/optimize-image?url=${post.featuredImg.original}`}
                 width={1020}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 height={720}
