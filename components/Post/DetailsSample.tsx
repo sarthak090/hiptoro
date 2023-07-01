@@ -94,7 +94,7 @@ export default function DetailsSample({ post }: any) {
                 alt={post.title.rendered}
                 loading="eager"
                 placeholder="blur"
-                quality={80}
+                quality={40}
                 blurDataURL={post.base64}
                 title={post.title.rendered}
               />

@@ -98,7 +98,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="dns-prefetch" href="//tpc.googlesyndication.com" />
         <link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
         <link rel="dns-prefetch" href="//www.gstatic.com" />
-        <script src="/js/lozad.js"></script>
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"
+        ></script>
         {/* <link rel="dns-prefetch" href="//platform.twitter.com" /> */}
 
         {/* <link
