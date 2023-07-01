@@ -43,7 +43,7 @@ export default function Details({ post }: any) {
     });
     observer.observe();
   }, []);
-  console.log({ post });
+
   return (
     <>
       <div className="overflow-hidden ">
@@ -87,16 +87,16 @@ export default function Details({ post }: any) {
             post.featuredImg &&
             post.featuredImg.id.length > 0 &&
             post.featuredImg.large && (
-              <img
+              <Image
                 src={post.featuredImg.large}
                 width={1020}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 height={720}
                 alt={post.title.rendered}
                 loading="eager"
-                // placeholder="blur"
-                // quality={80}
-                // blurDataURL={post.base64}
+                placeholder="blur"
+                quality={80}
+                blurDataURL={post.base64}
                 title={post.title.rendered}
               />
             )}
