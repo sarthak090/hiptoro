@@ -12,7 +12,7 @@ export async function getWebpBase64(imageSrc = "") {
 
     .toBuffer();
   const base64Image = Buffer.from(optimizedImage).toString("base64");
-  const dataURI = `data:image/webp;base64,${base64Image}`;
+  const dataURI = `data:image/avif;base64,${base64Image}`;
 
   return dataURI;
 }
