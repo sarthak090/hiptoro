@@ -183,7 +183,7 @@ export default function Footer() {
               >
                 <Image
                   src={"/imgs/gadgetinsiders-favicon.svg"}
-                  alt="gadget inisders"
+                  alt=""
                   width={32}
                   height={24}
                 />
