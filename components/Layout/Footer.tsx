@@ -18,7 +18,7 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div>
+          <div className="grid gap-4">
             <div className="  flex flex-wrap gap-8 justify-center  ">
               <a
                 className="color-facebook flex flex-col items-center gap-2 text-[#fff]"
@@ -175,18 +175,22 @@ export default function Footer() {
                 </svg>
                 <span className="text-xs">Google News </span>
               </a>
+              <a
+                className="  flex flex-col gap-[6.5px] -ml-3  -mt-[1px] items-center  text-[#fff]"
+                href="https://www.gadgetinsiders.com/"
+                target="_blank"
+                original-title="Gadget Insiders"
+              >
+                <Image
+                  src={"/imgs/gadgetinsiders-favicon.svg"}
+                  alt="gadget inisders"
+                  width={32}
+                  height={24}
+                />
+                <span className="text-xs">Gadget insiders </span>
+              </a>
             </div>
           </div>
-          {/* <div>
-            <p className="">More Sites:</p>
-            <div className="text-md text-white my-2">
-              <div>
-                <a href="https://www.gadgetinsiders.com/" target="_blank">
-                  Gadget insiders
-                </a>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
 
