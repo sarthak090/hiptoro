@@ -17,6 +17,7 @@ export default function Footer() {
               />
             </Link>
           </div>
+
           <div>
             <div className="  flex flex-wrap gap-8 justify-center  ">
               <a
@@ -176,8 +177,19 @@ export default function Footer() {
               </a>
             </div>
           </div>
+          {/* <div>
+            <p className="">More Sites:</p>
+            <div className="text-md text-white my-2">
+              <div>
+                <a href="https://www.gadgetinsiders.com/" target="_blank">
+                  Gadget insiders
+                </a>
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
+
       <div className="flex  gap-4 items-center flex-wrap font-noto_sans justify-center py-4 text-white border-t-[1px] border-[rgba(255,255,255,.1)] md:w-2/3 m-auto      ">
         {nav1.map((l) => (
           <Link
