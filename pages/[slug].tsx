@@ -1,5 +1,6 @@
 import NotFound from "@/components/UI/404";
 import WPHTMLContent from "@/components/WPHTMLContent";
+import { getRankMathHead } from "@/utils/formatInfitePost";
 import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
@@ -107,7 +108,8 @@ export const getServerSideProps: GetServerSideProps = async ({
 
     if (pageData.length > 0) {
       const rankMathHeadUrl =
-        process.env.NEXT_CUSTOM_WP_API_URL + `/rank-seo?url=/${slug}`;
+        process.env.NEXT_CUSTOM_WP_API_URL + `/rank-seo?url=${slug}`;
+
       const seo = await fetch(rankMathHeadUrl).then((r) => r.json());
       return {
         props: {
