@@ -2,6 +2,8 @@ import { generateMovieSlug } from "./movie-slug";
 import { formatReleaseDate } from "./format-date";
 export function formateMoviesList(movies = []) {
   return movies
+    .filter((movie) => movie.id !== 1128514)
+    .filter((movie) => movie.adult !== true)
     .filter((movie) => movie.overview.length > 0 && movie.poster_path !== null)
 
     .map((movie) => ({

@@ -159,6 +159,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const res = await tmdb.movie(id, {
     append: ["videos", "credits", "images"],
   });
+
   const provider = (await tmdb.getMovieProvider(id)).results;
 
   return {

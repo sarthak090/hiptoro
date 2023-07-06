@@ -4,7 +4,7 @@ import "@/styles/tmm.css";
 
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
-import { Roboto, Montserrat, Raleway, Noto_Sans } from "next/font/google";
+import { Roboto, Montserrat } from "next/font/google";
 
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
