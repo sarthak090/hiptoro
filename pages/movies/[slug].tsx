@@ -153,9 +153,15 @@ const MovieSingle = (props: { movie: MovieDetails }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+  const filterId = [1128514];
   const slug = ctx?.params?.slug as String;
   const id = parseFloat(slug?.split("-").pop() || "385687");
-
+  if (filterId.includes(id)) {
+    return {
+      props: {},
+      notFound: true,
+    };
+  }
   const res = await tmdb.movie(id, {
     append: ["videos", "credits", "images"],
   });
