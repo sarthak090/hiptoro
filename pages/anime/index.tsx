@@ -43,7 +43,7 @@ const MoviesPage = (props: any) => {
       <NextSeo
         title="Anime"
         description="Your ultimate destination for anime is here. Hiptoro presents a detailed database of the latest anime movies and TV series."
-        canonical="https://www.hiptoro.com/anime/"
+        canonical="https://www.hiptoro.com/anime"
         openGraph={{
           type: "article",
           description: `Your ultimate destination for anime is here. Hiptoro presents a detailed database of the latest anime movies and TV series.`,
@@ -59,7 +59,7 @@ const MoviesPage = (props: any) => {
             },
           ],
 
-          url: `https://www.hiptoro.com/anime/`,
+          url: `https://www.hiptoro.com/anime`,
         }}
       />
       <InfiniteAnimeGrid posts={props.movies} />

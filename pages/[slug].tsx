@@ -82,6 +82,10 @@ export const getServerSideProps: GetServerSideProps = async ({
     const format = resp
       .replace(`//secureback.hiptoro.com/news-sitemap.xsl`, "/v.xsl")
       .replace("//secureback.hiptoro.com/main-sitemap.xsl", "/main-sitemap.xsl")
+      .replace(
+        "//secureback.hiptoro.com/video-sitemap.xsl",
+        "/video-sitemap.xsl"
+      )
       .replaceAll(`secureback.hiptoro.com`, "www.hiptoro.com")
       .replace(/(https?:\/\/\S+?)\/(?=\s|<)/g, "$1");
 

@@ -6,12 +6,16 @@ const scrpt = (schema) => {
     </script>
     `;
 };
-export default function webStoriesFormat(content, rankMathSeoSchema) {
+export default function webStoriesFormat(content, rankMathSeoSchema, slug) {
   const $ = cheerio.load(content);
   $("head").append(scrpt(rankMathSeoSchema));
 
+  const newURL = `${process.env.NEXT_PUBLIC_DOMAIN}/web-stories/${slug}`;
   const html = `<!DOCTYPE html>
-   ${$.html().replaceAll("secureback.hiptoro.com", "www.hiptoro.com")}
+   ${$.html()
+     .replace(/(<link rel="canonical" href=")([^"]+)(")/, "$1" + newURL + "$3")
+
+     .replaceAll("secureback.hiptoro.com", "www.hiptoro.com")}
   `;
   return html;
 }

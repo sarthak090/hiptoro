@@ -175,20 +175,22 @@ export default function Footer() {
                 </svg>
                 <span className="text-xs">Google News </span>
               </a>
-              <a
-                className="  flex flex-col gap-[6.5px] -ml-3  -mt-[1px] items-center  text-[#fff]"
-                href="https://www.gadgetinsiders.com/"
-                target="_blank"
-                original-title="Gadget Insiders"
-              >
+              <div className="  flex flex-col gap-[6.5px] -ml-3  -mt-[1px] items-center  text-[#fff]">
                 <Image
                   src={"/imgs/gadgetinsiders-favicon.svg"}
                   alt=""
                   width={32}
                   height={24}
                 />
-                <span className="text-xs">Gadget insiders </span>
-              </a>
+                <a
+                  target="_blank"
+                  original-title="Gadget Insiders"
+                  className="-mt-2"
+                  href="https://www.gadgetinsiders.com"
+                >
+                  <span className="text-xs">Gadget Insiders</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

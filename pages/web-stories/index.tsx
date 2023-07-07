@@ -9,11 +9,9 @@ export default function WebStories(props: any) {
   return (
     <>
       <NextSeo
-        noindex
-        nofollow
         openGraph={{
           title: "Stories",
-          url: "https://www.hiptoro.com/web-stories/",
+          url: "https://www.hiptoro.com/web-stories",
         }}
         title="Stories"
       />

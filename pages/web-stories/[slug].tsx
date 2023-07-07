@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         notFound: true,
       };
     }
-    const content = webStoriesFormat(data.content.rendered, seo.schema);
+    const content = webStoriesFormat(data.content.rendered, seo.schema, slug);
 
     res.setHeader("content-type", "text/html");
     res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate=900");

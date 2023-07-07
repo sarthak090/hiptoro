@@ -39,7 +39,7 @@ const TvShowPage = (props: any) => {
         title="TV Shows"
         titleTemplate=""
         description="Your ultimate guide to the latest TV series is here at Hiptoro. Explore our vast database for exclusive series details, reviews, and more."
-        canonical="https://www.hiptoro.com/tv-shows/"
+        canonical="https://www.hiptoro.com/tv-shows"
         openGraph={{
           description: `Your ultimate guide to the latest TV series is here at Hiptoro. Explore our vast database for exclusive series details, reviews, and more.`,
           title: `TV Shows`,
@@ -54,7 +54,7 @@ const TvShowPage = (props: any) => {
             },
           ],
 
-          url: `https://www.hiptoro.com/tv-shows/`,
+          url: `https://www.hiptoro.com/tv-shows`,
         }}
       />
       <InfiniteTVGrid posts={props.movies} />

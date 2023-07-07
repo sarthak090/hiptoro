@@ -36,7 +36,7 @@ const MoviesPage = (props: any) => {
       </Head>
       <NextSeo
         title="Movies"
-        canonical="https://www.hiptoro.com/movies/"
+        canonical="https://www.hiptoro.com/movies"
         description="Discover the world of cinema with Hiptoro&#039;s detailed movie database. Immerse in detailed plot summaries, star casts, and trailers."
         openGraph={{
           description: `Discover the world of cinema with Hiptoro&#039;s detailed movie database. Immerse in detailed plot summaries, star casts, and trailers.`,
@@ -52,7 +52,7 @@ const MoviesPage = (props: any) => {
             },
           ],
 
-          url: `https://www.hiptoro.com/movies/`,
+          url: `https://www.hiptoro.com/movies`,
         }}
       />
       <MovieGrid posts={props.movies} api="movies" />
