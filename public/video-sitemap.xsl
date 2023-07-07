@@ -95,7 +95,7 @@
 			<p>
 				This XML Sitemap contains <strong><xsl:value-of select="count(sitemap:urlset/sitemap:url/video:video)"/></strong> URLs.			</p>
 			<p class="expl">
-				<a href="https://secureback.hiptoro.com/sitemap_index.xml">&#8592; Sitemap Index</a>			</p>
+				<a href="https://www.hiptoro.com/sitemap_index.xml">&#8592; Sitemap Index</a>			</p>
 			<table id="sitemap" cellpadding="3">
 				<thead>
 					<tr>
